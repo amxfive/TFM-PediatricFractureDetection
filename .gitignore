@@ -1,0 +1,21 @@
+# Datos sensibles
+data/raw/
+data/processed/
+*.dcm
+*.png
+*.jpg
+
+# Pesos del modelo (muy pesados para Git)
+weights/
+*.pt
+*.h5
+
+# Entornos virtuales y Python
+__pycache__/
+venv/
+.env
+
+pyproject.toml
+.python-version
+
+uv.lock
