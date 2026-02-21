@@ -5,11 +5,6 @@ data/processed/
 *.png
 *.jpg
 
-# Pesos del modelo (muy pesados para Git)
-weights/
-*.pt
-*.h5
-
 # Entornos virtuales y Python
 __pycache__/
 venv/
