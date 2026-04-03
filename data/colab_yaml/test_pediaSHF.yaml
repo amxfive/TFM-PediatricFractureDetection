@@ -1,0 +1,7 @@
+path: /kaggle/input
+train: pediashf-yolo-v2/PediaSHF-DX-yolo-split/train
+val: pediashf-yolo-v2/PediaSHF-DX-yolo-split/valid
+test:
+ - pediashf-yolo-v2/PediaSHF-DX-yolo-split/test
+nc: 1
+names: [fracture]

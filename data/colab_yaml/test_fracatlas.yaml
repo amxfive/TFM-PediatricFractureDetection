@@ -1,0 +1,7 @@
+path: /kaggle/input
+train: fracatlas-yolo-v2/FracAtlas_YOLO/train
+val: fracatlas-yolo-v2/FracAtlas_YOLO/val
+test:
+ - fracatlas-yolo-v2/FracAtlas_YOLO/test
+nc: 1
+names: [fracture]

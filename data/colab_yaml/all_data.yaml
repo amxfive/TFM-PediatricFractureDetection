@@ -1,0 +1,11 @@
+path: /kaggle/input
+train:
+ - fracatlas-yolo-v2/FracAtlas_YOLO/train
+ - graz-yolo-balanced-v2/GRAZ_BALANCED/train
+ - pediashf-yolo-v2/PediaSHF-DX-yolo-split/train
+val:
+ - fracatlas-yolo-v2/FracAtlas_YOLO/val
+ - graz-yolo-balanced-v2/GRAZ_BALANCED/valid
+ - pediashf-yolo-v2/PediaSHF-DX-yolo-split/valid
+nc: 1
+names: [fracture]

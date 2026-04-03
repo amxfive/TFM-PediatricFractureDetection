@@ -57,7 +57,7 @@ if not st.session_state.logeado:
     _, col_login, _ = st.columns([1, 1, 1])
     
     with col_login:
-        st.image("/home/allohi2002/Repositories/TFM-PediatricFractureDetection/src/interface/logo_VIAMED.png", use_container_width=True)
+        st.image("/home/allohi2002/Repositories/TFM-PediatricFractureDetection/src/interface/logo_VIAMED.png", width='content')
         st.markdown("<h3 style='text-align: center;'>Acceso Médico</h3>", unsafe_allow_html=True)
         
         # Formulario de credenciales
@@ -112,7 +112,7 @@ st.markdown("""
 # --- 2. CARGA DEL MODELO ---
 @st.cache_resource 
 def load_model():
-    return YOLO("/home/allohi2002/Repositories/TFM-PediatricFractureDetection/weights/yoloV26_grazpedwri/best.pt")
+    return YOLO("src/models/E6_test.pt")
 
 try:
     model = load_model()
@@ -122,7 +122,7 @@ except Exception as e:
 
 # --- 3. SIDEBAR (PANEL LATERAL Y WINDOWING) ---
 with st.sidebar:
-    st.image("/home/allohi2002/Repositories/TFM-PediatricFractureDetection/src/interface/logo_VIAMED.png", use_container_width=True)
+    st.image("/home/allohi2002/Repositories/TFM-PediatricFractureDetection/src/interface/logo_VIAMED.png", width="content")
     st.markdown("---")
     
     st.markdown("### ⚙️ Sensibilidad de IA")
@@ -191,7 +191,7 @@ if uploaded_file:
     with col1:
         st.markdown("#### Radiografía Original")
         # Mostramos la imagen ajustada por el médico
-        st.image(img_visual, use_container_width=True)
+        st.image(img_visual, width='content')
         
         if st.button("Analizar Imagen con IA"):
             st.session_state.analizado = True
@@ -244,7 +244,7 @@ if uploaded_file:
             
             # 3. Mostrar imagen final
             res_img = Image.fromarray(res_plotted[:, :, ::-1].astype('uint8'))
-            st.image(res_img, use_container_width=True)
+            st.image(res_img, width='content')
             
             # 4. Métricas de hallazgos
             st.markdown("---")

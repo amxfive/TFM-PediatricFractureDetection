@@ -1,6 +1,7 @@
 # Datos sensibles
 data/raw/
 data/processed/
+data/processed_2/
 *.dcm
 *.png
 *.jpg
@@ -14,3 +15,5 @@ pyproject.toml
 .python-version
 
 uv.lock
+
+wandb

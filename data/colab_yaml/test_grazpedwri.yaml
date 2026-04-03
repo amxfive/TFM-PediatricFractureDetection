@@ -1,0 +1,7 @@
+path: /kaggle/input
+train: graz-yolo-balanced-v2/GRAZ_BALANCED/train
+val: graz-yolo-balanced-v2/GRAZ_BALANCED/valid
+test:
+ - graz-yolo-balanced-v2/GRAZ_BALANCED/test
+nc: 1
+names: [fracture]
