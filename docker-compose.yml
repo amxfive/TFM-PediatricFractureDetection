@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./src/backend  # Indica que la base es la carpeta backend
+    container_name: tfm_backend
+    volumes:
+      - ./models:/app/models  # Mapeamos el modelo para no reconstruir imagen si cambia
+    ports:
+      - "8000:8000"
+    networks:
+      - tfm_network
+
+  frontend:
+    build:
+      context: ./src/frontend # Indica que la base es la carpeta frontend
+    container_name: tfm_frontend
+    ports:
+      - "8501:8501"
+    environment:
+      - BACKEND_URL=http://backend:8000/predict
+    depends_on:
+      - backend
+    networks:
+      - tfm_network
+
+networks:
+  tfm_network:
+    driver: bridge

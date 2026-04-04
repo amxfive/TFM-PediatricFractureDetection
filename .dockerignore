@@ -1,0 +1,23 @@
+# Ignorar Datasets (Las 22GB están aquí)
+data/
+
+# Ignorar Entornos Virtuales
+venv/
+.venv/
+env/
+
+# Ignorar resultados de entrenamiento pesados
+runs/
+wandb/
+
+.claude
+reports/
+resultados_xai/
+temp/
+weights/
+# Ignorar archivos de sistema y git
+.git
+.gitignore
+.vscode
+__pycache__
+*.pyc
