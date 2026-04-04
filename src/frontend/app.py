@@ -1,9 +1,10 @@
 import streamlit as st
-from PIL import Image, ImageEnhance
+from PIL import Image, ImageEnhance, ImageFont
 import numpy as np
 import requests
 from PIL import ImageDraw
 import io
+import hashlib
 
 # --- INICIALIZACIÓN DEL ESTADO (Haz esto siempre al principio) ---
 if "res_data" not in st.session_state:
@@ -168,7 +169,7 @@ if uploaded_file:
         img_array = (img_array / 256).astype('uint8')
     elif img_array.dtype != np.uint8:
         img_array = ((img_array - img_array.min()) / (img_array.max() - img_array.min()) * 255).astype('uint8')
-
+    
     # CORRECCIÓN IMPORTANTE: Separamos los flujos
     img_visual = Image.fromarray(img_array).convert("RGB") # Esta es INTOCABLE para el modelo
 
@@ -188,10 +189,14 @@ if uploaded_file:
     with col1:
         st.markdown("#### Radiografía Original")
         # Mostramos la imagen ajustada por el médico
-        st.image(img_visual, width='content')
+        st.image(img_visual, width='stretch')
         
         if st.button("Analizar Imagen con IA"):
+            # 1. FORZAMOS la limpieza de los datos viejos
+            st.session_state.res_data = {} 
             st.session_state.analizado = True
+            # 2. Opcional: st.rerun() para asegurar que el flujo se actualiza
+            st.rerun()
 
     with col2:
         st.markdown("#### Resultado del Análisis")
@@ -199,17 +204,17 @@ if uploaded_file:
         if st.session_state.analizado:
             # 1. Preparar la imagen para enviarla al Backend
             # Convertimos la imagen de Streamlit a bytes para la API
-            buf = io.BytesIO()
-            img_visual.save(buf, format="PNG")
-            byte_im = buf.getvalue()
+            uploaded_file.seek(0)
+            byte_im = uploaded_file.read()
+            hash_detectado = hashlib.sha256(byte_im).hexdigest()
+            #st.write(f"Debug Hash: {hash_detectado}") # Opcional para verificar
 
             # 2. Llamada al Backend (Sustituye 'localhost' por la IP de tu servidor si es necesario)
             if  not(st.session_state.res_data):
                 with st.spinner('IA analizando radiografía...'):
                     try:
-                        files = {"file": ("imagen.png", byte_im, "image/png")}
-                        data_form = {"confidence": conf_threshold, "gt_input": gt_input if gt_input else ""}
-                        
+                        files = {"file": (uploaded_file.name, byte_im, uploaded_file.type)}
+                        data_form = {"confidence": conf_threshold}
                         response = requests.post("http://backend:8000/predict", files=files, data=data_form)
                         response.raise_for_status() # Lanza error si la API falla
                         st.session_state.res_data = response.json()
@@ -225,18 +230,20 @@ if uploaded_file:
             # Dibujar PREDICCIONES de la IA (Rojo)
             for det in st.session_state.res_data["detections"]:
                 x1, y1, x2, y2 = det["xyxy"][0]
-                draw.rectangle([x1, y1, x2, y2], outline="red", width=4)
+                draw.rectangle([x1, y1, x2, y2], outline="blue", width=5)
                 # Opcional: Escribir la confianza
-                draw.text((x1, y1 - 15), f"IA: {det['confidence']:.2%}", fill="red")
-
-            # Dibujar GROUND TRUTH (Verde) si existe en la respuesta
-            if st.session_state.res_data.get("ground_truth"):
-                gt = st.session_state.res_data["ground_truth"]
-                draw.rectangle([gt["x1"], gt["y1"], gt["x2"], gt["y2"]], outline="#00FF00", width=4)
-                draw.text((gt["x1"], gt["y1"] - 15), "Ground Truth", fill="#00FF00")
+                font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 20)
+                # 2. Dibujamos el texto pasando el parámetro 'font'
+                # He subido el margen a -35 para que el texto grande no pise la caja
+                draw.text(
+                    (x1, int(y1) - 25), 
+                    f"{det['confidence']:.0%}", 
+                    fill="blue", 
+                    font=font
+                )
 
             # 4. Mostrar la imagen final resultante
-            st.image(img_dibujo, use_container_width=True)
+            st.image(img_dibujo, width='stretch')
 
             # 5. Métricas de hallazgos (usando el JSON del backend)
             st.markdown("---")

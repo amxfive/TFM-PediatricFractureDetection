@@ -17,6 +17,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 
 from ultralytics import YOLO
+import hashlib
 
 # ---------------------------------------------------------------------------
 # Ruta del modelo (relativa al directorio de trabajo = raíz del repositorio)
@@ -96,7 +97,13 @@ async def health():
 @app.post("/predict")
 async def predict(file: UploadFile = File(...), confidence: float = Form(0.40)):
     img_bytes = await file.read()
+    # Calcular el HASH SHA-256 de los bytes recibidos
+    file_hash = hashlib.sha256(img_bytes).hexdigest()
     
+    print(f"\n[AUDITORÍA] Hash recibido: {file_hash}")
+    print(f"[AUDITORÍA] Tamaño: {len(img_bytes)} bytes\n")
+    
+    # IMPORTANTE: Volver a
     # 1. Imagen para la IA (con CLAHE y 8-bit)
     img_para_ia = preprocessing_pipeline(img_bytes) 
     

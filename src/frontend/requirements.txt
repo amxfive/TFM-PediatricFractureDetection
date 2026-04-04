@@ -1,0 +1,10 @@
+# UI Framework
+streamlit>=1.54.0
+
+# Image Processing (Solo para visualización)
+Pillow==10.2.0
+opencv-python-headless==4.9.0.80
+numpy==1.26.4
+
+# Communication
+requests==2.31.0
