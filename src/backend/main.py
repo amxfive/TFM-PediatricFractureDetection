@@ -22,7 +22,7 @@ import hashlib
 # ---------------------------------------------------------------------------
 # Ruta del modelo (relativa al directorio de trabajo = raíz del repositorio)
 # ---------------------------------------------------------------------------
-MODEL_PATH = "E6_test.pt"
+MODEL_PATH = "E7_yoloV11n.pt"
 
 _model: YOLO | None = None
 _target_layers: list | None = None
