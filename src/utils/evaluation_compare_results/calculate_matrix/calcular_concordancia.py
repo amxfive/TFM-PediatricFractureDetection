@@ -3,6 +3,8 @@
 
 import json
 import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
 from pathlib import Path
 
 def load_json(path):
@@ -106,7 +108,9 @@ def main():
         'yoloV8n_optA': 'IA_Evaluation_E3_yoloV8n_optA.json',
         'yoloV8m_optA': 'IA_Evaluation_E6_yoloV8m_optA.json',
         'yoloV11n_optA': 'IA_Evaluation_E7_yoloV11n_optA.json',
-        "Usuario_Control": "Control_User_Evaluation_Yasmina_Moreira.json"
+        "Usuario_Control": "Control_User_Evaluation_Yasmina_Moreira.json",
+        "Usuario_R1": "R1_User_Evaluation_Marina.json",
+        "Usuario_Catedratico": "Catedratico_User_Evaluation_Jose_Carlos.json"
     }
     
     boxes_data = {}
@@ -133,8 +137,30 @@ def main():
         row = "".join(f"{matriz[i, j]:>12.4f}" for j in range(n))
         print(f"{nom:>15}{row}")
     
-    np.save('src/evaluation/matrix/concordance_matrix.npy', matriz)
-    print("\nMatriz guardada en src/evaluation/matrix/concordance_matrix.npy")
+    np.save('src/evaluation/matrix/concordance_matrix_v2.npy', matriz)
+    print("\nMatriz guardada en src/evaluation/matrix/concordance_matrix_v2.npy")
+
+    # Heatmap
+    n = len(nombres)
+    half = np.full((n, n), np.nan)
+    for i in range(n):
+        for j in range(i, n):
+            half[i, j] = matriz[i, j]
+
+    fig, ax = plt.subplots(figsize=(9, 7))
+    sns.heatmap(
+        half, annot=True, fmt='.3f', cmap=sns.diverging_palette(220, 20, as_cmap=True),
+        xticklabels=nombres, yticklabels=nombres,
+        vmin=0, vmax=1, center=0.5, square=True,
+        cbar_kws={'label': 'IoU Concordance'}, ax=ax,
+        annot_kws={'size': 9}, linewidths=0.5, linecolor='white'
+    )
+    ax.set_title('Matriz de Concordancia IoU', fontsize=14, fontweight='bold')
+    plt.xticks(rotation=30, ha='right')
+    plt.yticks(rotation=0)
+    plt.tight_layout()
+    plt.savefig('src/evaluation/results/concordance_halfmatrix.png', dpi=500, bbox_inches='tight')
+    print("Heatmap guardado en src/evaluation/results/concordance_halfmatrix.png")
     
     return matriz, nombres
 

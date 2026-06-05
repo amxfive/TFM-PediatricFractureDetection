@@ -6,9 +6,9 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 def main():
-    matriz = np.load('src/evaluation/matrix/concordance_matrix.npy')
+    matriz = np.load('src/evaluation/matrix/concordance_matrix_v2.npy')
     
-    nombres = ['yoloV8n_optA', 'yoloV8m_optA', 'yoloV11n_optA', 'Usuario_Control']
+    nombres = ['yoloV8n_optA', 'yoloV8m_optA', 'yoloV11n_optA', 'Usuario_Control', 'Usuario_R1', 'Usuario_Catedratico']
     n = len(nombres)
     
     half_matrix = np.full((n, n), np.nan)
@@ -43,8 +43,8 @@ def main():
     ax.set_ylabel('Evaluador', fontsize=12)
     
     plt.tight_layout()
-    plt.savefig('src/evaluation/results/concordance_halfmatrix.png', dpi=500, bbox_inches='tight')
-    print("Half-matrix guardada en src/evaluation/results/concordance_halfmatrix.png")
+    plt.savefig('src/evaluation/results/concordance_halfmatrix_v3.png', dpi=500, bbox_inches='tight')
+    print("Half-matrix guardada en src/evaluation/results/concordance_halfmatrix_v3.png")
 
 if __name__ == '__main__':
     main()

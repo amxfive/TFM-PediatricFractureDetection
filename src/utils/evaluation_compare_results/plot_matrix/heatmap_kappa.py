@@ -6,9 +6,9 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 def main():
-    matriz = np.load('src/evaluation/matrix/kappa_matrix.npy')
+    matriz = np.load('src/evaluation/matrix/kappa_matrix_v2.npy')
     
-    nombres = ['yoloV8n_optA', 'yoloV8m_optA', 'yoloV11n_optA', 'Usuario_Control']
+    nombres = ['yoloV8n_optA', 'yoloV8m_optA', 'yoloV11n_optA', 'Usuario_Control', 'Usuario_R1', 'Usuario_Catedratico']
     n = len(nombres)
     
     half_matrix = np.full((n, n), np.nan)

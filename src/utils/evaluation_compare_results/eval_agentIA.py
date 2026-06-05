@@ -77,8 +77,8 @@ def generar_json_evaluacion(model_path, images_path, output_file):
 
 # --- CONFIGURACIÓN ---
 # Ajusta estas rutas a tu entorno WSL
-PATH_MODELO = 'models_weights/E7_yoloV11n_optA.pt'
-PATH_IMAGENES_TEST = 'EvaluacionAgentes/EvalDatasetProperID'
-NOMBRE_SALIDA = 'IA_Evaluation_E7_yoloV11n_optA.json'
+PATH_MODELO = 'models_weights/generalist_architectures/E6_yoloV8m_optA.pt'
+PATH_IMAGENES_TEST = 'data/processed_2/EvalDatasetProperID'
+NOMBRE_SALIDA = 'IA_Evaluation_E6_yoloV8m_optA.json'
 
 generar_json_evaluacion(PATH_MODELO, PATH_IMAGENES_TEST, NOMBRE_SALIDA)

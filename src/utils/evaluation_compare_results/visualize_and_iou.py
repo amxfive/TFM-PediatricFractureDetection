@@ -16,15 +16,17 @@ COLORS = {
     'IA_E3': (200, 0, 0),
     'IA_E6': (0, 140, 200),
     'IA_E7': (180, 0, 180),
+    'Usuario_R1': (0, 0, 255)
 }
 
-EVAL_ORDER = ['Humano', 'IA_E3', 'IA_E6', 'IA_E7']
+EVAL_ORDER = ['Humano', 'IA_E3', 'IA_E6', 'IA_E7', 'Usuario_R1']
 
 LABELS = {
     'Humano': 'Humano',
     'IA_E3': 'IA E3 YOLOv8n',
     'IA_E6': 'IA E6 YOLOv8m',
     'IA_E7': 'IA E7 YOLOv11n',
+    'Usuario_R1': 'Usuario_R1'
 }
 
 def load_json(path):
@@ -136,6 +138,7 @@ def main():
         'IA_E3': 'src/evaluation/annotation_json/IA_Evaluation_E3_yoloV8n_optA.json',
         'IA_E6': 'src/evaluation/annotation_json/IA_Evaluation_E6_yoloV8m_optA.json',
         'IA_E7': 'src/evaluation/annotation_json/IA_Evaluation_E7_yoloV11n_optA.json',
+        "Usuario_R1": "src/evaluation/annotation_json/R1_User_Evaluation_Marina.json"
     }
 
     OUT_DIR.mkdir(parents=True, exist_ok=True)

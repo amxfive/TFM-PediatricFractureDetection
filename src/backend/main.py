@@ -1,20 +1,17 @@
 """
 Backend FastAPI para el sistema de detección de fracturas pediátricas.
 Carga el modelo YOLOv8 una sola vez en el arranque y expone:
-  - POST /predict  → CLAHE → YOLOv8 → detecciones JSON + imagen anotada base64
-  - POST /xai      → CLAHE → EigenCAM → heatmap base64
+  - POST /predict  → CLAHE → YOLOv8 → detecciones JSON
   - GET  /health   → comprobación de estado
 """
 
 from contextlib import asynccontextmanager
-from pathlib import Path
 
 import cv2
 import numpy as np
 
 from fastapi import FastAPI, File, Form, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import JSONResponse
 
 from ultralytics import YOLO
 import hashlib
@@ -25,23 +22,21 @@ import hashlib
 MODEL_PATH = "E7_yoloV11n.pt"
 
 _model: YOLO | None = None
-_target_layers: list | None = None
 
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     """Carga el modelo al arrancar y lo libera al cerrar."""
-    global _model, _target_layers
+    global _model
     print(f"[Backend] Cargando modelo desde {MODEL_PATH} …")
     _model = YOLO(str(MODEL_PATH))
-    _target_layers = [_model.model.model[-2]]  # capa SPPF, igual que xai.py
     print("[Backend] Modelo cargado correctamente.")
     yield
     print("[Backend] Cerrando backend.")
 
 
 app = FastAPI(
-    title="Viamed IA — API de Detección de Fracturas",
+    title="TFM — API de Detección de Fracturas Pediátricas",
     version="1.0.0",
     lifespan=lifespan,
 )

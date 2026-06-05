@@ -10,10 +10,10 @@
                         "original_height": 1100,
                         "image_rotation": 0,
                         "value": {
-                            "x": 51.810635067522526,
-                            "y": 52.85865943878889,
-                            "width": 5.005846545100212,
-                            "height": 3.615361824631691,
+                            "x": 52.184127643704414,
+                            "y": 52.85996589809656,
+                            "width": 4.541375488042831,
+                            "height": 3.2902996987104416,
                             "rotation": 0,
                             "rectanglelabels": [
                                 "0"
@@ -28,10 +28,10 @@
                         "original_height": 1100,
                         "image_rotation": 0,
                         "value": {
-                            "x": 45.90125773102045,
-                            "y": 41.799376253038645,
-                            "width": 4.338214918971062,
-                            "height": 3.020499460399151,
+                            "x": 45.78871112316847,
+                            "y": 41.360327415168285,
+                            "width": 4.8898521810770035,
+                            "height": 3.7340227514505386,
                             "rotation": 0,
                             "rectanglelabels": [
                                 "0"
@@ -42,8 +42,8 @@
                         "type": "rectanglelabels"
                     }
                 ],
-                "lead_time": 1.025420926976949,
-                "created_at": "2026-05-02T09:49:06.177709Z"
+                "lead_time": 1.2874017519989138,
+                "created_at": "2026-05-11T11:10:33.488184Z"
             }
         ],
         "file_upload": "UR_027.png",
@@ -57,8 +57,8 @@
             {
                 "completed_by": 99,
                 "result": [],
-                "lead_time": 0.5665706080035307,
-                "created_at": "2026-05-02T09:49:06.759311Z"
+                "lead_time": 0.3079260160011472,
+                "created_at": "2026-05-11T11:10:33.809635Z"
             }
         ],
         "file_upload": "WRI_010.png",
@@ -77,10 +77,10 @@
                         "original_height": 1716,
                         "image_rotation": 0,
                         "value": {
-                            "x": 37.89160083979368,
-                            "y": 66.56795758754015,
-                            "width": 6.070569530129433,
-                            "height": 2.3630138486623764,
+                            "x": 37.69387677311897,
+                            "y": 66.65293835103512,
+                            "width": 6.237654387950897,
+                            "height": 2.4698324501514435,
                             "rotation": 0,
                             "rectanglelabels": [
                                 "0"
@@ -91,8 +91,8 @@
                         "type": "rectanglelabels"
                     }
                 ],
-                "lead_time": 0.8163806050433777,
-                "created_at": "2026-05-02T09:49:07.586730Z"
+                "lead_time": 0.4754153760004556,
+                "created_at": "2026-05-11T11:10:34.319489Z"
             }
         ],
         "file_upload": "UR_016.png",
@@ -111,10 +111,10 @@
                         "original_height": 1156,
                         "image_rotation": 0,
                         "value": {
-                            "x": 51.455192267894745,
-                            "y": 44.46776509284973,
-                            "width": 29.255977272987366,
-                            "height": 15.287506580352783,
+                            "x": 51.49274319410324,
+                            "y": 44.0279595553875,
+                            "width": 28.711453080177307,
+                            "height": 15.811003744602203,
                             "rotation": 0,
                             "rectanglelabels": [
                                 "0"
@@ -125,8 +125,8 @@
                         "type": "rectanglelabels"
                     }
                 ],
-                "lead_time": 1.4510813159868121,
-                "created_at": "2026-05-02T09:49:09.051776Z"
+                "lead_time": 0.9355385910002951,
+                "created_at": "2026-05-11T11:10:35.265477Z"
             }
         ],
         "file_upload": "SHF_002.jpg",
@@ -139,9 +139,28 @@
         "annotations": [
             {
                 "completed_by": 99,
-                "result": [],
-                "lead_time": 1.342209697002545,
-                "created_at": "2026-05-02T09:49:10.421748Z"
+                "result": [
+                    {
+                        "original_width": 691,
+                        "original_height": 860,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 24.112189933657646,
+                            "y": 55.773528292775154,
+                            "width": 9.263215214014053,
+                            "height": 7.436534017324448,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    }
+                ],
+                "lead_time": 0.5945795150000777,
+                "created_at": "2026-05-11T11:10:35.884339Z"
             }
         ],
         "file_upload": "WRI_018.png",
@@ -154,28 +173,9 @@
         "annotations": [
             {
                 "completed_by": 99,
-                "result": [
-                    {
-                        "original_width": 1202,
-                        "original_height": 2304,
-                        "image_rotation": 0,
-                        "value": {
-                            "x": 45.69977819919586,
-                            "y": 0.9869426488876343,
-                            "width": 30.775266885757446,
-                            "height": 13.06944489479065,
-                            "rotation": 0,
-                            "rectanglelabels": [
-                                "0"
-                            ]
-                        },
-                        "from_name": "label",
-                        "to_name": "image",
-                        "type": "rectanglelabels"
-                    }
-                ],
-                "lead_time": 0.7301874849945307,
-                "created_at": "2026-05-02T09:49:11.173376Z"
+                "result": [],
+                "lead_time": 0.3133627239985799,
+                "created_at": "2026-05-11T11:10:36.264142Z"
             }
         ],
         "file_upload": "UR_007.png",
@@ -188,9 +188,28 @@
         "annotations": [
             {
                 "completed_by": 99,
-                "result": [],
-                "lead_time": 0.8755220390157774,
-                "created_at": "2026-05-02T09:49:12.057842Z"
+                "result": [
+                    {
+                        "original_width": 1102,
+                        "original_height": 1814,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 52.54142805933952,
+                            "y": 24.11088813096285,
+                            "width": 9.17661339044571,
+                            "height": 4.327115043997765,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    }
+                ],
+                "lead_time": 0.35298834500099474,
+                "created_at": "2026-05-11T11:10:36.657204Z"
             }
         ],
         "file_upload": "UR_029.png",
@@ -209,10 +228,10 @@
                         "original_height": 1980,
                         "image_rotation": 0,
                         "value": {
-                            "x": 28.565723821520805,
-                            "y": 72.64898512512445,
-                            "width": 8.390072733163834,
-                            "height": 3.735659644007683,
+                            "x": 28.906840831041336,
+                            "y": 72.83305674791336,
+                            "width": 7.540152966976166,
+                            "height": 2.998170256614685,
                             "rotation": 0,
                             "rectanglelabels": [
                                 "0"
@@ -223,8 +242,8 @@
                         "type": "rectanglelabels"
                     }
                 ],
-                "lead_time": 0.7528622469981201,
-                "created_at": "2026-05-02T09:49:12.836519Z"
+                "lead_time": 0.35090672700061987,
+                "created_at": "2026-05-11T11:10:37.057663Z"
             }
         ],
         "file_upload": "UR_005.png",
@@ -243,10 +262,10 @@
                         "original_height": 2102,
                         "image_rotation": 0,
                         "value": {
-                            "x": 39.18061815202236,
-                            "y": 85.92458795756102,
-                            "width": 11.24919131398201,
-                            "height": 6.037608161568642,
+                            "x": 39.28787745535374,
+                            "y": 86.16600763052702,
+                            "width": 10.702990740537643,
+                            "height": 5.353567376732826,
                             "rotation": 0,
                             "rectanglelabels": [
                                 "0"
@@ -257,8 +276,8 @@
                         "type": "rectanglelabels"
                     }
                 ],
-                "lead_time": 1.219950331025757,
-                "created_at": "2026-05-02T09:49:14.090375Z"
+                "lead_time": 0.6061920030006149,
+                "created_at": "2026-05-11T11:10:37.725759Z"
             }
         ],
         "file_upload": "UR_003.png",
@@ -277,10 +296,10 @@
                         "original_height": 2244,
                         "image_rotation": 0,
                         "value": {
-                            "x": 24.368469044566154,
-                            "y": 70.90512085705996,
-                            "width": 7.683495432138443,
-                            "height": 3.4431662410497665,
+                            "x": 24.42624382674694,
+                            "y": 70.95184531062841,
+                            "width": 7.455930858850479,
+                            "height": 3.9287764579057693,
                             "rotation": 0,
                             "rectanglelabels": [
                                 "0"
@@ -291,8 +310,8 @@
                         "type": "rectanglelabels"
                     }
                 ],
-                "lead_time": 1.2481450680061243,
-                "created_at": "2026-05-02T09:49:15.364984Z"
+                "lead_time": 0.49140811299912457,
+                "created_at": "2026-05-11T11:10:38.288493Z"
             }
         ],
         "file_upload": "UR_004.png",
@@ -311,10 +330,10 @@
                         "original_height": 1404,
                         "image_rotation": 0,
                         "value": {
-                            "x": 29.66892719268799,
-                            "y": 40.38146138191223,
-                            "width": 33.4725022315979,
-                            "height": 25.30609369277954,
+                            "x": 31.967560946941376,
+                            "y": 42.523713409900665,
+                            "width": 29.46213185787201,
+                            "height": 22.70953357219696,
                             "rotation": 0,
                             "rectanglelabels": [
                                 "0"
@@ -325,8 +344,8 @@
                         "type": "rectanglelabels"
                     }
                 ],
-                "lead_time": 1.3070255059865303,
-                "created_at": "2026-05-02T09:49:16.696686Z"
+                "lead_time": 0.5208993699998246,
+                "created_at": "2026-05-11T11:10:38.823427Z"
             }
         ],
         "file_upload": "SHF_011.jpg",
@@ -345,10 +364,10 @@
                         "original_height": 844,
                         "image_rotation": 0,
                         "value": {
-                            "x": 47.96512499451637,
-                            "y": 40.39920009672642,
-                            "width": 21.981410682201385,
-                            "height": 7.863103598356247,
+                            "x": 48.07693585753441,
+                            "y": 40.15300236642361,
+                            "width": 21.918566524982452,
+                            "height": 8.164948970079422,
                             "rotation": 0,
                             "rectanglelabels": [
                                 "0"
@@ -363,10 +382,10 @@
                         "original_height": 844,
                         "image_rotation": 0,
                         "value": {
-                            "x": 27.576857805252075,
-                            "y": 37.7039710059762,
-                            "width": 13.81692886352539,
-                            "height": 5.423031374812126,
+                            "x": 27.50863805413246,
+                            "y": 37.346943095326424,
+                            "width": 14.179180562496185,
+                            "height": 6.312998384237289,
                             "rotation": 0,
                             "rectanglelabels": [
                                 "0"
@@ -377,8 +396,8 @@
                         "type": "rectanglelabels"
                     }
                 ],
-                "lead_time": 0.97062402399024,
-                "created_at": "2026-05-02T09:49:17.685885Z"
+                "lead_time": 0.3658841159995063,
+                "created_at": "2026-05-11T11:10:39.209107Z"
             }
         ],
         "file_upload": "WRI_008.png",
@@ -391,9 +410,46 @@
         "annotations": [
             {
                 "completed_by": 99,
-                "result": [],
-                "lead_time": 0.8656052600126714,
-                "created_at": "2026-05-02T09:49:18.576031Z"
+                "result": [
+                    {
+                        "original_width": 570,
+                        "original_height": 952,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 38.92960250377655,
+                            "y": 58.496951311826706,
+                            "width": 35.69113612174988,
+                            "height": 12.402023375034332,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    },
+                    {
+                        "original_width": 570,
+                        "original_height": 952,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 14.948976784944534,
+                            "y": 51.291828975081444,
+                            "width": 12.202833592891693,
+                            "height": 7.4142105877399445,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    }
+                ],
+                "lead_time": 0.3418821699997352,
+                "created_at": "2026-05-11T11:10:39.571950Z"
             }
         ],
         "file_upload": "WRI_020.png",
@@ -407,8 +463,8 @@
             {
                 "completed_by": 99,
                 "result": [],
-                "lead_time": 1.250306244008243,
-                "created_at": "2026-05-02T09:49:19.845283Z"
+                "lead_time": 0.4993750329995237,
+                "created_at": "2026-05-11T11:10:40.082048Z"
             }
         ],
         "file_upload": "NoF_UR_001.jpg",
@@ -427,10 +483,10 @@
                         "original_height": 1488,
                         "image_rotation": 0,
                         "value": {
-                            "x": 37.18990013003349,
-                            "y": 34.85021963715553,
-                            "width": 17.82335191965103,
-                            "height": 18.796978890895844,
+                            "x": 38.05364742875099,
+                            "y": 34.77179780602455,
+                            "width": 17.704181373119354,
+                            "height": 18.44606250524521,
                             "rotation": 0,
                             "rectanglelabels": [
                                 "0"
@@ -441,8 +497,8 @@
                         "type": "rectanglelabels"
                     }
                 ],
-                "lead_time": 1.418076244997792,
-                "created_at": "2026-05-02T09:49:21.288466Z"
+                "lead_time": 0.5473289110013866,
+                "created_at": "2026-05-11T11:10:40.646082Z"
             }
         ],
         "file_upload": "SHF_018.jpg",
@@ -455,9 +511,46 @@
         "annotations": [
             {
                 "completed_by": 99,
-                "result": [],
-                "lead_time": 1.1870162190170959,
-                "created_at": "2026-05-02T09:49:22.495522Z"
+                "result": [
+                    {
+                        "original_width": 668,
+                        "original_height": 780,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 29.37569171190262,
+                            "y": 55.73956482112408,
+                            "width": 23.837056756019592,
+                            "height": 11.281237751245499,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    },
+                    {
+                        "original_width": 668,
+                        "original_height": 780,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 54.43772152066231,
+                            "y": 61.616457253694534,
+                            "width": 13.25889676809311,
+                            "height": 7.743416726589203,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    }
+                ],
+                "lead_time": 0.4841588640010741,
+                "created_at": "2026-05-11T11:10:41.149352Z"
             }
         ],
         "file_upload": "WRI_005.png",
@@ -470,9 +563,46 @@
         "annotations": [
             {
                 "completed_by": 99,
-                "result": [],
-                "lead_time": 0.8747030050144531,
-                "created_at": "2026-05-02T09:49:23.395624Z"
+                "result": [
+                    {
+                        "original_width": 672,
+                        "original_height": 1110,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 31.995441019535065,
+                            "y": 63.30660432577133,
+                            "width": 25.332161784172058,
+                            "height": 10.13130247592926,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    },
+                    {
+                        "original_width": 672,
+                        "original_height": 1110,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 67.98909492790699,
+                            "y": 47.76367247104645,
+                            "width": 10.239287465810776,
+                            "height": 6.573981046676636,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    }
+                ],
+                "lead_time": 0.36525792499924137,
+                "created_at": "2026-05-11T11:10:41.541111Z"
             }
         ],
         "file_upload": "WRI_026.png",
@@ -486,8 +616,8 @@
             {
                 "completed_by": 99,
                 "result": [],
-                "lead_time": 0.5758451989968307,
-                "created_at": "2026-05-02T09:49:23.997116Z"
+                "lead_time": 0.2469018589999905,
+                "created_at": "2026-05-11T11:10:41.810776Z"
             }
         ],
         "file_upload": "WRI_006.png",
@@ -506,10 +636,10 @@
                         "original_height": 1982,
                         "image_rotation": 0,
                         "value": {
-                            "x": 45.46637274324894,
-                            "y": 61.28210611641407,
-                            "width": 10.33671423792839,
-                            "height": 7.145627588033676,
+                            "x": 45.14308720827103,
+                            "y": 60.984908044338226,
+                            "width": 11.896786093711853,
+                            "height": 7.4935466051101685,
                             "rotation": 0,
                             "rectanglelabels": [
                                 "0"
@@ -524,10 +654,10 @@
                         "original_height": 1982,
                         "image_rotation": 0,
                         "value": {
-                            "x": 31.106799840927124,
-                            "y": 62.508620508015156,
-                            "width": 9.632307291030884,
-                            "height": 4.880115017294884,
+                            "x": 30.95228411257267,
+                            "y": 62.15058397501707,
+                            "width": 9.590046852827072,
+                            "height": 5.2248988300561905,
                             "rotation": 0,
                             "rectanglelabels": [
                                 "0"
@@ -538,8 +668,8 @@
                         "type": "rectanglelabels"
                     }
                 ],
-                "lead_time": 0.7401612750254571,
-                "created_at": "2026-05-02T09:49:24.754350Z"
+                "lead_time": 0.2868704529992101,
+                "created_at": "2026-05-11T11:10:42.137526Z"
             }
         ],
         "file_upload": "UR_023.png",
@@ -552,9 +682,28 @@
         "annotations": [
             {
                 "completed_by": 99,
-                "result": [],
-                "lead_time": 0.6557972049922682,
-                "created_at": "2026-05-02T09:49:25.431399Z"
+                "result": [
+                    {
+                        "original_width": 1096,
+                        "original_height": 2342,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 49.172597751021385,
+                            "y": 81.7754590883851,
+                            "width": 8.53431299328804,
+                            "height": 2.9889296740293503,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    }
+                ],
+                "lead_time": 0.2914941950002685,
+                "created_at": "2026-05-11T11:10:42.479789Z"
             }
         ],
         "file_upload": "UR_008.png",
@@ -568,8 +717,8 @@
             {
                 "completed_by": 99,
                 "result": [],
-                "lead_time": 0.88370893598767,
-                "created_at": "2026-05-02T09:49:26.329375Z"
+                "lead_time": 0.309957673000099,
+                "created_at": "2026-05-11T11:10:42.830648Z"
             }
         ],
         "file_upload": "UR_034.png",
@@ -583,8 +732,8 @@
             {
                 "completed_by": 99,
                 "result": [],
-                "lead_time": 0.8486533670220524,
-                "created_at": "2026-05-02T09:49:27.192382Z"
+                "lead_time": 0.27628927899968403,
+                "created_at": "2026-05-11T11:10:43.118784Z"
             }
         ],
         "file_upload": "WRI_002.png",
@@ -603,10 +752,10 @@
                         "original_height": 1436,
                         "image_rotation": 0,
                         "value": {
-                            "x": 40.77565222978592,
-                            "y": 49.054983258247375,
-                            "width": 13.821777701377869,
-                            "height": 19.33249831199646,
+                            "x": 39.433788508176804,
+                            "y": 49.50148016214371,
+                            "width": 14.744122326374054,
+                            "height": 19.364401698112488,
                             "rotation": 0,
                             "rectanglelabels": [
                                 "0"
@@ -617,8 +766,8 @@
                         "type": "rectanglelabels"
                     }
                 ],
-                "lead_time": 1.020704869995825,
-                "created_at": "2026-05-02T09:49:28.227335Z"
+                "lead_time": 0.49408858900096675,
+                "created_at": "2026-05-11T11:10:42.392226Z"
             }
         ],
         "file_upload": "SHF_005.jpg",
@@ -637,10 +786,10 @@
                         "original_height": 2128,
                         "image_rotation": 0,
                         "value": {
-                            "x": 42.91989915072918,
-                            "y": 75.87445108219981,
-                            "width": 7.627979665994644,
-                            "height": 2.762311138212681,
+                            "x": 42.95635558664799,
+                            "y": 76.05382325127721,
+                            "width": 7.22847506403923,
+                            "height": 2.3769235238432884,
                             "rotation": 0,
                             "rectanglelabels": [
                                 "0"
@@ -651,8 +800,8 @@
                         "type": "rectanglelabels"
                     }
                 ],
-                "lead_time": 0.6846121440175921,
-                "created_at": "2026-05-02T09:49:28.932333Z"
+                "lead_time": 0.28863681000075303,
+                "created_at": "2026-05-11T11:10:42.725280Z"
             }
         ],
         "file_upload": "UR_020.png",
@@ -665,9 +814,28 @@
         "annotations": [
             {
                 "completed_by": 99,
-                "result": [],
-                "lead_time": 0.8168185260146856,
-                "created_at": "2026-05-02T09:49:29.764627Z"
+                "result": [
+                    {
+                        "original_width": 1102,
+                        "original_height": 2138,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 49.53991509974003,
+                            "y": 53.074327670037746,
+                            "width": 7.378845661878586,
+                            "height": 4.177134111523628,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    }
+                ],
+                "lead_time": 0.2859756750003726,
+                "created_at": "2026-05-11T11:10:43.056218Z"
             }
         ],
         "file_upload": "UR_025.png",
@@ -680,9 +848,28 @@
         "annotations": [
             {
                 "completed_by": 99,
-                "result": [],
-                "lead_time": 0.9663961919723079,
-                "created_at": "2026-05-02T09:49:30.757182Z"
+                "result": [
+                    {
+                        "original_width": 754,
+                        "original_height": 1086,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 35.14229357242584,
+                            "y": 45.303528383374214,
+                            "width": 35.87729334831238,
+                            "height": 9.508993476629257,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    }
+                ],
+                "lead_time": 0.39128005400016264,
+                "created_at": "2026-05-11T11:10:43.473301Z"
             }
         ],
         "file_upload": "WRI_016.png",
@@ -695,9 +882,28 @@
         "annotations": [
             {
                 "completed_by": 99,
-                "result": [],
-                "lead_time": 1.2437282809987664,
-                "created_at": "2026-05-02T09:49:32.016862Z"
+                "result": [
+                    {
+                        "original_width": 1372,
+                        "original_height": 1244,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 38.60790058970451,
+                            "y": 26.06973946094513,
+                            "width": 20.929934084415436,
+                            "height": 20.85970640182495,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    }
+                ],
+                "lead_time": 0.5203734540009464,
+                "created_at": "2026-05-11T11:10:44.006300Z"
             }
         ],
         "file_upload": "SHF_006.jpg",
@@ -710,9 +916,28 @@
         "annotations": [
             {
                 "completed_by": 99,
-                "result": [],
-                "lead_time": 0.7318109340267256,
-                "created_at": "2026-05-02T09:49:32.768527Z"
+                "result": [
+                    {
+                        "original_width": 591,
+                        "original_height": 1050,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 69.2750446498394,
+                            "y": 37.925281189382076,
+                            "width": 11.009110510349274,
+                            "height": 6.0669321566820145,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    }
+                ],
+                "lead_time": 0.3244578569992882,
+                "created_at": "2026-05-11T11:10:44.351244Z"
             }
         ],
         "file_upload": "WRI_027.png",
@@ -726,8 +951,8 @@
             {
                 "completed_by": 99,
                 "result": [],
-                "lead_time": 0.9961519089993089,
-                "created_at": "2026-05-02T09:49:33.776547Z"
+                "lead_time": 0.437406003000433,
+                "created_at": "2026-05-11T11:10:44.800309Z"
             }
         ],
         "file_upload": "WRI_023.png",
@@ -741,8 +966,8 @@
             {
                 "completed_by": 99,
                 "result": [],
-                "lead_time": 0.9826615839847364,
-                "created_at": "2026-05-02T09:49:34.771412Z"
+                "lead_time": 0.4125413820001995,
+                "created_at": "2026-05-11T11:10:45.227674Z"
             }
         ],
         "file_upload": "NoF_UR_007.jpg",
@@ -761,10 +986,10 @@
                         "original_height": 1436,
                         "image_rotation": 0,
                         "value": {
-                            "x": 21.686552092432976,
-                            "y": 48.915278539061546,
-                            "width": 12.275896221399307,
-                            "height": 9.837842732667923,
+                            "x": 21.469298750162125,
+                            "y": 48.836157098412514,
+                            "width": 12.651441991329193,
+                            "height": 10.023146122694016,
                             "rotation": 0,
                             "rectanglelabels": [
                                 "0"
@@ -775,8 +1000,8 @@
                         "type": "rectanglelabels"
                     }
                 ],
-                "lead_time": 1.2590498169884086,
-                "created_at": "2026-05-02T09:49:36.044811Z"
+                "lead_time": 0.4990598130007129,
+                "created_at": "2026-05-11T11:10:45.748350Z"
             }
         ],
         "file_upload": "SHF_010.jpg",
@@ -795,10 +1020,10 @@
                         "original_height": 1722,
                         "image_rotation": 0,
                         "value": {
-                            "x": 48.28503094613552,
-                            "y": 30.95536231994629,
-                            "width": 10.296381264925003,
-                            "height": 4.697573184967041,
+                            "x": 48.27125333249569,
+                            "y": 30.68543616682291,
+                            "width": 11.325068026781082,
+                            "height": 5.001033470034599,
                             "rotation": 0,
                             "rectanglelabels": [
                                 "0"
@@ -809,8 +1034,8 @@
                         "type": "rectanglelabels"
                     }
                 ],
-                "lead_time": 0.9507885099737905,
-                "created_at": "2026-05-02T09:49:37.018962Z"
+                "lead_time": 0.33748414399997273,
+                "created_at": "2026-05-11T11:10:46.123923Z"
             }
         ],
         "file_upload": "UR_033.png",
@@ -829,10 +1054,10 @@
                         "original_height": 1968,
                         "image_rotation": 0,
                         "value": {
-                            "x": 43.96480582654476,
-                            "y": 65.18633849918842,
-                            "width": 10.480207949876785,
-                            "height": 5.0688765943050385,
+                            "x": 43.27942878007889,
+                            "y": 64.45688530802727,
+                            "width": 11.173924803733826,
+                            "height": 6.02649599313736,
                             "rotation": 0,
                             "rectanglelabels": [
                                 "0"
@@ -843,8 +1068,8 @@
                         "type": "rectanglelabels"
                     }
                 ],
-                "lead_time": 0.8228570480132475,
-                "created_at": "2026-05-02T09:49:37.864003Z"
+                "lead_time": 0.3667441540001164,
+                "created_at": "2026-05-11T11:10:46.538814Z"
             }
         ],
         "file_upload": "UR_011.png",
@@ -863,10 +1088,10 @@
                         "original_height": 1398,
                         "image_rotation": 0,
                         "value": {
-                            "x": 27.24853605031967,
-                            "y": 79.3001651763916,
-                            "width": 10.50938069820404,
-                            "height": 3.70943546295166,
+                            "x": 27.471202239394188,
+                            "y": 78.90088595449924,
+                            "width": 10.342372208833694,
+                            "height": 4.600714892148972,
                             "rotation": 0,
                             "rectanglelabels": [
                                 "0"
@@ -877,8 +1102,8 @@
                         "type": "rectanglelabels"
                     }
                 ],
-                "lead_time": 1.2336176490061916,
-                "created_at": "2026-05-02T09:49:39.115785Z"
+                "lead_time": 0.5439669389998016,
+                "created_at": "2026-05-11T11:10:47.129817Z"
             }
         ],
         "file_upload": "UR_014.png",
@@ -897,10 +1122,10 @@
                         "original_height": 2264,
                         "image_rotation": 0,
                         "value": {
-                            "x": 61.36425957083702,
-                            "y": 13.879135251045227,
-                            "width": 16.876061260700226,
-                            "height": 10.344982147216797,
+                            "x": 61.268825083971024,
+                            "y": 13.38852234184742,
+                            "width": 17.2125443816185,
+                            "height": 10.744016617536545,
                             "rotation": 0,
                             "rectanglelabels": [
                                 "0"
@@ -911,8 +1136,8 @@
                         "type": "rectanglelabels"
                     }
                 ],
-                "lead_time": 1.1511590799782425,
-                "created_at": "2026-05-02T09:49:40.287895Z"
+                "lead_time": 0.4588789760000509,
+                "created_at": "2026-05-11T11:10:47.608854Z"
             }
         ],
         "file_upload": "SHF_026.jpg",
@@ -926,8 +1151,8 @@
             {
                 "completed_by": 99,
                 "result": [],
-                "lead_time": 1.4521765729878098,
-                "created_at": "2026-05-02T09:49:41.745057Z"
+                "lead_time": 0.5316913229999045,
+                "created_at": "2026-05-11T11:10:48.168516Z"
             }
         ],
         "file_upload": "UR_024.png",
@@ -946,10 +1171,10 @@
                         "original_height": 1898,
                         "image_rotation": 0,
                         "value": {
-                            "x": 63.824789598584175,
-                            "y": 74.70273971557617,
-                            "width": 9.204985946416855,
-                            "height": 2.825927734375,
+                            "x": 46.27475067973137,
+                            "y": 76.4981435611844,
+                            "width": 15.041066706180573,
+                            "height": 5.539014562964439,
                             "rotation": 0,
                             "rectanglelabels": [
                                 "0"
@@ -964,28 +1189,10 @@
                         "original_height": 1898,
                         "image_rotation": 0,
                         "value": {
-                            "x": 46.82071954011917,
-                            "y": 76.56438238918781,
-                            "width": 13.000664114952087,
-                            "height": 4.972686618566513,
-                            "rotation": 0,
-                            "rectanglelabels": [
-                                "0"
-                            ]
-                        },
-                        "from_name": "label",
-                        "to_name": "image",
-                        "type": "rectanglelabels"
-                    },
-                    {
-                        "original_width": 1028,
-                        "original_height": 1898,
-                        "image_rotation": 0,
-                        "value": {
-                            "x": 46.65881097316742,
-                            "y": 75.96127949655056,
-                            "width": 20.08149027824402,
-                            "height": 5.654145032167435,
+                            "x": 63.71892802417278,
+                            "y": 74.41797219216824,
+                            "width": 9.27477851510048,
+                            "height": 3.589201718568802,
                             "rotation": 0,
                             "rectanglelabels": [
                                 "0"
@@ -996,8 +1203,8 @@
                         "type": "rectanglelabels"
                     }
                 ],
-                "lead_time": 0.7329290040070191,
-                "created_at": "2026-05-02T09:49:42.494026Z"
+                "lead_time": 0.29661181600022246,
+                "created_at": "2026-05-11T11:10:48.507752Z"
             }
         ],
         "file_upload": "UR_006.png",
@@ -1016,10 +1223,28 @@
                         "original_height": 1042,
                         "image_rotation": 0,
                         "value": {
-                            "x": 35.02258360385895,
-                            "y": 38.052838668227196,
-                            "width": 15.310502052307129,
-                            "height": 8.02387073636055,
+                            "x": 34.72124636173248,
+                            "y": 38.52336145937443,
+                            "width": 14.826738834381104,
+                            "height": 7.503461092710495,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    },
+                    {
+                        "original_width": 841,
+                        "original_height": 1042,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 52.39754319190979,
+                            "y": 34.47213638573885,
+                            "width": 10.101401805877686,
+                            "height": 5.0635721534490585,
                             "rotation": 0,
                             "rectanglelabels": [
                                 "0"
@@ -1030,8 +1255,8 @@
                         "type": "rectanglelabels"
                     }
                 ],
-                "lead_time": 1.090419324056711,
-                "created_at": "2026-05-02T09:49:43.610757Z"
+                "lead_time": 0.5089497199987818,
+                "created_at": "2026-05-11T11:10:49.040276Z"
             }
         ],
         "file_upload": "WRI_025.png",
@@ -1045,8 +1270,8 @@
             {
                 "completed_by": 99,
                 "result": [],
-                "lead_time": 0.6941244580084458,
-                "created_at": "2026-05-02T09:49:44.325336Z"
+                "lead_time": 0.33533211299982213,
+                "created_at": "2026-05-11T11:10:49.397808Z"
             }
         ],
         "file_upload": "WRI_009.png",
@@ -1065,10 +1290,10 @@
                         "original_height": 1284,
                         "image_rotation": 0,
                         "value": {
-                            "x": 50.60220882296562,
-                            "y": 83.22887420654297,
-                            "width": 14.912082254886627,
-                            "height": 13.58858346939087,
+                            "x": 50.67865252494812,
+                            "y": 83.93800482153893,
+                            "width": 14.775598049163818,
+                            "height": 12.114651501178741,
                             "rotation": 0,
                             "rectanglelabels": [
                                 "0"
@@ -1079,8 +1304,8 @@
                         "type": "rectanglelabels"
                     }
                 ],
-                "lead_time": 1.2256071520387195,
-                "created_at": "2026-05-02T09:49:45.565397Z"
+                "lead_time": 0.5910137400005624,
+                "created_at": "2026-05-11T11:10:50.008456Z"
             }
         ],
         "file_upload": "SHF_003.jpg",
@@ -1093,9 +1318,28 @@
         "annotations": [
             {
                 "completed_by": 99,
-                "result": [],
-                "lead_time": 0.7581581900012679,
-                "created_at": "2026-05-02T09:49:46.336648Z"
+                "result": [
+                    {
+                        "original_width": 1102,
+                        "original_height": 2010,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 52.02798172831535,
+                            "y": 13.366590440273285,
+                            "width": 11.260344088077545,
+                            "height": 4.342016577720642,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    }
+                ],
+                "lead_time": 0.3111906079993787,
+                "created_at": "2026-05-11T11:10:50.366169Z"
             }
         ],
         "file_upload": "UR_036.png",
@@ -1114,10 +1358,10 @@
                         "original_height": 556,
                         "image_rotation": 0,
                         "value": {
-                            "x": 55.480386316776276,
-                            "y": 43.19949597120285,
-                            "width": 10.727831721305847,
-                            "height": 20.303454995155334,
+                            "x": 57.30917043983936,
+                            "y": 43.47635433077812,
+                            "width": 9.764894098043442,
+                            "height": 19.689585268497467,
                             "rotation": 0,
                             "rectanglelabels": [
                                 "0"
@@ -1128,8 +1372,8 @@
                         "type": "rectanglelabels"
                     }
                 ],
-                "lead_time": 0.7956359120435081,
-                "created_at": "2026-05-02T09:49:47.139522Z"
+                "lead_time": 0.38129603100060194,
+                "created_at": "2026-05-11T11:10:50.753763Z"
             }
         ],
         "file_upload": "SHF_014.jpg",
@@ -1148,10 +1392,10 @@
                         "original_height": 996,
                         "image_rotation": 0,
                         "value": {
-                            "x": 44.452182203531265,
-                            "y": 49.94640424847603,
-                            "width": 22.28258103132248,
-                            "height": 9.367655217647552,
+                            "x": 34.37347412109375,
+                            "y": 50.43279975652695,
+                            "width": 17.360693216323853,
+                            "height": 10.080721974372864,
                             "rotation": 0,
                             "rectanglelabels": [
                                 "0"
@@ -1166,28 +1410,10 @@
                         "original_height": 996,
                         "image_rotation": 0,
                         "value": {
-                            "x": 34.146666526794434,
-                            "y": 50.22081844508648,
-                            "width": 18.402397632598877,
-                            "height": 9.043476730585098,
-                            "rotation": 0,
-                            "rectanglelabels": [
-                                "0"
-                            ]
-                        },
-                        "from_name": "label",
-                        "to_name": "image",
-                        "type": "rectanglelabels"
-                    },
-                    {
-                        "original_width": 482,
-                        "original_height": 996,
-                        "image_rotation": 0,
-                        "value": {
-                            "x": 33.99965018033981,
-                            "y": 49.79654587805271,
-                            "width": 25.883367657661438,
-                            "height": 9.74280759692192,
+                            "x": 44.0287210047245,
+                            "y": 48.656776174902916,
+                            "width": 22.935466468334198,
+                            "height": 8.331877738237381,
                             "rotation": 0,
                             "rectanglelabels": [
                                 "0"
@@ -1198,8 +1424,8 @@
                         "type": "rectanglelabels"
                     }
                 ],
-                "lead_time": 0.7665226139943115,
-                "created_at": "2026-05-02T09:49:47.923974Z"
+                "lead_time": 0.3243043670008774,
+                "created_at": "2026-05-11T11:10:51.096721Z"
             }
         ],
         "file_upload": "WRI_021.png",
@@ -1213,8 +1439,8 @@
             {
                 "completed_by": 99,
                 "result": [],
-                "lead_time": 1.2972201849916019,
-                "created_at": "2026-05-02T09:49:49.237899Z"
+                "lead_time": 0.6108379050001531,
+                "created_at": "2026-05-11T11:10:51.719509Z"
             }
         ],
         "file_upload": "NoF_UR_003.jpg",
@@ -1227,9 +1453,46 @@
         "annotations": [
             {
                 "completed_by": 99,
-                "result": [],
-                "lead_time": 1.0621260550105944,
-                "created_at": "2026-05-02T09:49:50.319146Z"
+                "result": [
+                    {
+                        "original_width": 1760,
+                        "original_height": 2140,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 64.66624736785889,
+                            "y": 38.939906656742096,
+                            "width": 13.048934936523438,
+                            "height": 7.002714276313782,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    },
+                    {
+                        "original_width": 1760,
+                        "original_height": 2140,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 23.984624072909355,
+                            "y": 45.21046802401543,
+                            "width": 9.491024166345596,
+                            "height": 6.110246479511261,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    }
+                ],
+                "lead_time": 0.5218506920009531,
+                "created_at": "2026-05-11T11:10:52.262505Z"
             }
         ],
         "file_upload": "UR_001.jpg",
@@ -1248,10 +1511,46 @@
                         "original_height": 1930,
                         "image_rotation": 0,
                         "value": {
-                            "x": 36.4639338105917,
-                            "y": 41.52165623381734,
-                            "width": 6.772149354219437,
-                            "height": 2.900833450257778,
+                            "x": 31.94941282272339,
+                            "y": 51.09163373708725,
+                            "width": 12.613862752914429,
+                            "height": 8.133605122566223,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    },
+                    {
+                        "original_width": 1102,
+                        "original_height": 1930,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 36.746497079730034,
+                            "y": 41.351994685828686,
+                            "width": 6.973687559366226,
+                            "height": 3.3165935426950455,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    },
+                    {
+                        "original_width": 1102,
+                        "original_height": 1930,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 37.98899054527283,
+                            "y": 0.04269331693649292,
+                            "width": 31.8831205368042,
+                            "height": 13.659155368804932,
                             "rotation": 0,
                             "rectanglelabels": [
                                 "0"
@@ -1262,8 +1561,8 @@
                         "type": "rectanglelabels"
                     }
                 ],
-                "lead_time": 0.7416897260118276,
-                "created_at": "2026-05-02T09:49:51.078964Z"
+                "lead_time": 0.3574149229989416,
+                "created_at": "2026-05-11T11:10:52.668392Z"
             }
         ],
         "file_upload": "UR_021.png",
@@ -1282,10 +1581,10 @@
                         "original_height": 988,
                         "image_rotation": 0,
                         "value": {
-                            "x": 53.963421285152435,
-                            "y": 25.08816346526146,
-                            "width": 22.05360233783722,
-                            "height": 22.73280769586563,
+                            "x": 54.40742447972298,
+                            "y": 24.751678109169006,
+                            "width": 20.162449777126312,
+                            "height": 22.70025610923767,
                             "rotation": 0,
                             "rectanglelabels": [
                                 "0"
@@ -1296,8 +1595,8 @@
                         "type": "rectanglelabels"
                     }
                 ],
-                "lead_time": 1.0364382499828935,
-                "created_at": "2026-05-02T09:49:52.125831Z"
+                "lead_time": 0.5044695350006805,
+                "created_at": "2026-05-11T11:10:53.182509Z"
             }
         ],
         "file_upload": "SHF_001.jpg",
@@ -1316,10 +1615,10 @@
                         "original_height": 556,
                         "image_rotation": 0,
                         "value": {
-                            "x": 43.03983449935913,
-                            "y": 26.03573352098465,
-                            "width": 15.971755981445312,
-                            "height": 23.164990544319153,
+                            "x": 43.91424208879471,
+                            "y": 27.87856087088585,
+                            "width": 15.783938765525818,
+                            "height": 20.185138285160065,
                             "rotation": 0,
                             "rectanglelabels": [
                                 "0"
@@ -1330,8 +1629,8 @@
                         "type": "rectanglelabels"
                     }
                 ],
-                "lead_time": 0.76415146200452,
-                "created_at": "2026-05-02T09:49:52.903514Z"
+                "lead_time": 0.33395227300025,
+                "created_at": "2026-05-11T11:10:53.524890Z"
             }
         ],
         "file_upload": "SHF_012.jpg",
@@ -1350,10 +1649,10 @@
                         "original_height": 1320,
                         "image_rotation": 0,
                         "value": {
-                            "x": 49.208773858845234,
-                            "y": 57.46857523918152,
-                            "width": 4.390450939536095,
-                            "height": 2.2687554359436035,
+                            "x": 53.93024682998657,
+                            "y": 60.37005092948675,
+                            "width": 4.150390625,
+                            "height": 2.6492495089769363,
                             "rotation": 0,
                             "rectanglelabels": [
                                 "0"
@@ -1368,10 +1667,10 @@
                         "original_height": 1320,
                         "image_rotation": 0,
                         "value": {
-                            "x": 53.802211582660675,
-                            "y": 60.25559389963746,
-                            "width": 4.39816415309906,
-                            "height": 2.727101556956768,
+                            "x": 49.331773817539215,
+                            "y": 57.37395593896508,
+                            "width": 4.249259829521179,
+                            "height": 2.37614493817091,
                             "rotation": 0,
                             "rectanglelabels": [
                                 "0"
@@ -1382,8 +1681,8 @@
                         "type": "rectanglelabels"
                     }
                 ],
-                "lead_time": 1.0350075949681923,
-                "created_at": "2026-05-02T09:49:53.956473Z"
+                "lead_time": 0.44503409099888813,
+                "created_at": "2026-05-11T11:10:54.002848Z"
             }
         ],
         "file_upload": "UR_018.png",
@@ -1402,10 +1701,10 @@
                         "original_height": 1994,
                         "image_rotation": 0,
                         "value": {
-                            "x": 47.40729369223118,
-                            "y": 70.8421053364873,
-                            "width": 10.64140722155571,
-                            "height": 5.72735033929348,
+                            "x": 47.43926264345646,
+                            "y": 70.75418252497911,
+                            "width": 10.411899536848068,
+                            "height": 5.731641873717308,
                             "rotation": 0,
                             "rectanglelabels": [
                                 "0"
@@ -1420,10 +1719,10 @@
                         "original_height": 1994,
                         "image_rotation": 0,
                         "value": {
-                            "x": 35.97688227891922,
-                            "y": 77.16241916641593,
-                            "width": 8.027610182762146,
-                            "height": 2.7279408648610115,
+                            "x": 36.088939011096954,
+                            "y": 77.53157066181302,
+                            "width": 6.93531334400177,
+                            "height": 1.8432250246405602,
                             "rotation": 0,
                             "rectanglelabels": [
                                 "0"
@@ -1434,8 +1733,8 @@
                         "type": "rectanglelabels"
                     }
                 ],
-                "lead_time": 0.6926057190285064,
-                "created_at": "2026-05-02T09:49:54.669159Z"
+                "lead_time": 0.3167263989998901,
+                "created_at": "2026-05-11T11:10:54.367011Z"
             }
         ],
         "file_upload": "UR_012.png",
@@ -1454,10 +1753,10 @@
                         "original_height": 556,
                         "image_rotation": 0,
                         "value": {
-                            "x": 29.59897294640541,
-                            "y": 22.912734746932983,
-                            "width": 12.687848508358002,
-                            "height": 21.999186277389526,
+                            "x": 29.62774708867073,
+                            "y": 22.39948660135269,
+                            "width": 12.518821656703949,
+                            "height": 23.451760411262512,
                             "rotation": 0,
                             "rectanglelabels": [
                                 "0"
@@ -1468,8 +1767,8 @@
                         "type": "rectanglelabels"
                     }
                 ],
-                "lead_time": 0.7182236189837568,
-                "created_at": "2026-05-02T09:49:55.394755Z"
+                "lead_time": 0.32222665200060874,
+                "created_at": "2026-05-11T11:10:54.698423Z"
             }
         ],
         "file_upload": "SHF_017.jpg",
@@ -1488,10 +1787,10 @@
                         "original_height": 556,
                         "image_rotation": 0,
                         "value": {
-                            "x": 46.39228135347366,
-                            "y": 27.333775907754898,
-                            "width": 14.23560082912445,
-                            "height": 21.915630996227264,
+                            "x": 46.23520448803902,
+                            "y": 26.40780881047249,
+                            "width": 14.11498636007309,
+                            "height": 22.288189828395844,
                             "rotation": 0,
                             "rectanglelabels": [
                                 "0"
@@ -1502,8 +1801,8 @@
                         "type": "rectanglelabels"
                     }
                 ],
-                "lead_time": 0.716078790021129,
-                "created_at": "2026-05-02T09:49:56.117673Z"
+                "lead_time": 0.33212591300070926,
+                "created_at": "2026-05-11T11:10:55.038881Z"
             }
         ],
         "file_upload": "SHF_023.jpg",
@@ -1522,10 +1821,10 @@
                         "original_height": 1224,
                         "image_rotation": 0,
                         "value": {
-                            "x": 60.32923981547356,
-                            "y": 56.70762024819851,
-                            "width": 15.706147253513336,
-                            "height": 7.192075997591019,
+                            "x": 59.67336446046829,
+                            "y": 56.84965327382088,
+                            "width": 16.32694900035858,
+                            "height": 7.284735143184662,
                             "rotation": 0,
                             "rectanglelabels": [
                                 "0"
@@ -1536,8 +1835,8 @@
                         "type": "rectanglelabels"
                     }
                 ],
-                "lead_time": 0.7253333590342663,
-                "created_at": "2026-05-02T09:49:56.868454Z"
+                "lead_time": 0.3375229310004215,
+                "created_at": "2026-05-11T11:10:55.402511Z"
             }
         ],
         "file_upload": "WRI_013.png",
@@ -1556,10 +1855,10 @@
                         "original_height": 921,
                         "image_rotation": 0,
                         "value": {
-                            "x": 65.13887941837311,
-                            "y": 69.18008960783482,
-                            "width": 16.040343046188354,
-                            "height": 7.337664812803268,
+                            "x": 27.982962131500244,
+                            "y": 73.86336550116539,
+                            "width": 22.805559635162354,
+                            "height": 11.970312893390656,
                             "rotation": 0,
                             "rectanglelabels": [
                                 "0"
@@ -1574,10 +1873,10 @@
                         "original_height": 921,
                         "image_rotation": 0,
                         "value": {
-                            "x": 27.468541264533997,
-                            "y": 74.29484203457832,
-                            "width": 23.458075523376465,
-                            "height": 11.74919456243515,
+                            "x": 65.34318998456001,
+                            "y": 69.50836591422558,
+                            "width": 15.916608273983002,
+                            "height": 7.218543440103531,
                             "rotation": 0,
                             "rectanglelabels": [
                                 "0"
@@ -1588,8 +1887,8 @@
                         "type": "rectanglelabels"
                     }
                 ],
-                "lead_time": 0.7867195149883628,
-                "created_at": "2026-05-02T09:49:57.676623Z"
+                "lead_time": 0.34536683699843707,
+                "created_at": "2026-05-11T11:10:55.769159Z"
             }
         ],
         "file_upload": "WRI_030.png",
@@ -1608,10 +1907,10 @@
                         "original_height": 1740,
                         "image_rotation": 0,
                         "value": {
-                            "x": 32.27762468159199,
-                            "y": 73.19611422717571,
-                            "width": 6.134512275457382,
-                            "height": 2.9066063463687897,
+                            "x": 32.31955785304308,
+                            "y": 73.15968917682767,
+                            "width": 5.79635463654995,
+                            "height": 2.8070559725165367,
                             "rotation": 0,
                             "rectanglelabels": [
                                 "0"
@@ -1622,8 +1921,8 @@
                         "type": "rectanglelabels"
                     }
                 ],
-                "lead_time": 0.8348511619842611,
-                "created_at": "2026-05-02T09:49:58.528149Z"
+                "lead_time": 0.3350303429997439,
+                "created_at": "2026-05-11T11:10:56.143952Z"
             }
         ],
         "file_upload": "UR_010.png",
@@ -1642,10 +1941,10 @@
                         "original_height": 1512,
                         "image_rotation": 0,
                         "value": {
-                            "x": 63.85142803192139,
-                            "y": 39.3347404897213,
-                            "width": 14.339780807495117,
-                            "height": 19.421644508838654,
+                            "x": 63.78862336277962,
+                            "y": 38.62368017435074,
+                            "width": 13.989351689815521,
+                            "height": 17.212781310081482,
                             "rotation": 0,
                             "rectanglelabels": [
                                 "0"
@@ -1656,8 +1955,8 @@
                         "type": "rectanglelabels"
                     }
                 ],
-                "lead_time": 0.8740672810235992,
-                "created_at": "2026-05-02T09:49:59.421737Z"
+                "lead_time": 0.40649793299962766,
+                "created_at": "2026-05-11T11:10:56.564053Z"
             }
         ],
         "file_upload": "SHF_022.jpg",
@@ -1676,10 +1975,10 @@
                         "original_height": 1092,
                         "image_rotation": 0,
                         "value": {
-                            "x": 37.465450912714005,
-                            "y": 54.81983460485935,
-                            "width": 17.664973437786102,
-                            "height": 8.318745344877243,
+                            "x": 37.83976957201958,
+                            "y": 55.40144741535187,
+                            "width": 17.115111649036407,
+                            "height": 7.046598196029663,
                             "rotation": 0,
                             "rectanglelabels": [
                                 "0"
@@ -1690,8 +1989,8 @@
                         "type": "rectanglelabels"
                     }
                 ],
-                "lead_time": 0.8723066539969295,
-                "created_at": "2026-05-02T09:50:00.319008Z"
+                "lead_time": 0.4196638079993136,
+                "created_at": "2026-05-11T11:10:57.006767Z"
             }
         ],
         "file_upload": "WRI_019.png",
@@ -1710,10 +2009,10 @@
                         "original_height": 753,
                         "image_rotation": 0,
                         "value": {
-                            "x": 47.19459488987923,
-                            "y": 7.974919676780701,
-                            "width": 17.273639142513275,
-                            "height": 16.408461332321167,
+                            "x": 47.42077961564064,
+                            "y": 6.558145582675934,
+                            "width": 16.896073520183563,
+                            "height": 17.930471897125244,
                             "rotation": 0,
                             "rectanglelabels": [
                                 "0"
@@ -1724,8 +2023,8 @@
                         "type": "rectanglelabels"
                     }
                 ],
-                "lead_time": 0.9827615569811314,
-                "created_at": "2026-05-02T09:50:01.314699Z"
+                "lead_time": 0.5457268819991441,
+                "created_at": "2026-05-11T11:10:57.561724Z"
             }
         ],
         "file_upload": "SHF_021.jpg",
@@ -1738,9 +2037,28 @@
         "annotations": [
             {
                 "completed_by": 99,
-                "result": [],
-                "lead_time": 0.7748835289967246,
-                "created_at": "2026-05-02T09:50:02.102018Z"
+                "result": [
+                    {
+                        "original_width": 392,
+                        "original_height": 774,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 22.911764681339264,
+                            "y": 55.88468238711357,
+                            "width": 36.43171489238739,
+                            "height": 11.052800714969635,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    }
+                ],
+                "lead_time": 0.3067305980002857,
+                "created_at": "2026-05-11T11:10:57.881081Z"
             }
         ],
         "file_upload": "WRI_007.png",
@@ -1754,8 +2072,8 @@
             {
                 "completed_by": 99,
                 "result": [],
-                "lead_time": 1.1614962139865384,
-                "created_at": "2026-05-02T09:50:03.275896Z"
+                "lead_time": 0.5021032799995737,
+                "created_at": "2026-05-11T11:10:58.410864Z"
             }
         ],
         "file_upload": "UR_031.png",
@@ -1769,8 +2087,8 @@
             {
                 "completed_by": 99,
                 "result": [],
-                "lead_time": 0.9903927989653312,
-                "created_at": "2026-05-02T09:50:04.283078Z"
+                "lead_time": 0.45887480700002925,
+                "created_at": "2026-05-11T11:10:58.904089Z"
             }
         ],
         "file_upload": "UR_030.png",
@@ -1789,10 +2107,28 @@
                         "original_height": 2082,
                         "image_rotation": 0,
                         "value": {
-                            "x": 50.414375215768814,
-                            "y": 76.7360215075314,
-                            "width": 9.918658435344696,
-                            "height": 2.688836120069027,
+                            "x": 50.64930319786072,
+                            "y": 76.73437856137753,
+                            "width": 9.449601173400879,
+                            "height": 2.890152484178543,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    },
+                    {
+                        "original_width": 1096,
+                        "original_height": 2082,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 67.94870886951685,
+                            "y": 79.64550387114286,
+                            "width": 5.849651619791985,
+                            "height": 2.0412418991327286,
                             "rotation": 0,
                             "rectanglelabels": [
                                 "0"
@@ -1803,8 +2139,8 @@
                         "type": "rectanglelabels"
                     }
                 ],
-                "lead_time": 0.7399853650131263,
-                "created_at": "2026-05-02T09:50:05.039367Z"
+                "lead_time": 0.33783064499948523,
+                "created_at": "2026-05-11T11:10:59.302737Z"
             }
         ],
         "file_upload": "UR_019.png",
@@ -1823,10 +2159,10 @@
                         "original_height": 1112,
                         "image_rotation": 0,
                         "value": {
-                            "x": 45.48793435096741,
-                            "y": 48.77307340502739,
-                            "width": 31.729769706726074,
-                            "height": 12.180174887180328,
+                            "x": 44.92325931787491,
+                            "y": 48.280930519104004,
+                            "width": 32.82706439495087,
+                            "height": 12.236642837524414,
                             "rotation": 0,
                             "rectanglelabels": [
                                 "0"
@@ -1837,8 +2173,8 @@
                         "type": "rectanglelabels"
                     }
                 ],
-                "lead_time": 0.664835267001763,
-                "created_at": "2026-05-02T09:50:05.726117Z"
+                "lead_time": 0.31209461700018437,
+                "created_at": "2026-05-11T11:10:59.640278Z"
             }
         ],
         "file_upload": "WRI_001.png",
@@ -1857,10 +2193,10 @@
                         "original_height": 556,
                         "image_rotation": 0,
                         "value": {
-                            "x": 41.90014526247978,
-                            "y": 17.3478364944458,
-                            "width": 12.53168135881424,
-                            "height": 15.017867088317871,
+                            "x": 41.775866597890854,
+                            "y": 17.797081917524338,
+                            "width": 12.74278312921524,
+                            "height": 14.252962172031403,
                             "rotation": 0,
                             "rectanglelabels": [
                                 "0"
@@ -1871,8 +2207,8 @@
                         "type": "rectanglelabels"
                     }
                 ],
-                "lead_time": 0.7794870199868456,
-                "created_at": "2026-05-02T09:50:06.513598Z"
+                "lead_time": 0.36691724400043313,
+                "created_at": "2026-05-11T11:11:00.014999Z"
             }
         ],
         "file_upload": "SHF_019.jpg",
@@ -1891,10 +2227,28 @@
                         "original_height": 1102,
                         "image_rotation": 0,
                         "value": {
-                            "x": 44.95763648301363,
-                            "y": 56.996977142989635,
-                            "width": 5.072137340903282,
-                            "height": 3.1340721994638443,
+                            "x": 44.770497828722,
+                            "y": 56.705919839441776,
+                            "width": 4.80874627828598,
+                            "height": 3.327302262187004,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    },
+                    {
+                        "original_width": 948,
+                        "original_height": 1102,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 36.992418207228184,
+                            "y": 52.18190224841237,
+                            "width": 4.378445073962212,
+                            "height": 2.809721790254116,
                             "rotation": 0,
                             "rectanglelabels": [
                                 "0"
@@ -1905,8 +2259,8 @@
                         "type": "rectanglelabels"
                     }
                 ],
-                "lead_time": 1.1632258589961566,
-                "created_at": "2026-05-02T09:50:07.694294Z"
+                "lead_time": 0.5613463449990377,
+                "created_at": "2026-05-11T11:11:00.602897Z"
             }
         ],
         "file_upload": "UR_028.png",
@@ -1925,10 +2279,10 @@
                         "original_height": 2240,
                         "image_rotation": 0,
                         "value": {
-                            "x": 35.70662885904312,
-                            "y": 77.15167896822095,
-                            "width": 13.152757287025452,
-                            "height": 2.704598568379879,
+                            "x": 34.426768869161606,
+                            "y": 77.3276710882783,
+                            "width": 17.163731157779694,
+                            "height": 4.5043181627988815,
                             "rotation": 0,
                             "rectanglelabels": [
                                 "0"
@@ -1939,8 +2293,8 @@
                         "type": "rectanglelabels"
                     }
                 ],
-                "lead_time": 0.7013059369637631,
-                "created_at": "2026-05-02T09:50:08.410876Z"
+                "lead_time": 0.3012314699990384,
+                "created_at": "2026-05-11T11:11:00.959044Z"
             }
         ],
         "file_upload": "UR_013.png",
@@ -1959,10 +2313,10 @@
                         "original_height": 556,
                         "image_rotation": 0,
                         "value": {
-                            "x": 42.51553416252136,
-                            "y": 51.19490921497345,
-                            "width": 17.48676300048828,
-                            "height": 24.412542581558228,
+                            "x": 43.00321415066719,
+                            "y": 51.57845765352249,
+                            "width": 16.921697556972504,
+                            "height": 22.2915381193161,
                             "rotation": 0,
                             "rectanglelabels": [
                                 "0"
@@ -1973,8 +2327,8 @@
                         "type": "rectanglelabels"
                     }
                 ],
-                "lead_time": 0.7523579020053148,
-                "created_at": "2026-05-02T09:50:09.173780Z"
+                "lead_time": 0.35087698200004525,
+                "created_at": "2026-05-11T11:11:01.317125Z"
             }
         ],
         "file_upload": "SHF_016.jpg",
@@ -1993,10 +2347,10 @@
                         "original_height": 556,
                         "image_rotation": 0,
                         "value": {
-                            "x": 35.96464768052101,
-                            "y": 34.789636731147766,
-                            "width": 13.87517899274826,
-                            "height": 21.464914083480835,
+                            "x": 35.48572286963463,
+                            "y": 34.58884358406067,
+                            "width": 14.010687172412872,
+                            "height": 21.08505368232727,
                             "rotation": 0,
                             "rectanglelabels": [
                                 "0"
@@ -2007,8 +2361,8 @@
                         "type": "rectanglelabels"
                     }
                 ],
-                "lead_time": 0.7401327239931561,
-                "created_at": "2026-05-02T09:50:09.921871Z"
+                "lead_time": 0.3312515040015569,
+                "created_at": "2026-05-11T11:11:01.658539Z"
             }
         ],
         "file_upload": "SHF_009.jpg",
@@ -2027,10 +2381,10 @@
                         "original_height": 1480,
                         "image_rotation": 0,
                         "value": {
-                            "x": 37.00096905231476,
-                            "y": 64.02598153799772,
-                            "width": 12.228471040725708,
-                            "height": 4.661819711327553,
+                            "x": 37.098224461078644,
+                            "y": 63.64259235560894,
+                            "width": 12.085863947868347,
+                            "height": 4.998169094324112,
                             "rotation": 0,
                             "rectanglelabels": [
                                 "0"
@@ -2045,10 +2399,10 @@
                         "original_height": 1480,
                         "image_rotation": 0,
                         "value": {
-                            "x": 44.44977194070816,
-                            "y": 74.6522480621934,
-                            "width": 6.5352171659469604,
-                            "height": 4.130150005221367,
+                            "x": 44.95886154472828,
+                            "y": 74.28560741245747,
+                            "width": 6.091161817312241,
+                            "height": 4.477538913488388,
                             "rotation": 0,
                             "rectanglelabels": [
                                 "0"
@@ -2059,8 +2413,8 @@
                         "type": "rectanglelabels"
                     }
                 ],
-                "lead_time": 0.998296188947279,
-                "created_at": "2026-05-02T09:50:10.934301Z"
+                "lead_time": 0.4040193159999035,
+                "created_at": "2026-05-11T11:11:02.101090Z"
             }
         ],
         "file_upload": "UR_026.png",
@@ -2079,10 +2433,10 @@
                         "original_height": 748,
                         "image_rotation": 0,
                         "value": {
-                            "x": 33.93022119998932,
-                            "y": 10.106100142002106,
-                            "width": 16.605806350708008,
-                            "height": 25.150728225708008,
+                            "x": 34.70457121729851,
+                            "y": 10.804572701454163,
+                            "width": 15.445728600025177,
+                            "height": 23.64439070224762,
                             "rotation": 0,
                             "rectanglelabels": [
                                 "0"
@@ -2093,8 +2447,8 @@
                         "type": "rectanglelabels"
                     }
                 ],
-                "lead_time": 0.995139109028969,
-                "created_at": "2026-05-02T09:50:11.933459Z"
+                "lead_time": 0.4270926490007696,
+                "created_at": "2026-05-11T11:11:02.538704Z"
             }
         ],
         "file_upload": "SHF_025.jpg",
@@ -2113,10 +2467,10 @@
                         "original_height": 1884,
                         "image_rotation": 0,
                         "value": {
-                            "x": 43.44794452190399,
-                            "y": 79.22939173877239,
-                            "width": 19.686585664749146,
-                            "height": 6.80457130074501,
+                            "x": 43.841709196567535,
+                            "y": 79.25489991903305,
+                            "width": 19.52180564403534,
+                            "height": 6.754246354103088,
                             "rotation": 0,
                             "rectanglelabels": [
                                 "0"
@@ -2127,8 +2481,8 @@
                         "type": "rectanglelabels"
                     }
                 ],
-                "lead_time": 0.8829073330271058,
-                "created_at": "2026-05-02T09:50:12.834213Z"
+                "lead_time": 0.32178303499858885,
+                "created_at": "2026-05-11T11:11:02.907587Z"
             }
         ],
         "file_upload": "UR_015.png",
@@ -2141,9 +2495,28 @@
         "annotations": [
             {
                 "completed_by": 99,
-                "result": [],
-                "lead_time": 1.4555848520249128,
-                "created_at": "2026-05-02T09:50:14.311425Z"
+                "result": [
+                    {
+                        "original_width": 1612,
+                        "original_height": 1400,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 42.93350726366043,
+                            "y": 29.256436973810196,
+                            "width": 17.008790373802185,
+                            "height": 17.335455119609833,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    }
+                ],
+                "lead_time": 0.5273196220005048,
+                "created_at": "2026-05-11T11:11:03.447072Z"
             }
         ],
         "file_upload": "SHF_004.jpg",
@@ -2157,8 +2530,8 @@
             {
                 "completed_by": 99,
                 "result": [],
-                "lead_time": 1.3752072239876725,
-                "created_at": "2026-05-02T09:50:15.703043Z"
+                "lead_time": 0.6638094350000756,
+                "created_at": "2026-05-11T11:11:04.138238Z"
             }
         ],
         "file_upload": "UR_032.png",
@@ -2177,10 +2550,10 @@
                         "original_height": 2328,
                         "image_rotation": 0,
                         "value": {
-                            "x": 40.72669669985771,
-                            "y": 80.83549123257399,
-                            "width": 16.30920320749283,
-                            "height": 4.602265730500221,
+                            "x": 40.106817334890366,
+                            "y": 80.54193649441004,
+                            "width": 16.33119136095047,
+                            "height": 4.644398018717766,
                             "rotation": 0,
                             "rectanglelabels": [
                                 "0"
@@ -2191,8 +2564,8 @@
                         "type": "rectanglelabels"
                     }
                 ],
-                "lead_time": 0.7684729779721238,
-                "created_at": "2026-05-02T09:50:16.492592Z"
+                "lead_time": 0.2967574269987381,
+                "created_at": "2026-05-11T11:11:04.498799Z"
             }
         ],
         "file_upload": "UR_002.png",
@@ -2211,10 +2584,10 @@
                         "original_height": 2462,
                         "image_rotation": 0,
                         "value": {
-                            "x": 35.51691174507141,
-                            "y": 76.77137292921543,
-                            "width": 17.37925410270691,
-                            "height": 4.481958597898483,
+                            "x": 36.176376044750214,
+                            "y": 77.68138833343983,
+                            "width": 16.50421917438507,
+                            "height": 3.897305577993393,
                             "rotation": 0,
                             "rectanglelabels": [
                                 "0"
@@ -2225,8 +2598,8 @@
                         "type": "rectanglelabels"
                     }
                 ],
-                "lead_time": 0.661475163011346,
-                "created_at": "2026-05-02T09:50:17.171209Z"
+                "lead_time": 0.2861301569992065,
+                "created_at": "2026-05-11T11:11:04.845623Z"
             }
         ],
         "file_upload": "UR_009.png",
@@ -2245,10 +2618,10 @@
                         "original_height": 1434,
                         "image_rotation": 0,
                         "value": {
-                            "x": 60.08808724582195,
-                            "y": 63.96059263497591,
-                            "width": 6.873295456171036,
-                            "height": 3.702237829566002,
+                            "x": 60.130834206938744,
+                            "y": 63.64869140088558,
+                            "width": 6.714094430208206,
+                            "height": 3.8359828293323517,
                             "rotation": 0,
                             "rectanglelabels": [
                                 "0"
@@ -2263,10 +2636,10 @@
                         "original_height": 1434,
                         "image_rotation": 0,
                         "value": {
-                            "x": 65.50924107432365,
-                            "y": 53.76645252108574,
-                            "width": 7.78290182352066,
-                            "height": 4.533077776432037,
+                            "x": 65.67812040448189,
+                            "y": 53.7337401881814,
+                            "width": 7.807277143001556,
+                            "height": 4.751710221171379,
                             "rotation": 0,
                             "rectanglelabels": [
                                 "0"
@@ -2277,8 +2650,8 @@
                         "type": "rectanglelabels"
                     }
                 ],
-                "lead_time": 1.0531695259851404,
-                "created_at": "2026-05-02T09:50:18.239251Z"
+                "lead_time": 0.4460008320002089,
+                "created_at": "2026-05-11T11:11:05.329510Z"
             }
         ],
         "file_upload": "UR_022.png",
@@ -2297,10 +2670,10 @@
                         "original_height": 674,
                         "image_rotation": 0,
                         "value": {
-                            "x": 29.877111315727234,
-                            "y": 54.40624952316284,
-                            "width": 20.786583423614502,
-                            "height": 13.056397438049316,
+                            "x": 29.771070182323456,
+                            "y": 52.41081118583679,
+                            "width": 20.364859700202942,
+                            "height": 13.94500732421875,
                             "rotation": 0,
                             "rectanglelabels": [
                                 "0"
@@ -2311,8 +2684,8 @@
                         "type": "rectanglelabels"
                     }
                 ],
-                "lead_time": 1.0539662190130912,
-                "created_at": "2026-05-02T09:50:19.311311Z"
+                "lead_time": 0.5408874869990541,
+                "created_at": "2026-05-11T11:11:05.886171Z"
             }
         ],
         "file_upload": "WRI_004.png",
@@ -2331,10 +2704,10 @@
                         "original_height": 1521,
                         "image_rotation": 0,
                         "value": {
-                            "x": 50.096531212329865,
-                            "y": 42.66727790236473,
-                            "width": 28.47047746181488,
-                            "height": 8.287723362445831,
+                            "x": 49.641065299510956,
+                            "y": 41.93776957690716,
+                            "width": 29.663076996803284,
+                            "height": 9.138146787881851,
                             "rotation": 0,
                             "rectanglelabels": [
                                 "0"
@@ -2349,10 +2722,10 @@
                         "original_height": 1521,
                         "image_rotation": 0,
                         "value": {
-                            "x": 24.33823049068451,
-                            "y": 41.73465333878994,
-                            "width": 20.761722326278687,
-                            "height": 6.827092915773392,
+                            "x": 23.494233936071396,
+                            "y": 40.55399000644684,
+                            "width": 21.697433292865753,
+                            "height": 8.27798843383789,
                             "rotation": 0,
                             "rectanglelabels": [
                                 "0"
@@ -2363,8 +2736,8 @@
                         "type": "rectanglelabels"
                     }
                 ],
-                "lead_time": 0.5620924169779755,
-                "created_at": "2026-05-02T09:50:19.903904Z"
+                "lead_time": 0.2746376009999949,
+                "created_at": "2026-05-11T11:11:06.190745Z"
             }
         ],
         "file_upload": "WRI_017.png",
@@ -2383,10 +2756,28 @@
                         "original_height": 652,
                         "image_rotation": 0,
                         "value": {
-                            "x": 47.82993867993355,
-                            "y": 67.56333746016026,
-                            "width": 21.18837684392929,
-                            "height": 9.6054308116436,
+                            "x": 47.92487323284149,
+                            "y": 65.27724117040634,
+                            "width": 21.684855222702026,
+                            "height": 12.474682927131653,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    },
+                    {
+                        "original_width": 554,
+                        "original_height": 652,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 25.505352020263672,
+                            "y": 68.18130537867546,
+                            "width": 13.060212135314941,
+                            "height": 8.17277580499649,
                             "rotation": 0,
                             "rectanglelabels": [
                                 "0"
@@ -2397,8 +2788,8 @@
                         "type": "rectanglelabels"
                     }
                 ],
-                "lead_time": 1.1127304260153323,
-                "created_at": "2026-05-02T09:50:21.033291Z"
+                "lead_time": 0.5733290680000209,
+                "created_at": "2026-05-11T11:11:06.780212Z"
             }
         ],
         "file_upload": "WRI_028.png",
@@ -2417,10 +2808,10 @@
                         "original_height": 848,
                         "image_rotation": 0,
                         "value": {
-                            "x": 29.440780729055405,
-                            "y": 56.33976496756077,
-                            "width": 22.033657133579254,
-                            "height": 8.816193789243698,
+                            "x": 28.629813343286514,
+                            "y": 55.15110678970814,
+                            "width": 22.725431621074677,
+                            "height": 10.296782106161118,
                             "rotation": 0,
                             "rectanglelabels": [
                                 "0"
@@ -2431,8 +2822,8 @@
                         "type": "rectanglelabels"
                     }
                 ],
-                "lead_time": 0.7234755450044759,
-                "created_at": "2026-05-02T09:50:21.774339Z"
+                "lead_time": 0.29823354600011953,
+                "created_at": "2026-05-11T11:11:07.093080Z"
             }
         ],
         "file_upload": "WRI_012.png",
@@ -2446,8 +2837,8 @@
             {
                 "completed_by": 99,
                 "result": [],
-                "lead_time": 0.7384890279499814,
-                "created_at": "2026-05-02T09:50:22.534584Z"
+                "lead_time": 0.33331643199926475,
+                "created_at": "2026-05-11T11:11:07.446252Z"
             }
         ],
         "file_upload": "WRI_022.png",
@@ -2460,9 +2851,28 @@
         "annotations": [
             {
                 "completed_by": 99,
-                "result": [],
-                "lead_time": 0.5467016149777919,
-                "created_at": "2026-05-02T09:50:23.110438Z"
+                "result": [
+                    {
+                        "original_width": 581,
+                        "original_height": 1562,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 42.83123463392258,
+                            "y": 53.10591049492359,
+                            "width": 39.09054100513458,
+                            "height": 8.629664033651352,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    }
+                ],
+                "lead_time": 0.3313501829998131,
+                "created_at": "2026-05-11T11:11:07.811143Z"
             }
         ],
         "file_upload": "WRI_014.png",
@@ -2476,8 +2886,8 @@
             {
                 "completed_by": 99,
                 "result": [],
-                "lead_time": 0.7949616300174966,
-                "created_at": "2026-05-02T09:50:23.928975Z"
+                "lead_time": 0.32746728399979474,
+                "created_at": "2026-05-11T11:11:08.151507Z"
             }
         ],
         "file_upload": "NoF_UR_005.jpg",
@@ -2496,10 +2906,10 @@
                         "original_height": 556,
                         "image_rotation": 0,
                         "value": {
-                            "x": 44.80619579553604,
-                            "y": 11.894451081752777,
-                            "width": 12.509164214134216,
-                            "height": 31.46914541721344,
+                            "x": 44.796422868967056,
+                            "y": 12.620386481285095,
+                            "width": 17.59531944990158,
+                            "height": 30.08955717086792,
                             "rotation": 0,
                             "rectanglelabels": [
                                 "0"
@@ -2510,8 +2920,8 @@
                         "type": "rectanglelabels"
                     }
                 ],
-                "lead_time": 0.8665855349972844,
-                "created_at": "2026-05-02T09:50:24.803678Z"
+                "lead_time": 0.3462765699987358,
+                "created_at": "2026-05-11T11:11:08.506562Z"
             }
         ],
         "file_upload": "SHF_015.jpg",
@@ -2525,8 +2935,8 @@
             {
                 "completed_by": 99,
                 "result": [],
-                "lead_time": 1.4645081000053324,
-                "created_at": "2026-05-02T09:50:26.285360Z"
+                "lead_time": 0.7042013209993456,
+                "created_at": "2026-05-11T11:11:09.222303Z"
             }
         ],
         "file_upload": "NoF_UR_009.jpg",
@@ -2540,8 +2950,8 @@
             {
                 "completed_by": 99,
                 "result": [],
-                "lead_time": 0.7918572290218435,
-                "created_at": "2026-05-02T09:50:27.121360Z"
+                "lead_time": 0.2831415759992524,
+                "created_at": "2026-05-11T11:11:09.544575Z"
             }
         ],
         "file_upload": "WRI_011.png",
@@ -2554,9 +2964,46 @@
         "annotations": [
             {
                 "completed_by": 99,
-                "result": [],
-                "lead_time": 0.8496642429963686,
-                "created_at": "2026-05-02T09:50:27.981122Z"
+                "result": [
+                    {
+                        "original_width": 960,
+                        "original_height": 556,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 73.95785041153431,
+                            "y": 6.702873855829239,
+                            "width": 9.752973169088364,
+                            "height": 12.747092545032501,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    },
+                    {
+                        "original_width": 960,
+                        "original_height": 556,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 76.80330164730549,
+                            "y": 6.37039989233017,
+                            "width": 7.010879367589951,
+                            "height": 13.310688734054565,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    }
+                ],
+                "lead_time": 0.3194593660009559,
+                "created_at": "2026-05-11T11:11:09.873047Z"
             }
         ],
         "file_upload": "SHF_008.jpg",
@@ -2569,9 +3016,28 @@
         "annotations": [
             {
                 "completed_by": 99,
-                "result": [],
-                "lead_time": 1.3634443629998714,
-                "created_at": "2026-05-02T09:50:29.361209Z"
+                "result": [
+                    {
+                        "original_width": 1288,
+                        "original_height": 1184,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 42.5085224211216,
+                            "y": 33.5045725107193,
+                            "width": 16.01230353116989,
+                            "height": 11.498147249221802,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    }
+                ],
+                "lead_time": 0.6279634949987667,
+                "created_at": "2026-05-11T11:11:10.511296Z"
             }
         ],
         "file_upload": "SHF_020.jpg",
@@ -2585,8 +3051,8 @@
             {
                 "completed_by": 99,
                 "result": [],
-                "lead_time": 0.8726749240304343,
-                "created_at": "2026-05-02T09:50:30.247004Z"
+                "lead_time": 0.40240450000055716,
+                "created_at": "2026-05-11T11:11:10.926042Z"
             }
         ],
         "file_upload": "NoF_UR_008.jpg",
@@ -2600,8 +3066,8 @@
             {
                 "completed_by": 99,
                 "result": [],
-                "lead_time": 0.8481860280153342,
-                "created_at": "2026-05-02T09:50:31.103510Z"
+                "lead_time": 0.682919385999412,
+                "created_at": "2026-05-11T11:11:11.617857Z"
             }
         ],
         "file_upload": "NoF_UR_006.jpg",
@@ -2614,9 +3080,28 @@
         "annotations": [
             {
                 "completed_by": 99,
-                "result": [],
-                "lead_time": 0.688284405041486,
-                "created_at": "2026-05-02T09:50:31.814947Z"
+                "result": [
+                    {
+                        "original_width": 1102,
+                        "original_height": 2158,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 41.49589166045189,
+                            "y": 18.979712948203087,
+                            "width": 12.807579338550568,
+                            "height": 4.095114022493362,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    }
+                ],
+                "lead_time": 0.31475346600018383,
+                "created_at": "2026-05-11T11:11:11.983011Z"
             }
         ],
         "file_upload": "UR_035.png",
@@ -2635,10 +3120,10 @@
                         "original_height": 976,
                         "image_rotation": 0,
                         "value": {
-                            "x": 53.727295994758606,
-                            "y": 52.65558771789074,
-                            "width": 16.780811548233032,
-                            "height": 7.530168443918228,
+                            "x": 54.19624596834183,
+                            "y": 53.26489545404911,
+                            "width": 17.45229661464691,
+                            "height": 9.52400490641594,
                             "rotation": 0,
                             "rectanglelabels": [
                                 "0"
@@ -2649,8 +3134,8 @@
                         "type": "rectanglelabels"
                     }
                 ],
-                "lead_time": 0.8993422039784491,
-                "created_at": "2026-05-02T09:50:32.736694Z"
+                "lead_time": 0.38989382200088585,
+                "created_at": "2026-05-11T11:11:11.181927Z"
             }
         ],
         "file_upload": "WRI_015.png",
@@ -2669,10 +3154,10 @@
                         "original_height": 1200,
                         "image_rotation": 0,
                         "value": {
-                            "x": 39.68976587057114,
-                            "y": 18.163643032312393,
-                            "width": 26.225700974464417,
-                            "height": 18.58559101819992,
+                            "x": 38.9766201376915,
+                            "y": 17.75701344013214,
+                            "width": 26.197710633277893,
+                            "height": 18.698984384536743,
                             "rotation": 0,
                             "rectanglelabels": [
                                 "0"
@@ -2683,8 +3168,8 @@
                         "type": "rectanglelabels"
                     }
                 ],
-                "lead_time": 1.2746067949919961,
-                "created_at": "2026-05-02T09:50:34.025076Z"
+                "lead_time": 0.6142534509999678,
+                "created_at": "2026-05-11T11:11:11.810339Z"
             }
         ],
         "file_upload": "SHF_024.jpg",
@@ -2698,8 +3183,8 @@
             {
                 "completed_by": 99,
                 "result": [],
-                "lead_time": 1.0899161669658497,
-                "created_at": "2026-05-02T09:50:35.127412Z"
+                "lead_time": 0.4510531819996686,
+                "created_at": "2026-05-11T11:11:12.275122Z"
             }
         ],
         "file_upload": "NoF_UR_004.jpg",
@@ -2713,8 +3198,8 @@
             {
                 "completed_by": 99,
                 "result": [],
-                "lead_time": 0.6391459299484268,
-                "created_at": "2026-05-02T09:50:35.791200Z"
+                "lead_time": 0.28666924400022253,
+                "created_at": "2026-05-11T11:11:12.586635Z"
             }
         ],
         "file_upload": "WRI_029.png",
@@ -2733,10 +3218,10 @@
                         "original_height": 1588,
                         "image_rotation": 0,
                         "value": {
-                            "x": 59.00902301073074,
-                            "y": 42.58554428815842,
-                            "width": 12.746378779411316,
-                            "height": 14.868524670600891,
+                            "x": 60.50885245203972,
+                            "y": 42.773111909627914,
+                            "width": 11.045362055301666,
+                            "height": 14.177055656909943,
                             "rotation": 0,
                             "rectanglelabels": [
                                 "0"
@@ -2747,8 +3232,8 @@
                         "type": "rectanglelabels"
                     }
                 ],
-                "lead_time": 1.0907746590091847,
-                "created_at": "2026-05-02T09:50:36.901854Z"
+                "lead_time": 0.46909941699959745,
+                "created_at": "2026-05-11T11:11:13.075084Z"
             }
         ],
         "file_upload": "SHF_007.jpg",
@@ -2767,10 +3252,10 @@
                         "original_height": 784,
                         "image_rotation": 0,
                         "value": {
-                            "x": 39.520812034606934,
-                            "y": 63.529521226882935,
-                            "width": 23.291349411010742,
-                            "height": 9.922802448272705,
+                            "x": 39.475854486227036,
+                            "y": 62.111540511250496,
+                            "width": 23.437996208667755,
+                            "height": 12.161620706319809,
                             "rotation": 0,
                             "rectanglelabels": [
                                 "0"
@@ -2781,8 +3266,8 @@
                         "type": "rectanglelabels"
                     }
                 ],
-                "lead_time": 0.815116137964651,
-                "created_at": "2026-05-02T09:50:37.734237Z"
+                "lead_time": 0.3523404660008964,
+                "created_at": "2026-05-11T11:11:13.442575Z"
             }
         ],
         "file_upload": "WRI_024.png",
@@ -2796,8 +3281,8 @@
             {
                 "completed_by": 99,
                 "result": [],
-                "lead_time": 0.9635869020130485,
-                "created_at": "2026-05-02T09:50:38.714114Z"
+                "lead_time": 0.4365372550000757,
+                "created_at": "2026-05-11T11:11:13.897652Z"
             }
         ],
         "file_upload": "WRI_003.png",
@@ -2810,9 +3295,28 @@
         "annotations": [
             {
                 "completed_by": 99,
-                "result": [],
-                "lead_time": 1.110707209969405,
-                "created_at": "2026-05-02T09:50:39.833892Z"
+                "result": [
+                    {
+                        "original_width": 960,
+                        "original_height": 762,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 41.291169077157974,
+                            "y": 0.0,
+                            "width": 16.04045480489731,
+                            "height": 12.56231814622879,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    }
+                ],
+                "lead_time": 0.4512859780006693,
+                "created_at": "2026-05-11T11:11:14.358120Z"
             }
         ],
         "file_upload": "SHF_013.jpg",
@@ -2826,8 +3330,8 @@
             {
                 "completed_by": 99,
                 "result": [],
-                "lead_time": 1.2940133959637024,
-                "created_at": "2026-05-02T09:50:41.142223Z"
+                "lead_time": 0.5649272480004583,
+                "created_at": "2026-05-11T11:11:14.935822Z"
             }
         ],
         "file_upload": "NoF_UR_002.jpg",
@@ -2846,10 +3350,10 @@
                         "original_height": 1866,
                         "image_rotation": 0,
                         "value": {
-                            "x": 48.02297428250313,
-                            "y": 46.823644265532494,
-                            "width": 7.200692594051361,
-                            "height": 7.095850259065628,
+                            "x": 47.95336425304413,
+                            "y": 46.644169837236404,
+                            "width": 7.1646034717559814,
+                            "height": 7.053469121456146,
                             "rotation": 0,
                             "rectanglelabels": [
                                 "0"
@@ -2860,8 +3364,8 @@
                         "type": "rectanglelabels"
                     }
                 ],
-                "lead_time": 0.8827986899996176,
-                "created_at": "2026-05-02T09:50:42.034463Z"
+                "lead_time": 0.3638794559992675,
+                "created_at": "2026-05-11T11:11:15.344536Z"
             }
         ],
         "file_upload": "UR_017.png",

@@ -1,0 +1,7 @@
+,yoloV8n_optA,yoloV8m_optA,yoloV11n_optA,Usuario_Control,Usuario_R1,Usuario_Catedratico
+yoloV8n_optA,1.0000,0.9287,0.9076,0.5982,0.6370,0.7490
+yoloV8m_optA,0.9287,1.0000,0.9087,0.5922,0.6828,0.7623
+yoloV11n_optA,0.9076,0.9087,1.0000,0.5789,0.6754,0.7239
+Usuario_Control,0.5982,0.5922,0.5789,1.0000,0.6595,0.6237
+Usuario_R1,0.6370,0.6828,0.6754,0.6595,1.0000,0.6898
+Usuario_Catedratico,0.7490,0.7623,0.7239,0.6237,0.6898,1.0000

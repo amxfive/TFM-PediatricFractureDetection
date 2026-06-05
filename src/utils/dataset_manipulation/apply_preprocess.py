@@ -29,13 +29,14 @@ def pipeline_medico_pro(img_path, ruta_salida):
     # 5. Convertir a 3 canales (YOLO compatible)
     img_rgb = cv2.cvtColor(img_clahe, cv2.COLOR_GRAY2RGB)
     
-    # 6. Guardar (Forzamos .png para evitar artefactos de compresión JPG)
-    # Extraemos la ruta sin extensión y forzamos que acabe en .png 
-    # por si el original era .jpg
-    base_path, _ = os.path.splitext(ruta_salida)
-    ruta_salida_png = f"{base_path}.png"
-    
-    success = cv2.imwrite(ruta_salida_png, img_rgb, [cv2.IMWRITE_PNG_COMPRESSION, 3])
+    # 6. Guardar manteniendo la extensión original del archivo
+    # Eliminar versiones previas con otra extensión para evitar duplicados
+    base_path = os.path.splitext(ruta_salida)[0]
+    for ext in ['.png', '.jpg', '.jpeg', '.tif', '.tiff']:
+        old_file = base_path + ext
+        if old_file != ruta_salida and os.path.exists(old_file):
+            os.remove(old_file)
+    success = cv2.imwrite(ruta_salida, img_rgb)
     
     return success
 
@@ -82,8 +83,8 @@ def procesar_dataset_arbol(carpeta_origen, carpeta_destino):
 # CONFIGURA TUS RUTAS AQUÍ
 # ==========================================
 # OJO: Ahora apuntas a la carpeta RAÍZ del dataset, no solo a "images"
-CARPETA_INPUT = "data/raw/ExpDataset"
-CARPETA_OUTPUT = "data/processed_2/ExpDataset"
+CARPETA_INPUT = "data/EvalDatasetProperID"
+CARPETA_OUTPUT = "data/processed_2/EvalDatasetProperID"
 
 if __name__ == '__main__':
     procesar_dataset_arbol(CARPETA_INPUT, CARPETA_OUTPUT)
