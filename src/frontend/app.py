@@ -20,7 +20,7 @@ from image_utils import (
 
 
 st.set_page_config(
-    page_title="PediaFracture AI",
+    page_title="Sistema de Detección de Fracturas Pediátricas",
     page_icon=":material/health_and_safety:",
     layout="wide",
     initial_sidebar_state="collapsed",
@@ -37,6 +37,13 @@ def clear_analysis() -> None:
     st.session_state.analysis_signature = None
     st.session_state.analysis_duration = None
     st.session_state.analysis_error = None
+
+
+def reset_source_defaults() -> None:
+    clear_analysis()
+    st.session_state.confidence_threshold = 0.30
+    st.session_state.viewer_brightness = 1.0
+    st.session_state.viewer_contrast = 1.0
 
 
 def initialize_state() -> None:
@@ -116,7 +123,7 @@ def run_analysis(image_bytes: bytes, filename: str, signature: str) -> None:
 def render_header() -> None:
     title_col, badge_col = st.columns([5, 1], vertical_alignment="center")
     with title_col:
-        st.title("PediaFracture AI")
+        st.title("Sistema de Detección de Fracturas Pediátricas")
         st.caption(
             "Lectura asistida de radiografías pediátricas de miembro superior."
         )
@@ -136,7 +143,7 @@ def render_case_selector() -> None:
             "Origen de la imagen",
             ["Caso demo", "Subir radiografía"],
             key="source_mode",
-            on_change=clear_analysis,
+            on_change=reset_source_defaults,
             width="stretch",
         )
 

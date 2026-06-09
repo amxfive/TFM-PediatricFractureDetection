@@ -59,6 +59,20 @@ def test_uploaded_image_replaces_demo_case():
     assert len(app.get("html")) == 2
 
 
+def test_upload_mode_restores_default_analysis_and_viewer_values():
+    app = app_test().run()
+    app.session_state.confidence_threshold = 0.65
+    app.session_state.viewer_brightness = 1.8
+    app.session_state.viewer_contrast = 2.1
+
+    app.segmented_control(key="source_mode").set_value("Subir radiografía").run()
+
+    assert not app.exception
+    assert app.session_state.confidence_threshold == 0.30
+    assert app.session_state.viewer_brightness == 1.0
+    assert app.session_state.viewer_contrast == 1.0
+
+
 def test_successful_analysis_displays_detection(monkeypatch):
     def fake_predict(*args, **kwargs):
         return (
