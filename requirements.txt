@@ -5,7 +5,7 @@ torchvision>=0.15.0      # Utilidades para procesamiento de imágenes médicas
 opencv-python-headless   # Procesamiento de imágenes (BGR/RGB) sin GUI
 
 # --- INTERFAZ MÉDICA (APP) ---
-streamlit>=1.30.0        # El framework para la aplicación web
+streamlit==1.58.0       # El framework para la aplicación web
 pillow>=10.0.0           # Manejo de imágenes (PIL) y formatos de 16 bits
 numpy>=1.24.0            # Operaciones matemáticas y normalización de arrays
 

@@ -1,242 +1,447 @@
-import streamlit as st
-from PIL import Image, ImageEnhance, ImageFont, ImageDraw
-import numpy as np
-import requests
+import hashlib
 import io
+import os
 from pathlib import Path
 
-if "res_data" not in st.session_state:
-    st.session_state.res_data = {}
+import streamlit as st
 
-if "analizado" not in st.session_state:
-    st.session_state.analizado = False
+import api_client
+from case_catalog import CASES_BY_ID, DEFAULT_CASE_ID, DEMO_CASES
+from image_utils import (
+    ImageValidationError,
+    apply_view_adjustments,
+    draw_overlays,
+    fit_on_black_canvas,
+    image_to_png_bytes,
+    normalize_image,
+    parse_yolo_boxes,
+)
 
-if "ejemplo_activo" not in st.session_state:
-    st.session_state.ejemplo_activo = None
 
 st.set_page_config(
-    page_title="TFM - Detección de Fracturas Pediátricas",
-    page_icon="\U0001fa79",
+    page_title="Detección de fracturas pediátricas",
+    page_icon=":material/health_and_safety:",
     layout="wide",
+    initial_sidebar_state="collapsed",
 )
 
-st.markdown("""
-<style>
-:root {
-    --medical-blue: #005A9C;
-    --medical-light: #E6F0F9;
-}
-div.stButton > button {
-    background-color: var(--medical-blue);
-    color: white;
-    width: 100%;
-    height: 55px;
-    font-size: 18px;
-    font-weight: 600;
-    border-radius: 8px;
-    border: none;
-    transition: all 0.3s;
-}
-div.stButton > button:hover {
-    background-color: #003F70;
-    box-shadow: 0 4px 8px rgba(0,90,156,0.3);
-}
-div[data-testid="metric-container"] {
-    background-color: var(--medical-light);
-    border-radius: 8px;
-    padding: 15px;
-    border-left: 5px solid var(--medical-blue);
-}
-[data-testid="stImage"] img {
-    max-height: 70vh;
-    object-fit: contain;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    border: 2px solid #eaebf0;
-    margin: auto;
-    display: block;
-    background-color: #000;
-}
-#MainMenu {visibility: hidden;}
-footer {visibility: hidden;}
-</style>
-""", unsafe_allow_html=True)
 
-EJEMPLOS_DIR = Path(__file__).parent / "examples"
-
-EJEMPLOS_META = [
-    ("09678e1b-distalUR_334257201609240543_front.png", "Fractura", "Distal de radio/cúbito"),
-    ("0e91fd4d-midshaftUR_295711201510240018_side.png", "Fractura", "Diáfisis de radio/cúbito"),
-    ("310c070b-proximalUR_608317202211280374_side.png", "Fractura", "Proximal de radio/cúbito"),
-    ("SHF_001.jpg", "Fractura", "Supracondílea de húmero"),
-    ("UR_001.jpg", "Fractura", "Radio/cúbito"),
-    ("WRI_001.png", "Fractura", "Muñeca"),
-    ("12667489-proximalUR_389715201712230734_side.png", "Sano", "Radio/cúbito proximal"),
-    ("3796cf71-distalUR_605664202211070678_side.png", "Sano", "Radio/cúbito distal"),
-    ("431064ca-proximalUR_492231202001110685_front.png", "Sano", "Radio/cúbito proximal"),
-    ("NoF_UR_001.jpg", "Sano", "Radio/cúbito"),
-    ("NoF_UR_002.jpg", "Sano", "Radio/cúbito"),
-    ("NoF_UR_003.jpg", "Sano", "Radio/cúbito"),
-]
+BACKEND_URL = os.getenv("BACKEND_URL", "http://backend:8000/predict")
+EXAMPLES_DIR = Path(__file__).parent / "examples"
+CANVAS_SIZE = (960, 960)
 
 
-def procesar_imagen(img_bytes):
-    raw = Image.open(io.BytesIO(img_bytes))
-    arr = np.array(raw)
-    if arr.dtype == np.uint16:
-        arr = (arr / 256).astype("uint8")
-    elif arr.dtype != np.uint8:
-        arr = ((arr - arr.min()) / (arr.max() - arr.min()) * 255).astype("uint8")
-    img = Image.fromarray(arr).convert("RGB")
-    if contraste != 1.0:
-        img = ImageEnhance.Contrast(img).enhance(contraste)
-    if brillo != 1.0:
-        img = ImageEnhance.Brightness(img).enhance(brillo)
-    return img
+def clear_analysis() -> None:
+    st.session_state.analysis_result = None
+    st.session_state.analysis_signature = None
+    st.session_state.analysis_duration = None
+    st.session_state.analysis_error = None
 
 
-def mostrar_visor(img_bytes, nombre):
-    img_visual = procesar_imagen(img_bytes)
+def initialize_state() -> None:
+    defaults = {
+        "source_mode": "Caso demo",
+        "selected_case_id": DEFAULT_CASE_ID,
+        "analysis_result": None,
+        "analysis_signature": None,
+        "analysis_duration": None,
+        "analysis_error": None,
+        "confidence_threshold": 0.30,
+        "viewer_brightness": 1.0,
+        "viewer_contrast": 1.0,
+        "evaluation_mode": False,
+        "ground_truth_text": "",
+    }
+    for key, value in defaults.items():
+        st.session_state.setdefault(key, value)
 
-    col1, col2 = st.columns(2, gap="large")
 
-    with col1:
-        st.markdown("#### Radiografía Original")
-        st.image(img_visual, width="stretch")
-        if st.button("Analizar Imagen con IA"):
-            st.session_state.res_data = {}
-            st.session_state.analizado = True
-            st.rerun()
+@st.cache_data(show_spinner=False)
+def load_demo_bytes(filename: str) -> bytes:
+    return (EXAMPLES_DIR / filename).read_bytes()
 
-    with col2:
-        st.markdown("#### Resultado del Análisis")
-        if st.session_state.analizado:
-            if not st.session_state.res_data:
-                with st.spinner("IA analizando radiografía..."):
-                    try:
-                        ext = "png" if nombre.lower().endswith(".png") else "jpeg"
-                        files = {"file": (nombre, img_bytes, f"image/{ext}")}
-                        data_form = {"confidence": conf_threshold}
-                        resp = requests.post("http://backend:8000/predict", files=files, data=data_form)
-                        resp.raise_for_status()
-                        st.session_state.res_data = resp.json()
-                    except Exception as e:
-                        st.error(f"Error de conexión con el Backend: {e}")
-                        st.stop()
 
-            img_dibujo = img_visual.copy()
-            draw = ImageDraw.Draw(img_dibujo)
-            for det in st.session_state.res_data["detections"]:
-                x1, y1, x2, y2 = det["xyxy"][0]
-                draw.rectangle([x1, y1, x2, y2], outline="blue", width=5)
-                try:
-                    font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 20)
-                except Exception:
-                    font = ImageFont.load_default()
-                draw.text((x1, int(y1) - 25), f"{det['confidence']:.0%}", fill="blue", font=font)
+def current_case() -> tuple[bytes | None, str | None, object | None]:
+    if st.session_state.source_mode == "Caso demo":
+        case = CASES_BY_ID[st.session_state.selected_case_id]
+        return load_demo_bytes(case.filename), case.filename, case
 
-            st.image(img_dibujo, width="stretch")
-            st.markdown("---")
-            num_frac = st.session_state.res_data["num_detections"]
-            if num_frac > 0:
-                st.error(f"\u26a0\ufe0f **ALERTA:** Se han detectado {num_frac} posible(s) fractura(s).")
-                cols_met = st.columns(min(num_frac, 3))
-                for i, det in enumerate(st.session_state.res_data["detections"]):
-                    if i < 3:
-                        with cols_met[i]:
-                            st.metric(label=f"Hallazgo {i+1}", value=f"{det['confidence']:.1%}")
-            else:
-                st.success("\u2705 **NORMAL:** No se han detectado fracturas significativas.")
+    uploaded_file = st.session_state.get("uploaded_xray")
+    if uploaded_file is None:
+        return None, None, None
+    uploaded_file.seek(0)
+    return uploaded_file.read(), uploaded_file.name, None
+
+
+def analysis_signature(image_bytes: bytes, threshold: float) -> str:
+    digest = hashlib.sha256(image_bytes).hexdigest()
+    return f"{digest}:{threshold:.2f}"
+
+
+def run_analysis(image_bytes: bytes, filename: str, signature: str) -> None:
+    clear_analysis()
+    with st.status(
+        "Analizando la radiografía...",
+        expanded=True,
+        state="running",
+    ) as status:
+        st.write("Aplicando el preprocesamiento y ejecutando el detector.")
+        try:
+            result, duration = api_client.predict_fractures(
+                BACKEND_URL,
+                image_bytes,
+                filename,
+                st.session_state.confidence_threshold,
+            )
+        except api_client.BackendTimeoutError as exc:
+            st.session_state.analysis_error = ("timeout", str(exc))
+            status.update(label="El análisis agotó el tiempo de espera", state="error")
+            return
+        except api_client.BackendUnavailableError as exc:
+            st.session_state.analysis_error = ("unavailable", str(exc))
+            status.update(label="No se pudo contactar con el servicio de IA", state="error")
+            return
+        except api_client.BackendResponseError as exc:
+            st.session_state.analysis_error = ("response", str(exc))
+            status.update(label="El servicio devolvió una respuesta no válida", state="error")
+            return
+
+        st.session_state.analysis_result = result
+        st.session_state.analysis_duration = duration
+        st.session_state.analysis_signature = signature
+        status.update(label="Análisis completado", state="complete", expanded=False)
+
+
+def render_header() -> None:
+    title_col, badge_col = st.columns([5, 1], vertical_alignment="center")
+    with title_col:
+        st.title("Detección de fracturas pediátricas")
+        st.caption(
+            "Herramienta experimental de apoyo para radiografías pediátricas "
+            "de miembro superior."
+        )
+    with badge_col:
+        with st.container(horizontal_alignment="right"):
+            st.badge(
+                "Demo de investigación",
+                icon=":material/science:",
+                color="blue",
+            )
+
+
+def render_case_selector() -> None:
+    with st.container(border=True):
+        st.subheader("1. Seleccione una radiografía", anchor=False)
+        st.segmented_control(
+            "Origen de la imagen",
+            ["Caso demo", "Subir radiografía"],
+            key="source_mode",
+            on_change=clear_analysis,
+            width="stretch",
+        )
+
+        if st.session_state.source_mode == "Caso demo":
+            st.selectbox(
+                "Caso de demostración",
+                options=[case.case_id for case in DEMO_CASES],
+                key="selected_case_id",
+                format_func=lambda case_id: CASES_BY_ID[case_id].selector_label,
+                on_change=clear_analysis,
+            )
+            case = CASES_BY_ID[st.session_state.selected_case_id]
+            st.caption(
+                f"{case.anatomy} · {case.projection}. "
+                "La referencia se mostrará después del análisis."
+            )
         else:
-            st.info("\U0001f448 Haga clic en 'Analizar Imagen con IA' para obtener los resultados.")
+            st.file_uploader(
+                "Suba una radiografía en formato JPG o PNG",
+                type=["jpg", "jpeg", "png"],
+                key="uploaded_xray",
+                max_upload_size=20,
+                on_change=clear_analysis,
+                help="Tamaño máximo: 20 MB.",
+            )
+            st.warning(
+                "Utilice solo imágenes anonimizadas y sin información identificable.",
+                icon=":material/privacy_tip:",
+            )
 
 
-with st.sidebar:
-    st.markdown("### \u2699\ufe0f Sensibilidad de IA")
-    conf_threshold = st.slider(
-        "Umbral de Confianza", min_value=0.10, max_value=0.90, value=0.30, step=0.05
+def render_advanced_controls() -> list[tuple[float, float, float, float]]:
+    parsed_ground_truth: list[tuple[float, float, float, float]] = []
+
+    with st.popover(
+        "Opciones avanzadas",
+        icon=":material/tune:",
+        width="stretch",
+    ):
+        st.slider(
+            "Umbral de confianza",
+            min_value=0.10,
+            max_value=0.90,
+            step=0.05,
+            key="confidence_threshold",
+            on_change=clear_analysis,
+            help="Las detecciones con una confianza inferior no se mostrarán.",
+        )
+        st.slider(
+            "Contraste del visor",
+            min_value=0.5,
+            max_value=3.0,
+            step=0.1,
+            key="viewer_contrast",
+        )
+        st.slider(
+            "Brillo del visor",
+            min_value=0.5,
+            max_value=3.0,
+            step=0.1,
+            key="viewer_brightness",
+        )
+        st.caption(
+            "El brillo y el contraste solo modifican la visualización. "
+            "No alteran la imagen enviada al modelo."
+        )
+
+        st.toggle(
+            "Modo de evaluación",
+            key="evaluation_mode",
+            help="Permite superponer cajas de referencia en formato YOLO normalizado.",
+        )
+        if st.session_state.evaluation_mode:
+            st.text_area(
+                "Cajas de referencia",
+                key="ground_truth_text",
+                placeholder=(
+                    "Una caja por línea:\n"
+                    "0 0.370996 0.795670 0.314947 0.262517"
+                ),
+                help="Formato: clase x_centro y_centro ancho alto, con valores entre 0 y 1.",
+            )
+            if st.session_state.ground_truth_text.strip():
+                try:
+                    parsed_ground_truth = parse_yolo_boxes(
+                        st.session_state.ground_truth_text
+                    )
+                    st.caption(
+                        f"{len(parsed_ground_truth)} caja(s) de referencia válida(s)."
+                    )
+                except ValueError as exc:
+                    st.error(str(exc), icon=":material/error:")
+
+    return parsed_ground_truth
+
+
+def render_result_summary(result: dict, duration: float, demo_case: object | None) -> None:
+    detections = result["detections"]
+    num_detections = result["num_detections"]
+    max_confidence = max(
+        (detection["confidence"] for detection in detections),
+        default=None,
     )
 
-    st.markdown("---")
-    st.markdown("### \U0001f39b\ufe0f Visor Radiológico")
-    st.caption("Ajuste de Windowing (Brillo/Contraste)")
-    contraste = st.slider("Contraste (Hueso/Tejido)", 0.5, 3.0, 1.0, 0.1)
-    brillo = st.slider("Brillo (Exposición)", 0.5, 3.0, 1.0, 0.1)
-
-    st.markdown("---")
-    with st.expander("Ground Truth"):
-        st.caption("Superpone coordenadas reales del dataset para validación.")
-        st.text_input(
-            "Coordenadas YOLO",
-            placeholder="Ej: 0.370996 0.79567 0.314947 0.262517",
+    with st.container(horizontal=True):
+        st.metric("Hallazgos", num_detections, border=True)
+        st.metric(
+            "Confianza máxima",
+            f"{max_confidence:.1%}" if max_confidence is not None else "—",
+            border=True,
         )
+        st.metric(
+            "Umbral aplicado",
+            f"{st.session_state.confidence_threshold:.0%}",
+            border=True,
+        )
+        st.metric("Tiempo total", f"{duration:.2f} s", border=True)
 
-
-st.markdown("# \U0001fa79 Sistema de Detección de Fracturas Pediátricas")
-st.markdown("##### Traumatología Pediátrica - Apoyo al Diagnóstico por IA")
-
-uploaded_file = st.file_uploader(
-    "Arrastre o seleccione la radiografía del paciente (JPG/PNG)",
-    type=["jpg", "jpeg", "png"],
-    on_change=lambda: (
-        setattr(st.session_state, "analizado", False),
-        setattr(st.session_state, "ejemplo_activo", None),
-    ),
-)
-
-tab1, tab2 = st.tabs(["\U0001f4c1 Visor Radiológico", "\U0001f4f7 Ejemplos"])
-
-with tab1:
-    if uploaded_file is not None:
-        st.session_state.ejemplo_activo = None
-        uploaded_file.seek(0)
-        mostrar_visor(uploaded_file.read(), uploaded_file.name)
-    elif st.session_state.ejemplo_activo is not None:
-        mostrar_visor(
-            st.session_state.ejemplo_activo["bytes"],
-            st.session_state.ejemplo_activo["name"],
+    if num_detections:
+        st.warning(
+            f"Se identificaron {num_detections} detección(es) por encima del "
+            "umbral configurado. Revise las regiones señaladas.",
+            icon=":material/warning:",
         )
     else:
-        st.markdown("""
-        <div style='text-align: center; color: #555; padding: 40px;'>
-            <h3>Suba una radiografía pediátrica para comenzar</h3>
-            <p>Use el selector de archivos de arriba para cargar una imagen JPG o PNG,
-            o seleccione un ejemplo en la pestaña de al lado.</p>
-        </div>
-        """, unsafe_allow_html=True)
+        st.info(
+            "No se identificaron detecciones por encima del umbral configurado.",
+            icon=":material/info:",
+        )
 
-with tab2:
-    if st.session_state.ejemplo_activo is not None:
-        st.success("\u2705 Imagen cargada correctamente. Cambie a la pesta\u00f1a 'Visor Radiológico' para analizarla con IA.")
+    if demo_case is not None:
+        expected_positive = demo_case.expected_fracture
+        predicted_positive = num_detections > 0
+        matches_reference = expected_positive == predicted_positive
+        reference_label = (
+            "fractura anotada" if expected_positive else "sin fractura anotada"
+        )
 
-    st.markdown("### Im\u00e1genes de ejemplo")
-    st.caption("Haga clic en 'Cargar' para probar el sistema con una imagen precargada")
-
-    for fname, label, tipo in EJEMPLOS_META:
-        ruta = EJEMPLOS_DIR / fname
-        icono = "\U0001f9b4" if label == "Fractura" else "\u2705"
-        color = "#C62828" if label == "Fractura" else "#2E7D32"
-        col_a, col_b = st.columns([6, 2])
-        with col_a:
-            st.markdown(
-                f"<span style='color:{color}; font-weight:700;'>{icono} {label}</span>"
-                f" &mdash; <code>{fname}</code>"
-                f" &nbsp;&nbsp;<small style='color:#888;'>{tipo}</small>",
-                unsafe_allow_html=True,
+        with st.container(border=True):
+            st.markdown("**Referencia del caso demo**")
+            st.badge(
+                reference_label.capitalize(),
+                icon=(
+                    ":material/personal_injury:"
+                    if expected_positive
+                    else ":material/check_circle:"
+                ),
+                color="orange" if expected_positive else "green",
             )
-        with col_b:
-            if st.button("Cargar", key=f"ej_{fname}", use_container_width=True):
-                with open(ruta, "rb") as f:
-                    st.session_state.ejemplo_activo = {"bytes": f.read(), "name": fname}
-                st.session_state.analizado = False
-                st.session_state.res_data = {}
-                st.rerun()
+            if matches_reference:
+                st.success(
+                    "La clasificación binaria del resultado coincide con la referencia.",
+                    icon=":material/check_circle:",
+                )
+            else:
+                st.warning(
+                    "La clasificación binaria del resultado no coincide con la referencia.",
+                    icon=":material/compare_arrows:",
+                )
 
 
-st.markdown("<br><hr>", unsafe_allow_html=True)
+def render_error() -> bool:
+    if st.session_state.analysis_error is None:
+        return False
+
+    error_type, detail = st.session_state.analysis_error
+    messages = {
+        "timeout": (
+            "El análisis tardó más de lo esperado.",
+            "Compruebe la conexión y vuelva a intentarlo.",
+        ),
+        "unavailable": (
+            "El servicio de IA no está disponible.",
+            "El Space puede estar iniciándose. Espere unos segundos y reintente.",
+        ),
+        "response": (
+            "No se pudo interpretar la respuesta del servicio.",
+            "Vuelva a intentarlo. Si el problema continúa, revise los logs del backend.",
+        ),
+    }
+    title, guidance = messages.get(
+        error_type,
+        ("No se pudo completar el análisis.", "Vuelva a intentarlo."),
+    )
+    st.error(f"**{title}** {guidance}", icon=":material/error:")
+    with st.expander("Detalle técnico"):
+        st.code(detail)
+    return True
+
+
+initialize_state()
+render_header()
+render_case_selector()
+
+image_bytes, filename, demo_case = current_case()
+
+if image_bytes is None or filename is None:
+    st.info(
+        "Suba una radiografía anonimizada para preparar el análisis.",
+        icon=":material/upload_file:",
+    )
+    st.stop()
+
+try:
+    base_image = normalize_image(image_bytes)
+except ImageValidationError as exc:
+    st.error(str(exc), icon=":material/broken_image:")
+    st.caption("Seleccione otro archivo sin abandonar la sesión.")
+    st.stop()
+
+current_signature = analysis_signature(
+    image_bytes,
+    st.session_state.confidence_threshold,
+)
+if (
+    st.session_state.analysis_signature is not None
+    and st.session_state.analysis_signature != current_signature
+):
+    clear_analysis()
+
+with st.container(border=True):
+    info_col, controls_col = st.columns([3, 1], vertical_alignment="center")
+    with info_col:
+        st.subheader("2. Revise y analice", anchor=False)
+        source_label = "Caso demo" if demo_case is not None else "Imagen subida"
+        st.caption(
+            f"{source_label} · {filename} · "
+            f"{base_image.width} × {base_image.height} px"
+        )
+    with controls_col:
+        ground_truth_boxes = render_advanced_controls()
+
+    analyze_requested = st.button(
+        "Analizar con IA",
+        type="primary",
+        icon=":material/search_insights:",
+        width="stretch",
+        key="analyze_case",
+    )
+
+if analyze_requested:
+    run_analysis(image_bytes, filename, current_signature)
+
+view_image = apply_view_adjustments(
+    base_image,
+    brightness=st.session_state.viewer_brightness,
+    contrast=st.session_state.viewer_contrast,
+)
+result = st.session_state.analysis_result
+detections = result["detections"] if result else []
+annotated_view = draw_overlays(view_image, detections, ground_truth_boxes)
+
+viewer_left, viewer_right = st.columns(2, gap="large")
+with viewer_left:
+    with st.container(border=True):
+        st.markdown("**Radiografía original**")
+        st.caption("Visualización ajustable. La imagen original no se modifica.")
+        st.image(
+            fit_on_black_canvas(view_image, CANVAS_SIZE),
+            width="stretch",
+        )
+
+with viewer_right:
+    with st.container(border=True):
+        st.markdown("**Resultado del análisis**")
+        if result is None:
+            st.caption("El resultado aparecerá aquí después de ejecutar la IA.")
+        else:
+            st.caption("IA en azul · Referencia de evaluación en verde.")
+        st.image(
+            fit_on_black_canvas(annotated_view, CANVAS_SIZE),
+            width="stretch",
+        )
+
+if render_error():
+    if st.button(
+        "Reintentar análisis",
+        icon=":material/refresh:",
+        type="secondary",
+        key="retry_analysis",
+    ):
+        run_analysis(image_bytes, filename, current_signature)
+        st.rerun()
+
+if result is not None:
+    st.subheader("3. Resumen del resultado", anchor=False)
+    render_result_summary(
+        result,
+        st.session_state.analysis_duration,
+        demo_case,
+    )
+
+    export_image = draw_overlays(base_image, detections, ground_truth_boxes)
+    st.download_button(
+        "Descargar imagen anotada",
+        data=image_to_png_bytes(export_image),
+        file_name=f"{Path(filename).stem}_anotada.png",
+        mime="image/png",
+        icon=":material/download:",
+        on_click="ignore",
+    )
+
+st.space("medium")
 st.caption(
-    "\u00a9 2026 TFM - Detección de Fracturas Pediátricas. "
-    "**Aviso Legal:** Este software es una herramienta de cribado en fase experimental. "
-    "Los resultados generados por el modelo YOLOv8 no constituyen un diagnóstico médico "
-    "definitivo y deben ser validados por un radiólogo titulado."
+    "Herramienta experimental desarrollada para un TFM. No constituye un "
+    "diagnóstico médico ni sustituye la valoración de profesionales sanitarios. "
+    "Las imágenes se procesan en memoria y no se almacenan de forma persistente."
 )

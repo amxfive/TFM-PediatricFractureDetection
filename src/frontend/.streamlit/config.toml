@@ -1,0 +1,31 @@
+[theme]
+base = "light"
+primaryColor = "#0B6674"
+backgroundColor = "#F7FAFC"
+secondaryBackgroundColor = "#EAF1F4"
+textColor = "#17313A"
+linkColor = "#0B6674"
+borderColor = "#C7D7DD"
+redColor = "#B83A3A"
+orangeColor = "#A95F0B"
+greenColor = "#19704A"
+blueColor = "#176FA6"
+grayColor = "#60727A"
+baseRadius = "medium"
+buttonRadius = "medium"
+showWidgetBorder = true
+showSidebarBorder = true
+baseFontSize = 15
+headingFontWeights = [700, 700, 600, 600, 600, 600]
+linkUnderline = false
+
+[theme.sidebar]
+backgroundColor = "#EAF1F4"
+secondaryBackgroundColor = "#DDE8EC"
+textColor = "#17313A"
+borderColor = "#C7D7DD"
+primaryColor = "#0B6674"
+
+[server]
+maxUploadSize = 20
+enableXsrfProtection = false
