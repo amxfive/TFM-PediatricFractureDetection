@@ -51,15 +51,24 @@ def control_key(name: str) -> str:
 
 def active_control_values() -> tuple[float, float, float]:
     return (
-        st.session_state[control_key("confidence_threshold")],
-        st.session_state[control_key("viewer_brightness")],
-        st.session_state[control_key("viewer_contrast")],
+        st.session_state.get(
+            control_key("confidence_threshold"),
+            CONTROL_DEFAULTS["confidence_threshold"],
+        ),
+        st.session_state.get(
+            control_key("viewer_brightness"),
+            CONTROL_DEFAULTS["viewer_brightness"],
+        ),
+        st.session_state.get(
+            control_key("viewer_contrast"),
+            CONTROL_DEFAULTS["viewer_contrast"],
+        ),
     )
 
 
 def reset_upload_defaults() -> None:
-    for name, value in CONTROL_DEFAULTS.items():
-        st.session_state[f"upload_{name}"] = value
+    for name in CONTROL_DEFAULTS:
+        st.session_state.pop(f"upload_{name}", None)
 
 
 def handle_source_change() -> None:
@@ -84,9 +93,6 @@ def initialize_state() -> None:
         "evaluation_mode": False,
         "ground_truth_text": "",
     }
-    for prefix in ("demo", "upload"):
-        for name, value in CONTROL_DEFAULTS.items():
-            defaults[f"{prefix}_{name}"] = value
     for key, value in defaults.items():
         st.session_state.setdefault(key, value)
 
@@ -222,6 +228,7 @@ def render_advanced_controls() -> list[tuple[float, float, float, float]]:
             "Umbral de confianza",
             min_value=0.10,
             max_value=0.90,
+            value=CONTROL_DEFAULTS["confidence_threshold"],
             step=0.05,
             format="%.2f",
             key=control_key("confidence_threshold"),
@@ -232,6 +239,7 @@ def render_advanced_controls() -> list[tuple[float, float, float, float]]:
             "Brillo del visor",
             min_value=0.5,
             max_value=3.0,
+            value=CONTROL_DEFAULTS["viewer_brightness"],
             step=0.1,
             format="%.1f",
             key=control_key("viewer_brightness"),
@@ -240,6 +248,7 @@ def render_advanced_controls() -> list[tuple[float, float, float, float]]:
             "Contraste del visor",
             min_value=0.5,
             max_value=3.0,
+            value=CONTROL_DEFAULTS["viewer_contrast"],
             step=0.1,
             format="%.1f",
             key=control_key("viewer_contrast"),

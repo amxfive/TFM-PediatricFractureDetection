@@ -20,9 +20,9 @@ def test_app_opens_with_default_demo_case():
     assert app.session_state.source_mode == "Caso demo"
     assert app.session_state.selected_case_id == "caso_04"
     assert app.session_state.analysis_result is None
-    assert app.session_state.demo_confidence_threshold == 0.30
-    assert app.session_state.demo_viewer_brightness == 1.0
-    assert app.session_state.demo_viewer_contrast == 1.0
+    assert app.slider(key="demo_confidence_threshold").value == 0.30
+    assert app.slider(key="demo_viewer_brightness").value == 1.0
+    assert app.slider(key="demo_viewer_contrast").value == 1.0
     assert len(app.get("html")) == 2
     assert (
         "Caso 04 · Fractura supracondílea de húmero"
