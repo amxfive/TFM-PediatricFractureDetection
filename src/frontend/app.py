@@ -30,6 +30,11 @@ st.set_page_config(
 BACKEND_URL = os.getenv("BACKEND_URL", "http://backend:8000/predict")
 EXAMPLES_DIR = Path(__file__).parent / "examples"
 CANVAS_SIZE = (960, 960)
+CONTROL_DEFAULTS = {
+    "confidence_threshold": 0.30,
+    "viewer_brightness": 1.0,
+    "viewer_contrast": 1.0,
+}
 
 
 def clear_analysis() -> None:
@@ -39,11 +44,33 @@ def clear_analysis() -> None:
     st.session_state.analysis_error = None
 
 
-def reset_source_defaults() -> None:
+def control_key(name: str) -> str:
+    prefix = "demo" if st.session_state.source_mode == "Caso demo" else "upload"
+    return f"{prefix}_{name}"
+
+
+def active_control_values() -> tuple[float, float, float]:
+    return (
+        st.session_state[control_key("confidence_threshold")],
+        st.session_state[control_key("viewer_brightness")],
+        st.session_state[control_key("viewer_contrast")],
+    )
+
+
+def reset_upload_defaults() -> None:
+    for name, value in CONTROL_DEFAULTS.items():
+        st.session_state[f"upload_{name}"] = value
+
+
+def handle_source_change() -> None:
     clear_analysis()
-    st.session_state.confidence_threshold = 0.30
-    st.session_state.viewer_brightness = 1.0
-    st.session_state.viewer_contrast = 1.0
+    if st.session_state.source_mode == "Subir radiografía":
+        reset_upload_defaults()
+
+
+def handle_upload_change() -> None:
+    clear_analysis()
+    reset_upload_defaults()
 
 
 def initialize_state() -> None:
@@ -54,12 +81,12 @@ def initialize_state() -> None:
         "analysis_signature": None,
         "analysis_duration": None,
         "analysis_error": None,
-        "confidence_threshold": 0.30,
-        "viewer_brightness": 1.0,
-        "viewer_contrast": 1.0,
         "evaluation_mode": False,
         "ground_truth_text": "",
     }
+    for prefix in ("demo", "upload"):
+        for name, value in CONTROL_DEFAULTS.items():
+            defaults[f"{prefix}_{name}"] = value
     for key, value in defaults.items():
         st.session_state.setdefault(key, value)
 
@@ -99,7 +126,7 @@ def run_analysis(image_bytes: bytes, filename: str, signature: str) -> None:
                 BACKEND_URL,
                 image_bytes,
                 filename,
-                st.session_state.confidence_threshold,
+            active_control_values()[0],
             )
         except api_client.BackendTimeoutError as exc:
             st.session_state.analysis_error = ("timeout", str(exc))
@@ -143,7 +170,7 @@ def render_case_selector() -> None:
             "Origen de la imagen",
             ["Caso demo", "Subir radiografía"],
             key="source_mode",
-            on_change=reset_source_defaults,
+            on_change=handle_source_change,
             width="stretch",
         )
 
@@ -174,7 +201,7 @@ def render_case_selector() -> None:
                 type=["jpg", "jpeg", "png"],
                 key="uploaded_xray",
                 max_upload_size=20,
-                on_change=clear_analysis,
+                on_change=handle_upload_change,
                 help="Tamaño máximo: 20 MB.",
             )
             st.warning(
@@ -197,7 +224,7 @@ def render_advanced_controls() -> list[tuple[float, float, float, float]]:
             max_value=0.90,
             step=0.05,
             format="%.2f",
-            key="confidence_threshold",
+            key=control_key("confidence_threshold"),
             on_change=clear_analysis,
             help="Las detecciones con una confianza inferior no se mostrarán.",
         )
@@ -207,7 +234,7 @@ def render_advanced_controls() -> list[tuple[float, float, float, float]]:
             max_value=3.0,
             step=0.1,
             format="%.1f",
-            key="viewer_brightness",
+            key=control_key("viewer_brightness"),
         )
         st.slider(
             "Contraste del visor",
@@ -215,7 +242,7 @@ def render_advanced_controls() -> list[tuple[float, float, float, float]]:
             max_value=3.0,
             step=0.1,
             format="%.1f",
-            key="viewer_contrast",
+            key=control_key("viewer_contrast"),
         )
         st.caption(
             "El brillo y el contraste solo modifican la visualización. "
@@ -268,7 +295,7 @@ def render_result_summary(result: dict, duration: float, demo_case: object | Non
         )
         st.metric(
             "Umbral aplicado",
-            f"{st.session_state.confidence_threshold:.0%}",
+            f"{active_control_values()[0]:.0%}",
             border=True,
         )
         st.metric("Tiempo total", f"{duration:.2f} s", border=True)
@@ -363,7 +390,7 @@ except ImageValidationError as exc:
 
 current_signature = analysis_signature(
     image_bytes,
-    st.session_state.confidence_threshold,
+    active_control_values()[0],
 )
 if (
     st.session_state.analysis_signature is not None
@@ -394,10 +421,11 @@ with st.container(border=True):
 if analyze_requested:
     run_analysis(image_bytes, filename, current_signature)
 
+_, viewer_brightness, viewer_contrast = active_control_values()
 view_image = apply_view_adjustments(
     base_image,
-    brightness=st.session_state.viewer_brightness,
-    contrast=st.session_state.viewer_contrast,
+    brightness=viewer_brightness,
+    contrast=viewer_contrast,
 )
 result = st.session_state.analysis_result
 detections = result["detections"] if result else []

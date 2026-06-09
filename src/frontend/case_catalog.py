@@ -73,7 +73,7 @@ DEMO_CASES = (
         "Radio/cúbito proximal",
         "Lateral",
         False,
-        "Sin fractura radiográfica de referencia",
+        "Radio/cúbito proximal sin fractura",
     ),
     DemoCase(
         "caso_08",
@@ -81,7 +81,7 @@ DEMO_CASES = (
         "Radio/cúbito distal",
         "Lateral",
         False,
-        "Sin fractura radiográfica de referencia",
+        "Radio/cúbito distal sin fractura",
     ),
     DemoCase(
         "caso_09",
@@ -89,7 +89,7 @@ DEMO_CASES = (
         "Radio/cúbito proximal",
         "Frontal",
         False,
-        "Sin fractura radiográfica de referencia",
+        "Radio/cúbito proximal sin fractura",
     ),
     DemoCase(
         "caso_10",
@@ -97,7 +97,7 @@ DEMO_CASES = (
         "Radio/cúbito",
         "Radiografía de referencia",
         False,
-        "Sin fractura radiográfica de referencia",
+        "Radio/cúbito sin fractura",
     ),
     DemoCase(
         "caso_11",
@@ -105,7 +105,7 @@ DEMO_CASES = (
         "Radio/cúbito",
         "Radiografía de referencia",
         False,
-        "Sin fractura radiográfica de referencia",
+        "Radio/cúbito sin fractura",
     ),
     DemoCase(
         "caso_12",
@@ -113,7 +113,7 @@ DEMO_CASES = (
         "Radio/cúbito",
         "Radiografía de referencia",
         False,
-        "Sin fractura radiográfica de referencia",
+        "Radio/cúbito sin fractura",
     ),
 )
 
