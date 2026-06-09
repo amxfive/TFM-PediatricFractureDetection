@@ -11,6 +11,7 @@ from image_utils import (
     image_to_png_bytes,
     normalize_image,
     parse_yolo_boxes,
+    stable_viewer_html,
 )
 
 
@@ -98,3 +99,15 @@ def test_draw_overlays_and_export_png():
     assert annotated.getbbox() is not None
     assert canvas.size == (300, 300)
     assert exported.startswith(b"\x89PNG")
+
+
+def test_stable_viewer_html_has_fixed_aspect_ratio_and_escaped_alt_text():
+    image = Image.new("RGB", (32, 16), "black")
+
+    markup = stable_viewer_html(image, 'Radiografía "original"')
+
+    assert 'data-testid="stable-xray-viewer"' in markup
+    assert "aspect-ratio:1/1" in markup
+    assert 'width="960" height="960"' in markup
+    assert 'alt="Radiografía &quot;original&quot;"' in markup
+    assert "data:image/png;base64," in markup

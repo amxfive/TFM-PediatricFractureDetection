@@ -20,7 +20,14 @@ def test_app_opens_with_default_demo_case():
     assert app.session_state.source_mode == "Caso demo"
     assert app.session_state.selected_case_id == "caso_04"
     assert app.session_state.analysis_result is None
-    assert len(app.get("imgs")) == 2
+    assert app.session_state.confidence_threshold == 0.30
+    assert app.session_state.viewer_brightness == 1.0
+    assert app.session_state.viewer_contrast == 1.0
+    assert len(app.get("html")) == 2
+    assert (
+        "Caso 04 · Fractura supracondílea de húmero"
+        in app.selectbox(key="selected_case_id").options
+    )
 
 
 def test_changing_demo_case_clears_previous_result():
@@ -49,7 +56,7 @@ def test_uploaded_image_replaces_demo_case():
     assert not app.exception
     assert app.session_state.source_mode == "Subir radiografía"
     assert app.session_state.uploaded_xray.name == "radiografia.jpg"
-    assert len(app.get("imgs")) == 2
+    assert len(app.get("html")) == 2
 
 
 def test_successful_analysis_displays_detection(monkeypatch):

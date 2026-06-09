@@ -15,11 +15,12 @@ from image_utils import (
     image_to_png_bytes,
     normalize_image,
     parse_yolo_boxes,
+    stable_viewer_html,
 )
 
 
 st.set_page_config(
-    page_title="Detección de fracturas pediátricas",
+    page_title="PediaFracture AI",
     page_icon=":material/health_and_safety:",
     layout="wide",
     initial_sidebar_state="collapsed",
@@ -115,10 +116,9 @@ def run_analysis(image_bytes: bytes, filename: str, signature: str) -> None:
 def render_header() -> None:
     title_col, badge_col = st.columns([5, 1], vertical_alignment="center")
     with title_col:
-        st.title("Detección de fracturas pediátricas")
+        st.title("PediaFracture AI")
         st.caption(
-            "Herramienta experimental de apoyo para radiografías pediátricas "
-            "de miembro superior."
+            "Lectura asistida de radiografías pediátricas de miembro superior."
         )
     with badge_col:
         with st.container(horizontal_alignment="right"):
@@ -149,9 +149,17 @@ def render_case_selector() -> None:
                 on_change=clear_analysis,
             )
             case = CASES_BY_ID[st.session_state.selected_case_id]
+            st.badge(
+                case.clinical_reference,
+                icon=(
+                    ":material/personal_injury:"
+                    if case.expected_fracture
+                    else ":material/check_circle:"
+                ),
+                color="orange" if case.expected_fracture else "green",
+            )
             st.caption(
-                f"{case.anatomy} · {case.projection}. "
-                "La referencia se mostrará después del análisis."
+                f"Región: {case.anatomy} · Proyección: {case.projection}."
             )
         else:
             st.file_uploader(
@@ -181,23 +189,26 @@ def render_advanced_controls() -> list[tuple[float, float, float, float]]:
             min_value=0.10,
             max_value=0.90,
             step=0.05,
+            format="%.2f",
             key="confidence_threshold",
             on_change=clear_analysis,
             help="Las detecciones con una confianza inferior no se mostrarán.",
-        )
-        st.slider(
-            "Contraste del visor",
-            min_value=0.5,
-            max_value=3.0,
-            step=0.1,
-            key="viewer_contrast",
         )
         st.slider(
             "Brillo del visor",
             min_value=0.5,
             max_value=3.0,
             step=0.1,
+            format="%.1f",
             key="viewer_brightness",
+        )
+        st.slider(
+            "Contraste del visor",
+            min_value=0.5,
+            max_value=3.0,
+            step=0.1,
+            format="%.1f",
+            key="viewer_contrast",
         )
         st.caption(
             "El brillo y el contraste solo modifican la visualización. "
@@ -271,14 +282,10 @@ def render_result_summary(result: dict, duration: float, demo_case: object | Non
         expected_positive = demo_case.expected_fracture
         predicted_positive = num_detections > 0
         matches_reference = expected_positive == predicted_positive
-        reference_label = (
-            "fractura anotada" if expected_positive else "sin fractura anotada"
-        )
-
         with st.container(border=True):
-            st.markdown("**Referencia del caso demo**")
+            st.markdown("**Referencia clínica del caso demo**")
             st.badge(
-                reference_label.capitalize(),
+                demo_case.clinical_reference,
                 icon=(
                     ":material/personal_injury:"
                     if expected_positive
@@ -394,9 +401,11 @@ with viewer_left:
     with st.container(border=True):
         st.markdown("**Radiografía original**")
         st.caption("Visualización ajustable. La imagen original no se modifica.")
-        st.image(
-            fit_on_black_canvas(view_image, CANVAS_SIZE),
-            width="stretch",
+        st.html(
+            stable_viewer_html(
+                fit_on_black_canvas(view_image, CANVAS_SIZE),
+                "Radiografía original",
+            ),
         )
 
 with viewer_right:
@@ -406,9 +415,11 @@ with viewer_right:
             st.caption("El resultado aparecerá aquí después de ejecutar la IA.")
         else:
             st.caption("IA en azul · Referencia de evaluación en verde.")
-        st.image(
-            fit_on_black_canvas(annotated_view, CANVAS_SIZE),
-            width="stretch",
+        st.html(
+            stable_viewer_html(
+                fit_on_black_canvas(annotated_view, CANVAS_SIZE),
+                "Resultado del análisis de la radiografía",
+            ),
         )
 
 if render_error():

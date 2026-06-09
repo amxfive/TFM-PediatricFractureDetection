@@ -1,3 +1,5 @@
+import base64
+import html
 import io
 from pathlib import Path
 from typing import Iterable
@@ -197,3 +199,18 @@ def image_to_png_bytes(image: Image.Image) -> bytes:
     buffer = io.BytesIO()
     image.save(buffer, format="PNG")
     return buffer.getvalue()
+
+
+def stable_viewer_html(image: Image.Image, alt_text: str) -> str:
+    encoded_image = base64.b64encode(image_to_png_bytes(image)).decode("ascii")
+    escaped_alt_text = html.escape(alt_text, quote=True)
+    return (
+        '<div data-testid="stable-xray-viewer" '
+        'style="width:100%;aspect-ratio:1/1;overflow:hidden;background:#000;'
+        'border-radius:0.5rem;line-height:0;contain:layout paint size;">'
+        f'<img src="data:image/png;base64,{encoded_image}" '
+        f'alt="{escaped_alt_text}" width="960" height="960" '
+        'style="display:block;width:100%;height:100%;object-fit:contain;'
+        'background:#000;" loading="eager" decoding="sync">'
+        "</div>"
+    )

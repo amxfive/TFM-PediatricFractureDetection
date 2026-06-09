@@ -8,10 +8,14 @@ class DemoCase:
     anatomy: str
     projection: str
     expected_fracture: bool
+    clinical_reference: str
 
     @property
     def selector_label(self) -> str:
-        return f"{self.case_id.replace('_', ' ').title()} · {self.anatomy}"
+        return (
+            f"{self.case_id.replace('_', ' ').title()} · "
+            f"{self.clinical_reference}"
+        )
 
 
 DEMO_CASES = (
@@ -21,6 +25,7 @@ DEMO_CASES = (
         "Radio/cúbito distal",
         "Frontal",
         True,
+        "Fractura distal de radio/cúbito",
     ),
     DemoCase(
         "caso_02",
@@ -28,6 +33,7 @@ DEMO_CASES = (
         "Diáfisis de radio/cúbito",
         "Lateral",
         True,
+        "Fractura diafisaria de radio/cúbito",
     ),
     DemoCase(
         "caso_03",
@@ -35,6 +41,7 @@ DEMO_CASES = (
         "Radio/cúbito proximal",
         "Lateral",
         True,
+        "Fractura proximal de radio/cúbito",
     ),
     DemoCase(
         "caso_04",
@@ -42,6 +49,7 @@ DEMO_CASES = (
         "Húmero supracondíleo",
         "Radiografía de referencia",
         True,
+        "Fractura supracondílea de húmero",
     ),
     DemoCase(
         "caso_05",
@@ -49,6 +57,7 @@ DEMO_CASES = (
         "Radio/cúbito",
         "Radiografía de referencia",
         True,
+        "Fractura de radio/cúbito",
     ),
     DemoCase(
         "caso_06",
@@ -56,6 +65,7 @@ DEMO_CASES = (
         "Muñeca",
         "Radiografía de referencia",
         True,
+        "Fractura de muñeca",
     ),
     DemoCase(
         "caso_07",
@@ -63,6 +73,7 @@ DEMO_CASES = (
         "Radio/cúbito proximal",
         "Lateral",
         False,
+        "Sin fractura radiográfica de referencia",
     ),
     DemoCase(
         "caso_08",
@@ -70,6 +81,7 @@ DEMO_CASES = (
         "Radio/cúbito distal",
         "Lateral",
         False,
+        "Sin fractura radiográfica de referencia",
     ),
     DemoCase(
         "caso_09",
@@ -77,6 +89,7 @@ DEMO_CASES = (
         "Radio/cúbito proximal",
         "Frontal",
         False,
+        "Sin fractura radiográfica de referencia",
     ),
     DemoCase(
         "caso_10",
@@ -84,6 +97,7 @@ DEMO_CASES = (
         "Radio/cúbito",
         "Radiografía de referencia",
         False,
+        "Sin fractura radiográfica de referencia",
     ),
     DemoCase(
         "caso_11",
@@ -91,6 +105,7 @@ DEMO_CASES = (
         "Radio/cúbito",
         "Radiografía de referencia",
         False,
+        "Sin fractura radiográfica de referencia",
     ),
     DemoCase(
         "caso_12",
@@ -98,6 +113,7 @@ DEMO_CASES = (
         "Radio/cúbito",
         "Radiografía de referencia",
         False,
+        "Sin fractura radiográfica de referencia",
     ),
 )
 
