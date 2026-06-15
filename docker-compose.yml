@@ -6,7 +6,9 @@ services:
       context: ./src/backend  # Indica que la base es la carpeta backend
     container_name: tfm_backend
     volumes:
-      - ./models:/app/models  # Mapeamos el modelo para no reconstruir imagen si cambia
+      - ./models_weights/generalist_architectures:/app/models:ro
+    environment:
+      - MODEL_PATH=/app/models/E6_yoloV8m_optA.pt
     ports:
       - "8000:8000"
     networks:

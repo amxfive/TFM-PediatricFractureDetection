@@ -6,6 +6,8 @@ Carga el modelo YOLOv8 una sola vez en el arranque y expone:
 """
 
 from contextlib import asynccontextmanager
+import os
+from pathlib import Path
 
 import cv2
 import numpy as np
@@ -17,9 +19,15 @@ from ultralytics import YOLO
 import hashlib
 
 # ---------------------------------------------------------------------------
-# Ruta del modelo (relativa al directorio de trabajo = raíz del repositorio)
+# Ruta del modelo generalista activo.
 # ---------------------------------------------------------------------------
-MODEL_PATH = "E7_yoloV11n.pt"
+DEFAULT_MODEL_PATH = (
+    Path(__file__).resolve().parents[2]
+    / "models_weights"
+    / "generalist_architectures"
+    / "E6_yoloV8m_optA.pt"
+)
+MODEL_PATH = Path(os.getenv("MODEL_PATH", DEFAULT_MODEL_PATH))
 
 _model: YOLO | None = None
 
@@ -87,7 +95,11 @@ def preprocessing_pipeline(img_bytes: bytes):
 
 @app.get("/health")
 async def health():
-    return {"status": "ok", "model_loaded": _model is not None}
+    return {
+        "status": "ok",
+        "model_loaded": _model is not None,
+        "model_name": MODEL_PATH.name,
+    }
 
 @app.post("/predict")
 async def predict(file: UploadFile = File(...), confidence: float = Form(0.40)):
