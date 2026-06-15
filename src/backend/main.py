@@ -28,6 +28,9 @@ DEFAULT_MODEL_PATH = (
     / "E6_yoloV8m_optA.pt"
 )
 MODEL_PATH = Path(os.getenv("MODEL_PATH", DEFAULT_MODEL_PATH))
+PREPROCESSING_VERSION = (
+    "grayscale-anydepth_norm8_bilateral-5-50-50_clahe-2.0-8x8_rgb_v1"
+)
 
 _model: YOLO | None = None
 
@@ -58,7 +61,7 @@ app.add_middleware(
 
 def preprocessing_pipeline(img_bytes: bytes):
     """
-    Versión para API: Recibe bytes, procesa en memoria y devuelve un array 
+    Versión para API: Recibe bytes, procesa en memoria y devuelve un array
     listo para que YOLO realice la inferencia.
     """
     # 1. Decodificar bytes a imagen (OpenCV lee desde memoria)
@@ -99,6 +102,7 @@ async def health():
         "status": "ok",
         "model_loaded": _model is not None,
         "model_name": MODEL_PATH.name,
+        "preprocessing_version": PREPROCESSING_VERSION,
     }
 
 @app.post("/predict")
