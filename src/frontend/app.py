@@ -75,6 +75,8 @@ def handle_source_change() -> None:
     clear_analysis()
     if st.session_state.source_mode == "Subir radiografía":
         reset_upload_defaults()
+        st.session_state.privacy_confirmed = False
+        st.session_state.pop("uploaded_xray", None)
 
 
 def handle_upload_change() -> None:
@@ -92,6 +94,7 @@ def initialize_state() -> None:
         "analysis_error": None,
         "evaluation_mode": False,
         "ground_truth_text": "",
+        "privacy_confirmed": False,
     }
     for key, value in defaults.items():
         st.session_state.setdefault(key, value)
@@ -106,6 +109,9 @@ def current_case() -> tuple[bytes | None, str | None, object | None]:
     if st.session_state.source_mode == "Caso demo":
         case = CASES_BY_ID[st.session_state.selected_case_id]
         return load_demo_bytes(case.filename), case.filename, case
+
+    if not st.session_state.privacy_confirmed:
+        return None, None, None
 
     uploaded_file = st.session_state.get("uploaded_xray")
     if uploaded_file is None:
@@ -158,13 +164,14 @@ def render_header() -> None:
     with title_col:
         st.title("Sistema de Detección de Fracturas Pediátricas")
         st.caption(
-            "Lectura asistida de radiografías pediátricas de miembro superior."
+            "Sistema experimental de apoyo para detectar posibles fracturas en "
+            "radiografías del miembro superior pediátrico."
         )
     with badge_col:
         with st.container(horizontal_alignment="right"):
             st.badge(
-                "Demo de investigación",
-                icon=":material/science:",
+                "Miembro superior pediátrico",
+                icon=":material/radiology:",
                 color="blue",
             )
 
@@ -202,18 +209,30 @@ def render_case_selector() -> None:
                 f"Región: {case.anatomy} · Proyección: {case.projection}."
             )
         else:
-            st.file_uploader(
-                "Suba una radiografía en formato JPG o PNG",
-                type=["jpg", "jpeg", "png"],
-                key="uploaded_xray",
-                max_upload_size=20,
-                on_change=handle_upload_change,
-                help="Tamaño máximo: 20 MB.",
-            )
             st.warning(
-                "Utilice solo imágenes anonimizadas y sin información identificable.",
+                "**La radiografía debe estar anonimizada antes de subirla.** "
+                "Elimine nombres, identificadores, fechas de nacimiento y cualquier "
+                "otro dato que permita identificar al paciente.",
                 icon=":material/privacy_tip:",
             )
+            st.checkbox(
+                "Confirmo que la imagen está anonimizada y no contiene datos "
+                "identificativos del paciente.",
+                key="privacy_confirmed",
+            )
+            if st.session_state.privacy_confirmed:
+                st.file_uploader(
+                    "Suba una radiografía anonimizada en formato JPG o PNG",
+                    type=["jpg", "jpeg", "png"],
+                    key="uploaded_xray",
+                    max_upload_size=20,
+                    on_change=handle_upload_change,
+                    help="Tamaño máximo: 20 MB.",
+                )
+            else:
+                st.caption(
+                    "Confirme la anonimización para habilitar la carga de la imagen."
+                )
 
 
 def render_advanced_controls() -> list[tuple[float, float, float, float]]:
@@ -385,7 +404,8 @@ image_bytes, filename, demo_case = current_case()
 
 if image_bytes is None or filename is None:
     st.info(
-        "Suba una radiografía anonimizada para preparar el análisis.",
+        "Confirme la anonimización y suba una radiografía del miembro superior "
+        "pediátrico para preparar el análisis.",
         icon=":material/upload_file:",
     )
     st.stop()
@@ -498,5 +518,7 @@ st.space("medium")
 st.caption(
     "Herramienta experimental desarrollada para un TFM. No constituye un "
     "diagnóstico médico ni sustituye la valoración de profesionales sanitarios. "
-    "Las imágenes se procesan en memoria y no se almacenan de forma persistente."
+    "Su alcance se limita a radiografías del miembro superior pediátrico. "
+    "Solo deben utilizarse imágenes previamente anonimizadas; se procesan en "
+    "memoria y no se almacenan de forma persistente."
 )

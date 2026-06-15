@@ -47,6 +47,7 @@ def test_uploaded_image_replaces_demo_case():
     image_bytes = EXAMPLE_PATH.read_bytes()
 
     app.segmented_control(key="source_mode").set_value("Subir radiografía").run()
+    app.checkbox(key="privacy_confirmed").check().run()
     app.file_uploader(key="uploaded_xray").upload(
         "radiografia.jpg",
         image_bytes,
@@ -67,6 +68,7 @@ def test_upload_mode_restores_default_analysis_and_viewer_values():
     app.slider(key="demo_viewer_contrast").set_value(2.1).run()
 
     app.segmented_control(key="source_mode").set_value("Subir radiografía").run()
+    app.checkbox(key="privacy_confirmed").check().run()
     app.file_uploader(key="uploaded_xray").upload(
         "radiografia.jpg",
         image_bytes,
@@ -80,6 +82,25 @@ def test_upload_mode_restores_default_analysis_and_viewer_values():
     assert app.slider(key="upload_confidence_threshold").value == 0.30
     assert app.slider(key="upload_viewer_brightness").value == 1.0
     assert app.slider(key="upload_viewer_contrast").value == 1.0
+
+
+def test_upload_requires_anonymization_confirmation():
+    app = app_test().run()
+
+    app.segmented_control(key="source_mode").set_value("Subir radiografía").run()
+
+    assert not app.exception
+    assert not app.session_state.privacy_confirmed
+    assert not app.file_uploader
+    assert any(
+        "debe estar anonimizada antes de subirla" in item.value
+        for item in app.warning
+    )
+
+    app.checkbox(key="privacy_confirmed").check().run()
+
+    assert not app.exception
+    assert app.file_uploader(key="uploaded_xray")
 
 
 def test_healthy_demo_cases_include_anatomical_region():
