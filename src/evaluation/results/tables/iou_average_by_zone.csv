@@ -1,0 +1,4 @@
+zona,codigo,n_imagenes,Experto Radiologo vs R1 Radiologia,Experto Radiologo vs Usuario Control,Experto Radiologo vs E5,Experto Radiologo vs E6,Experto Radiologo vs E7,Experto Radiologo vs ModeloEspecialista,R1 Radiologia vs Usuario Control,R1 Radiologia vs E5,R1 Radiologia vs E6,R1 Radiologia vs E7,R1 Radiologia vs ModeloEspecialista,Usuario Control vs E5,Usuario Control vs E6,Usuario Control vs E7,Usuario Control vs ModeloEspecialista
+Muneca,WRI,26,0.4513,0.1905,0.2560,0.2994,0.2771,0.3356,0.2484,0.2503,0.2589,0.2403,0.2812,0.1310,0.1755,0.1506,0.1723
+Radio/cubito,UR,37,0.3652,0.2850,0.2624,0.3888,0.3430,0.3400,0.2833,0.2523,0.3466,0.3415,0.3205,0.2378,0.3007,0.2834,0.2905
+Humero,SHF,26,0.1925,0.1957,0.2148,0.2143,0.2166,0.2061,0.2193,0.1649,0.1701,0.1756,0.1261,0.1863,0.1743,0.1856,0.1642

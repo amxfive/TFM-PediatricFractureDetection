@@ -1,0 +1,3356 @@
+[
+    {
+        "id": "UR_027.png",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [
+                    {
+                        "original_width": 1102,
+                        "original_height": 1100,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 52.12744865566492,
+                            "y": 53.00981625914574,
+                            "width": 4.659978672862053,
+                            "height": 3.08578759431839,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    },
+                    {
+                        "original_width": 1102,
+                        "original_height": 1100,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 45.96777092665434,
+                            "y": 41.51526428759098,
+                            "width": 4.787692800164223,
+                            "height": 3.455280512571335,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    }
+                ],
+                "lead_time": 0.13015735299995868,
+                "created_at": "2026-05-11T11:09:41.943545Z"
+            }
+        ],
+        "file_upload": "UR_027.png",
+        "data": {
+            "image": "UR_027.png"
+        }
+    },
+    {
+        "id": "WRI_010.png",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [],
+                "lead_time": 0.0888431910007057,
+                "created_at": "2026-05-11T11:09:42.046018Z"
+            }
+        ],
+        "file_upload": "WRI_010.png",
+        "data": {
+            "image": "WRI_010.png"
+        }
+    },
+    {
+        "id": "UR_016.png",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [
+                    {
+                        "original_width": 1102,
+                        "original_height": 1716,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 37.647295743227005,
+                            "y": 66.56187120825052,
+                            "width": 6.111322343349457,
+                            "height": 2.405012771487236,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    }
+                ],
+                "lead_time": 0.07321369700002833,
+                "created_at": "2026-05-11T11:09:42.147060Z"
+            }
+        ],
+        "file_upload": "UR_016.png",
+        "data": {
+            "image": "UR_016.png"
+        }
+    },
+    {
+        "id": "SHF_002.jpg",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [
+                    {
+                        "original_width": 1056,
+                        "original_height": 1156,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 51.396313309669495,
+                            "y": 44.11766901612282,
+                            "width": 29.341524839401245,
+                            "height": 14.93261307477951,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    }
+                ],
+                "lead_time": 0.08797787800085644,
+                "created_at": "2026-05-11T11:09:42.245823Z"
+            }
+        ],
+        "file_upload": "SHF_002.jpg",
+        "data": {
+            "image": "SHF_002.jpg"
+        }
+    },
+    {
+        "id": "WRI_018.png",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [
+                    {
+                        "original_width": 691,
+                        "original_height": 860,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 40.962670743465424,
+                            "y": 65.43814353644848,
+                            "width": 28.601649403572083,
+                            "height": 8.477023988962173,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    }
+                ],
+                "lead_time": 0.08776823300013348,
+                "created_at": "2026-05-11T11:09:42.348344Z"
+            }
+        ],
+        "file_upload": "WRI_018.png",
+        "data": {
+            "image": "WRI_018.png"
+        }
+    },
+    {
+        "id": "UR_007.png",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [
+                    {
+                        "original_width": 1202,
+                        "original_height": 2304,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 34.83261987566948,
+                            "y": 81.26299977302551,
+                            "width": 20.574374496936798,
+                            "height": 5.098724365234375,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    }
+                ],
+                "lead_time": 0.039921352000419574,
+                "created_at": "2026-05-11T11:09:42.433443Z"
+            }
+        ],
+        "file_upload": "UR_007.png",
+        "data": {
+            "image": "UR_007.png"
+        }
+    },
+    {
+        "id": "UR_029.png",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [
+                    {
+                        "original_width": 1102,
+                        "original_height": 1814,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 52.753594517707825,
+                            "y": 23.974311165511608,
+                            "width": 9.084373712539673,
+                            "height": 3.937983885407448,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    }
+                ],
+                "lead_time": 0.04582932900029846,
+                "created_at": "2026-05-11T11:09:42.507623Z"
+            }
+        ],
+        "file_upload": "UR_029.png",
+        "data": {
+            "image": "UR_029.png"
+        }
+    },
+    {
+        "id": "UR_005.png",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [
+                    {
+                        "original_width": 1096,
+                        "original_height": 1980,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 28.680502250790596,
+                            "y": 73.01662173122168,
+                            "width": 8.017238229513168,
+                            "height": 2.5518614798784256,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    },
+                    {
+                        "original_width": 1096,
+                        "original_height": 1980,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 36.102207005023956,
+                            "y": 76.00117232650518,
+                            "width": 12.608042359352112,
+                            "height": 3.809906914830208,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    }
+                ],
+                "lead_time": 0.05406220300028508,
+                "created_at": "2026-05-11T11:09:42.596516Z"
+            }
+        ],
+        "file_upload": "UR_005.png",
+        "data": {
+            "image": "UR_005.png"
+        }
+    },
+    {
+        "id": "UR_003.png",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [
+                    {
+                        "original_width": 1704,
+                        "original_height": 2102,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 40.25847315788269,
+                            "y": 85.88521424680948,
+                            "width": 9.438449144363403,
+                            "height": 4.0918003767728806,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    }
+                ],
+                "lead_time": 0.06835856900033832,
+                "created_at": "2026-05-11T11:09:42.710045Z"
+            }
+        ],
+        "file_upload": "UR_003.png",
+        "data": {
+            "image": "UR_003.png"
+        }
+    },
+    {
+        "id": "UR_004.png",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [
+                    {
+                        "original_width": 1726,
+                        "original_height": 2244,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 24.493969604372978,
+                            "y": 71.09717763960361,
+                            "width": 7.352409511804581,
+                            "height": 3.6152832210063934,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    }
+                ],
+                "lead_time": 0.06882732899975963,
+                "created_at": "2026-05-11T11:09:42.834004Z"
+            }
+        ],
+        "file_upload": "UR_004.png",
+        "data": {
+            "image": "UR_004.png"
+        }
+    },
+    {
+        "id": "SHF_011.jpg",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [
+                    {
+                        "original_width": 1260,
+                        "original_height": 1404,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 32.31530338525772,
+                            "y": 42.53600314259529,
+                            "width": 28.715786337852478,
+                            "height": 21.576879918575287,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    }
+                ],
+                "lead_time": 0.07519088899971393,
+                "created_at": "2026-05-11T11:09:42.921010Z"
+            }
+        ],
+        "file_upload": "SHF_011.jpg",
+        "data": {
+            "image": "SHF_011.jpg"
+        }
+    },
+    {
+        "id": "WRI_008.png",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [
+                    {
+                        "original_width": 513,
+                        "original_height": 844,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 48.142009973526,
+                            "y": 40.67261591553688,
+                            "width": 21.45841121673584,
+                            "height": 6.998823583126068,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    },
+                    {
+                        "original_width": 513,
+                        "original_height": 844,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 27.707451581954956,
+                            "y": 38.12626786530018,
+                            "width": 13.203233480453491,
+                            "height": 5.435159057378769,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    }
+                ],
+                "lead_time": 0.05098579900004552,
+                "created_at": "2026-05-11T11:09:42.983818Z"
+            }
+        ],
+        "file_upload": "WRI_008.png",
+        "data": {
+            "image": "WRI_008.png"
+        }
+    },
+    {
+        "id": "WRI_020.png",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [
+                    {
+                        "original_width": 570,
+                        "original_height": 952,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 14.531121775507927,
+                            "y": 51.19939334690571,
+                            "width": 11.833436042070389,
+                            "height": 6.739547103643417,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    },
+                    {
+                        "original_width": 570,
+                        "original_height": 952,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 39.173175394535065,
+                            "y": 58.150649815797806,
+                            "width": 34.71848666667938,
+                            "height": 12.911199033260345,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    }
+                ],
+                "lead_time": 0.04748041399943759,
+                "created_at": "2026-05-11T11:09:43.045173Z"
+            }
+        ],
+        "file_upload": "WRI_020.png",
+        "data": {
+            "image": "WRI_020.png"
+        }
+    },
+    {
+        "id": "NoF_UR_001.jpg",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [],
+                "lead_time": 0.07205899899963697,
+                "created_at": "2026-05-11T11:09:43.128868Z"
+            }
+        ],
+        "file_upload": "NoF_UR_001.jpg",
+        "data": {
+            "image": "NoF_UR_001.jpg"
+        }
+    },
+    {
+        "id": "SHF_018.jpg",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [
+                    {
+                        "original_width": 1528,
+                        "original_height": 1488,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 38.57356309890747,
+                            "y": 34.653107821941376,
+                            "width": 17.529743909835815,
+                            "height": 18.686816096305847,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    }
+                ],
+                "lead_time": 0.06772604900015722,
+                "created_at": "2026-05-11T11:09:43.206101Z"
+            }
+        ],
+        "file_upload": "SHF_018.jpg",
+        "data": {
+            "image": "SHF_018.jpg"
+        }
+    },
+    {
+        "id": "WRI_005.png",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [
+                    {
+                        "original_width": 668,
+                        "original_height": 780,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 29.784829914569855,
+                            "y": 56.698787957429886,
+                            "width": 22.724315524101257,
+                            "height": 10.621987283229828,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    },
+                    {
+                        "original_width": 668,
+                        "original_height": 780,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 54.80549708008766,
+                            "y": 61.34202443063259,
+                            "width": 12.64529675245285,
+                            "height": 7.8727371990680695,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    }
+                ],
+                "lead_time": 0.06537024400040536,
+                "created_at": "2026-05-11T11:09:43.287735Z"
+            }
+        ],
+        "file_upload": "WRI_005.png",
+        "data": {
+            "image": "WRI_005.png"
+        }
+    },
+    {
+        "id": "WRI_026.png",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [
+                    {
+                        "original_width": 672,
+                        "original_height": 1110,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 32.52464234828949,
+                            "y": 63.30283209681511,
+                            "width": 24.814671277999878,
+                            "height": 9.61231142282486,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    },
+                    {
+                        "original_width": 672,
+                        "original_height": 1110,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 67.49848909676075,
+                            "y": 47.487373650074005,
+                            "width": 10.916586965322495,
+                            "height": 6.673023104667664,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    }
+                ],
+                "lead_time": 0.05083823700078938,
+                "created_at": "2026-05-11T11:09:43.356922Z"
+            }
+        ],
+        "file_upload": "WRI_026.png",
+        "data": {
+            "image": "WRI_026.png"
+        }
+    },
+    {
+        "id": "WRI_006.png",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [],
+                "lead_time": 0.052069687999392045,
+                "created_at": "2026-05-11T11:09:43.424241Z"
+            }
+        ],
+        "file_upload": "WRI_006.png",
+        "data": {
+            "image": "WRI_006.png"
+        }
+    },
+    {
+        "id": "UR_023.png",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [
+                    {
+                        "original_width": 1018,
+                        "original_height": 1982,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 45.57806998491287,
+                            "y": 60.880764573812485,
+                            "width": 10.288497805595398,
+                            "height": 7.039244472980499,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    },
+                    {
+                        "original_width": 1018,
+                        "original_height": 1982,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 31.067072972655296,
+                            "y": 62.55335286259651,
+                            "width": 9.17629674077034,
+                            "height": 4.587768018245697,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    }
+                ],
+                "lead_time": 0.04066070599947125,
+                "created_at": "2026-05-11T11:09:43.491107Z"
+            }
+        ],
+        "file_upload": "UR_023.png",
+        "data": {
+            "image": "UR_023.png"
+        }
+    },
+    {
+        "id": "UR_008.png",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [
+                    {
+                        "original_width": 1096,
+                        "original_height": 2342,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 48.28137084841728,
+                            "y": 81.07679598033428,
+                            "width": 10.909248888492584,
+                            "height": 3.9708711206912994,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    }
+                ],
+                "lead_time": 0.04679319300066709,
+                "created_at": "2026-05-11T11:09:43.572469Z"
+            }
+        ],
+        "file_upload": "UR_008.png",
+        "data": {
+            "image": "UR_008.png"
+        }
+    },
+    {
+        "id": "UR_034.png",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [],
+                "lead_time": 0.0434516409995922,
+                "created_at": "2026-05-11T11:09:43.643810Z"
+            }
+        ],
+        "file_upload": "UR_034.png",
+        "data": {
+            "image": "UR_034.png"
+        }
+    },
+    {
+        "id": "WRI_002.png",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [],
+                "lead_time": 0.03583739400073682,
+                "created_at": "2026-05-11T11:09:43.688270Z"
+            }
+        ],
+        "file_upload": "WRI_002.png",
+        "data": {
+            "image": "WRI_002.png"
+        }
+    },
+    {
+        "id": "SHF_005.jpg",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [
+                    {
+                        "original_width": 1948,
+                        "original_height": 1436,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 39.48966488242149,
+                            "y": 49.44830909371376,
+                            "width": 14.684976637363434,
+                            "height": 19.150392711162567,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    }
+                ],
+                "lead_time": 0.07718092999948567,
+                "created_at": "2026-05-11T11:09:43.774517Z"
+            }
+        ],
+        "file_upload": "SHF_005.jpg",
+        "data": {
+            "image": "SHF_005.jpg"
+        }
+    },
+    {
+        "id": "UR_020.png",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [
+                    {
+                        "original_width": 1096,
+                        "original_height": 2128,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 42.73284040391445,
+                            "y": 75.90262135490775,
+                            "width": 8.109397441148758,
+                            "height": 2.722850628197193,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    }
+                ],
+                "lead_time": 0.04060519199992996,
+                "created_at": "2026-05-11T11:09:43.844395Z"
+            }
+        ],
+        "file_upload": "UR_020.png",
+        "data": {
+            "image": "UR_020.png"
+        }
+    },
+    {
+        "id": "UR_025.png",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [],
+                "lead_time": 0.043772665999313176,
+                "created_at": "2026-05-11T11:09:43.920068Z"
+            }
+        ],
+        "file_upload": "UR_025.png",
+        "data": {
+            "image": "UR_025.png"
+        }
+    },
+    {
+        "id": "WRI_016.png",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [
+                    {
+                        "original_width": 754,
+                        "original_height": 1086,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 35.5539932847023,
+                            "y": 44.906964898109436,
+                            "width": 34.59310233592987,
+                            "height": 10.315877199172974,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    }
+                ],
+                "lead_time": 0.07546590600031777,
+                "created_at": "2026-05-11T11:09:44.015357Z"
+            }
+        ],
+        "file_upload": "WRI_016.png",
+        "data": {
+            "image": "WRI_016.png"
+        }
+    },
+    {
+        "id": "SHF_006.jpg",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [
+                    {
+                        "original_width": 1372,
+                        "original_height": 1244,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 38.18637058138847,
+                            "y": 27.045267075300217,
+                            "width": 21.491529047489166,
+                            "height": 19.752319157123566,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    }
+                ],
+                "lead_time": 0.08833172499998909,
+                "created_at": "2026-05-11T11:09:44.113220Z"
+            }
+        ],
+        "file_upload": "SHF_006.jpg",
+        "data": {
+            "image": "SHF_006.jpg"
+        }
+    },
+    {
+        "id": "WRI_027.png",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [
+                    {
+                        "original_width": 591,
+                        "original_height": 1050,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 69.81684789061546,
+                            "y": 37.986595928668976,
+                            "width": 10.441215336322784,
+                            "height": 5.974408984184265,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    }
+                ],
+                "lead_time": 0.04777938200004428,
+                "created_at": "2026-05-11T11:09:44.174392Z"
+            }
+        ],
+        "file_upload": "WRI_027.png",
+        "data": {
+            "image": "WRI_027.png"
+        }
+    },
+    {
+        "id": "WRI_023.png",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [],
+                "lead_time": 0.061238009000589955,
+                "created_at": "2026-05-11T11:09:44.243483Z"
+            }
+        ],
+        "file_upload": "WRI_023.png",
+        "data": {
+            "image": "WRI_023.png"
+        }
+    },
+    {
+        "id": "NoF_UR_007.jpg",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [],
+                "lead_time": 0.05680705099985062,
+                "created_at": "2026-05-11T11:09:44.310546Z"
+            }
+        ],
+        "file_upload": "NoF_UR_007.jpg",
+        "data": {
+            "image": "NoF_UR_007.jpg"
+        }
+    },
+    {
+        "id": "SHF_010.jpg",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [
+                    {
+                        "original_width": 1568,
+                        "original_height": 1436,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 21.566539630293846,
+                            "y": 48.98406267166138,
+                            "width": 12.047071009874344,
+                            "height": 9.723079204559326,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    }
+                ],
+                "lead_time": 0.06612961500013625,
+                "created_at": "2026-05-11T11:09:44.387108Z"
+            }
+        ],
+        "file_upload": "SHF_010.jpg",
+        "data": {
+            "image": "SHF_010.jpg"
+        }
+    },
+    {
+        "id": "UR_033.png",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [
+                    {
+                        "original_width": 1102,
+                        "original_height": 1722,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 48.30529950559139,
+                            "y": 30.562155321240425,
+                            "width": 10.699839144945145,
+                            "height": 4.754801839590073,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    }
+                ],
+                "lead_time": 0.05476550399998814,
+                "created_at": "2026-05-11T11:09:44.468184Z"
+            }
+        ],
+        "file_upload": "UR_033.png",
+        "data": {
+            "image": "UR_033.png"
+        }
+    },
+    {
+        "id": "UR_011.png",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [
+                    {
+                        "original_width": 1268,
+                        "original_height": 1968,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 43.397991359233856,
+                            "y": 64.52492158859968,
+                            "width": 10.711857676506042,
+                            "height": 5.265814438462257,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    }
+                ],
+                "lead_time": 0.043989571000565775,
+                "created_at": "2026-05-11T11:09:44.544908Z"
+            }
+        ],
+        "file_upload": "UR_011.png",
+        "data": {
+            "image": "UR_011.png"
+        }
+    },
+    {
+        "id": "UR_014.png",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [
+                    {
+                        "original_width": 1230,
+                        "original_height": 1398,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 27.629609778523445,
+                            "y": 79.33086343109608,
+                            "width": 10.236754268407822,
+                            "height": 4.18754443526268,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    },
+                    {
+                        "original_width": 1230,
+                        "original_height": 1398,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 29.12355214357376,
+                            "y": 79.97292280197144,
+                            "width": 8.51753056049347,
+                            "height": 3.389573097229004,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    },
+                    {
+                        "original_width": 1230,
+                        "original_height": 1398,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 19.97059155255556,
+                            "y": 79.53847786411643,
+                            "width": 5.463188514113426,
+                            "height": 2.4498673155903816,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    }
+                ],
+                "lead_time": 0.06084231299973908,
+                "created_at": "2026-05-11T11:09:44.632927Z"
+            }
+        ],
+        "file_upload": "UR_014.png",
+        "data": {
+            "image": "UR_014.png"
+        }
+    },
+    {
+        "id": "SHF_026.jpg",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [
+                    {
+                        "original_width": 1916,
+                        "original_height": 2264,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 61.5559458732605,
+                            "y": 13.478926941752434,
+                            "width": 16.77790880203247,
+                            "height": 10.42725220322609,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    }
+                ],
+                "lead_time": 0.08590663599989057,
+                "created_at": "2026-05-11T11:09:44.741351Z"
+            }
+        ],
+        "file_upload": "SHF_026.jpg",
+        "data": {
+            "image": "SHF_026.jpg"
+        }
+    },
+    {
+        "id": "UR_024.png",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [],
+                "lead_time": 0.08553490199938096,
+                "created_at": "2026-05-11T11:09:44.846159Z"
+            }
+        ],
+        "file_upload": "UR_024.png",
+        "data": {
+            "image": "UR_024.png"
+        }
+    },
+    {
+        "id": "UR_006.png",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [
+                    {
+                        "original_width": 1028,
+                        "original_height": 1898,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 46.76908031105995,
+                            "y": 76.46871954202652,
+                            "width": 14.436642825603485,
+                            "height": 5.813273787498474,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    },
+                    {
+                        "original_width": 1028,
+                        "original_height": 1898,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 63.64344544708729,
+                            "y": 74.58828128874302,
+                            "width": 8.471020311117172,
+                            "height": 3.4344784915447235,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    }
+                ],
+                "lead_time": 0.054080061000604474,
+                "created_at": "2026-05-11T11:09:44.927393Z"
+            }
+        ],
+        "file_upload": "UR_006.png",
+        "data": {
+            "image": "UR_006.png"
+        }
+    },
+    {
+        "id": "WRI_025.png",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [
+                    {
+                        "original_width": 841,
+                        "original_height": 1042,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 35.06619706749916,
+                            "y": 38.76398950815201,
+                            "width": 14.289288222789764,
+                            "height": 6.491604447364807,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    }
+                ],
+                "lead_time": 0.050835550000556395,
+                "created_at": "2026-05-11T11:09:44.995011Z"
+            }
+        ],
+        "file_upload": "WRI_025.png",
+        "data": {
+            "image": "WRI_025.png"
+        }
+    },
+    {
+        "id": "WRI_009.png",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [],
+                "lead_time": 0.044893786999637086,
+                "created_at": "2026-05-11T11:09:45.052059Z"
+            }
+        ],
+        "file_upload": "WRI_009.png",
+        "data": {
+            "image": "WRI_009.png"
+        }
+    },
+    {
+        "id": "SHF_003.jpg",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [
+                    {
+                        "original_width": 1416,
+                        "original_height": 1284,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 50.775761902332306,
+                            "y": 83.40467810630798,
+                            "width": 14.68115746974945,
+                            "height": 12.17716932296753,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    }
+                ],
+                "lead_time": 0.07064994899974408,
+                "created_at": "2026-05-11T11:09:45.135483Z"
+            }
+        ],
+        "file_upload": "SHF_003.jpg",
+        "data": {
+            "image": "SHF_003.jpg"
+        }
+    },
+    {
+        "id": "UR_036.png",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [
+                    {
+                        "original_width": 1102,
+                        "original_height": 2010,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 45.26585787534714,
+                            "y": 3.596915304660797,
+                            "width": 10.169163346290588,
+                            "height": 6.224030256271362,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    }
+                ],
+                "lead_time": 0.04341459700026462,
+                "created_at": "2026-05-11T11:09:45.210020Z"
+            }
+        ],
+        "file_upload": "UR_036.png",
+        "data": {
+            "image": "UR_036.png"
+        }
+    },
+    {
+        "id": "SHF_014.jpg",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [
+                    {
+                        "original_width": 960,
+                        "original_height": 556,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 57.39113315939903,
+                            "y": 43.16044971346855,
+                            "width": 9.440632164478302,
+                            "height": 19.695986807346344,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    }
+                ],
+                "lead_time": 0.06634354600009829,
+                "created_at": "2026-05-11T11:09:45.280186Z"
+            }
+        ],
+        "file_upload": "SHF_014.jpg",
+        "data": {
+            "image": "SHF_014.jpg"
+        }
+    },
+    {
+        "id": "WRI_021.png",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [
+                    {
+                        "original_width": 482,
+                        "original_height": 996,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 46.96598947048187,
+                            "y": 49.041787162423134,
+                            "width": 20.49732804298401,
+                            "height": 10.403089970350266,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    },
+                    {
+                        "original_width": 482,
+                        "original_height": 996,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 34.436751157045364,
+                            "y": 49.67365227639675,
+                            "width": 17.378555238246918,
+                            "height": 9.955406934022903,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    },
+                    {
+                        "original_width": 482,
+                        "original_height": 996,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 39.295077323913574,
+                            "y": 49.023012071847916,
+                            "width": 28.209233283996582,
+                            "height": 10.989205539226532,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    }
+                ],
+                "lead_time": 0.06284292100008315,
+                "created_at": "2026-05-11T11:09:45.355266Z"
+            }
+        ],
+        "file_upload": "WRI_021.png",
+        "data": {
+            "image": "WRI_021.png"
+        }
+    },
+    {
+        "id": "NoF_UR_003.jpg",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [],
+                "lead_time": 0.058258853000552335,
+                "created_at": "2026-05-11T11:09:45.419704Z"
+            }
+        ],
+        "file_upload": "NoF_UR_003.jpg",
+        "data": {
+            "image": "NoF_UR_003.jpg"
+        }
+    },
+    {
+        "id": "UR_001.jpg",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [],
+                "lead_time": 0.06785299300008774,
+                "created_at": "2026-05-11T11:09:45.502471Z"
+            }
+        ],
+        "file_upload": "UR_001.jpg",
+        "data": {
+            "image": "UR_001.jpg"
+        }
+    },
+    {
+        "id": "UR_021.png",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [
+                    {
+                        "original_width": 1102,
+                        "original_height": 1930,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 36.50325387716293,
+                            "y": 41.597880423069,
+                            "width": 6.856277585029602,
+                            "height": 3.057137131690979,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    },
+                    {
+                        "original_width": 1102,
+                        "original_height": 1930,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 36.849651485681534,
+                            "y": 41.884930059313774,
+                            "width": 7.440875470638275,
+                            "height": 3.3475853502750397,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    }
+                ],
+                "lead_time": 0.0405452389995844,
+                "created_at": "2026-05-11T11:09:45.571751Z"
+            }
+        ],
+        "file_upload": "UR_021.png",
+        "data": {
+            "image": "UR_021.png"
+        }
+    },
+    {
+        "id": "SHF_001.jpg",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [
+                    {
+                        "original_width": 1224,
+                        "original_height": 988,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 54.52048107981682,
+                            "y": 25.118790566921234,
+                            "width": 20.598293840885162,
+                            "height": 22.506460547447205,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    }
+                ],
+                "lead_time": 0.09310564899988094,
+                "created_at": "2026-05-11T11:09:45.671923Z"
+            }
+        ],
+        "file_upload": "SHF_001.jpg",
+        "data": {
+            "image": "SHF_001.jpg"
+        }
+    },
+    {
+        "id": "SHF_012.jpg",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [
+                    {
+                        "original_width": 960,
+                        "original_height": 556,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 43.86179521679878,
+                            "y": 28.25957089662552,
+                            "width": 15.77209085226059,
+                            "height": 19.457587599754333,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    }
+                ],
+                "lead_time": 0.04904283799987752,
+                "created_at": "2026-05-11T11:09:45.725677Z"
+            }
+        ],
+        "file_upload": "SHF_012.jpg",
+        "data": {
+            "image": "SHF_012.jpg"
+        }
+    },
+    {
+        "id": "UR_018.png",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [
+                    {
+                        "original_width": 1092,
+                        "original_height": 1320,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 49.14734587073326,
+                            "y": 57.33706830069423,
+                            "width": 4.562981426715851,
+                            "height": 2.4620795622467995,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    },
+                    {
+                        "original_width": 1092,
+                        "original_height": 1320,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 54.061042703688145,
+                            "y": 60.137420892715454,
+                            "width": 4.013491794466972,
+                            "height": 2.8524041175842285,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    }
+                ],
+                "lead_time": 0.05404276100034622,
+                "created_at": "2026-05-11T11:09:45.801310Z"
+            }
+        ],
+        "file_upload": "UR_018.png",
+        "data": {
+            "image": "UR_018.png"
+        }
+    },
+    {
+        "id": "UR_012.png",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [
+                    {
+                        "original_width": 1102,
+                        "original_height": 1994,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 47.9632880538702,
+                            "y": 70.1406892389059,
+                            "width": 9.950203448534012,
+                            "height": 6.234885007143021,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    },
+                    {
+                        "original_width": 1102,
+                        "original_height": 1994,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 36.005547642707825,
+                            "y": 77.33805067837238,
+                            "width": 7.43834376335144,
+                            "height": 2.0553849637508392,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    }
+                ],
+                "lead_time": 0.046527728000000934,
+                "created_at": "2026-05-11T11:09:45.877951Z"
+            }
+        ],
+        "file_upload": "UR_012.png",
+        "data": {
+            "image": "UR_012.png"
+        }
+    },
+    {
+        "id": "SHF_017.jpg",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [
+                    {
+                        "original_width": 960,
+                        "original_height": 556,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 29.693464934825897,
+                            "y": 22.161656618118286,
+                            "width": 12.658879160881042,
+                            "height": 24.05429482460022,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    }
+                ],
+                "lead_time": 0.0506599999998798,
+                "created_at": "2026-05-11T11:09:44.718530Z"
+            }
+        ],
+        "file_upload": "SHF_017.jpg",
+        "data": {
+            "image": "SHF_017.jpg"
+        }
+    },
+    {
+        "id": "SHF_023.jpg",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [
+                    {
+                        "original_width": 960,
+                        "original_height": 556,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 46.382585912942886,
+                            "y": 27.01587900519371,
+                            "width": 13.919954001903534,
+                            "height": 20.894648134708405,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    }
+                ],
+                "lead_time": 0.050090565000573406,
+                "created_at": "2026-05-11T11:09:44.774997Z"
+            }
+        ],
+        "file_upload": "SHF_023.jpg",
+        "data": {
+            "image": "SHF_023.jpg"
+        }
+    },
+    {
+        "id": "WRI_013.png",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [
+                    {
+                        "original_width": 693,
+                        "original_height": 1224,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 60.657501965761185,
+                            "y": 56.98661655187607,
+                            "width": 14.865420758724213,
+                            "height": 6.411972641944885,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    }
+                ],
+                "lead_time": 0.05806194300021161,
+                "created_at": "2026-05-11T11:09:44.851772Z"
+            }
+        ],
+        "file_upload": "WRI_013.png",
+        "data": {
+            "image": "WRI_013.png"
+        }
+    },
+    {
+        "id": "WRI_030.png",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [
+                    {
+                        "original_width": 572,
+                        "original_height": 921,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 28.097601234912872,
+                            "y": 73.65140579640865,
+                            "width": 22.726133465766907,
+                            "height": 12.436599284410477,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    },
+                    {
+                        "original_width": 572,
+                        "original_height": 921,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 65.58572351932526,
+                            "y": 69.19717937707901,
+                            "width": 15.304309129714966,
+                            "height": 6.525692343711853,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    }
+                ],
+                "lead_time": 0.051185727000301995,
+                "created_at": "2026-05-11T11:09:44.917525Z"
+            }
+        ],
+        "file_upload": "WRI_030.png",
+        "data": {
+            "image": "WRI_030.png"
+        }
+    },
+    {
+        "id": "UR_010.png",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [
+                    {
+                        "original_width": 1096,
+                        "original_height": 1740,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 31.77654556930065,
+                            "y": 72.97241147607565,
+                            "width": 6.553212553262711,
+                            "height": 2.8694380074739456,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    }
+                ],
+                "lead_time": 0.042215692000354466,
+                "created_at": "2026-05-11T11:09:44.987669Z"
+            }
+        ],
+        "file_upload": "UR_010.png",
+        "data": {
+            "image": "UR_010.png"
+        }
+    },
+    {
+        "id": "SHF_022.jpg",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [
+                    {
+                        "original_width": 2216,
+                        "original_height": 1512,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 63.98293077945709,
+                            "y": 39.380692690610886,
+                            "width": 14.158493280410767,
+                            "height": 20.29174715280533,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    }
+                ],
+                "lead_time": 0.07155529200008459,
+                "created_at": "2026-05-11T11:09:45.080599Z"
+            }
+        ],
+        "file_upload": "SHF_022.jpg",
+        "data": {
+            "image": "SHF_022.jpg"
+        }
+    },
+    {
+        "id": "WRI_019.png",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [
+                    {
+                        "original_width": 750,
+                        "original_height": 1092,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 38.04136961698532,
+                            "y": 55.84359522908926,
+                            "width": 17.051473259925842,
+                            "height": 6.061976030468941,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    }
+                ],
+                "lead_time": 0.07195673400019587,
+                "created_at": "2026-05-11T11:09:45.171118Z"
+            }
+        ],
+        "file_upload": "WRI_019.png",
+        "data": {
+            "image": "WRI_019.png"
+        }
+    },
+    {
+        "id": "SHF_021.jpg",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [
+                    {
+                        "original_width": 960,
+                        "original_height": 753,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 47.1366286277771,
+                            "y": 5.705022811889648,
+                            "width": 16.7266845703125,
+                            "height": 18.606990575790405,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    }
+                ],
+                "lead_time": 0.09308613400025934,
+                "created_at": "2026-05-11T11:09:45.269967Z"
+            }
+        ],
+        "file_upload": "SHF_021.jpg",
+        "data": {
+            "image": "SHF_021.jpg"
+        }
+    },
+    {
+        "id": "WRI_007.png",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [
+                    {
+                        "original_width": 392,
+                        "original_height": 774,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 24.63976889848709,
+                            "y": 58.96956957876682,
+                            "width": 33.05830657482147,
+                            "height": 8.308040350675583,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    }
+                ],
+                "lead_time": 0.0590592150001612,
+                "created_at": "2026-05-11T11:09:45.342127Z"
+            }
+        ],
+        "file_upload": "WRI_007.png",
+        "data": {
+            "image": "WRI_007.png"
+        }
+    },
+    {
+        "id": "UR_031.png",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [],
+                "lead_time": 0.07994034699913755,
+                "created_at": "2026-05-11T11:09:45.448063Z"
+            }
+        ],
+        "file_upload": "UR_031.png",
+        "data": {
+            "image": "UR_031.png"
+        }
+    },
+    {
+        "id": "UR_030.png",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [],
+                "lead_time": 0.09658114399917395,
+                "created_at": "2026-05-11T11:09:45.576238Z"
+            }
+        ],
+        "file_upload": "UR_030.png",
+        "data": {
+            "image": "UR_030.png"
+        }
+    },
+    {
+        "id": "UR_019.png",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [
+                    {
+                        "original_width": 1096,
+                        "original_height": 2082,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 50.69449879229069,
+                            "y": 76.70995742082596,
+                            "width": 9.70349833369255,
+                            "height": 2.9729455709457397,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    }
+                ],
+                "lead_time": 0.05413917399982893,
+                "created_at": "2026-05-11T11:09:45.680157Z"
+            }
+        ],
+        "file_upload": "UR_019.png",
+        "data": {
+            "image": "UR_019.png"
+        }
+    },
+    {
+        "id": "WRI_001.png",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [
+                    {
+                        "original_width": 544,
+                        "original_height": 1112,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 45.823854207992554,
+                            "y": 49.061574041843414,
+                            "width": 30.816447734832764,
+                            "height": 10.34071147441864,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    },
+                    {
+                        "original_width": 544,
+                        "original_height": 1112,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 27.164682000875473,
+                            "y": 40.88745415210724,
+                            "width": 9.464950859546661,
+                            "height": 4.799652099609375,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    }
+                ],
+                "lead_time": 0.0641393039995819,
+                "created_at": "2026-05-11T11:09:45.763336Z"
+            }
+        ],
+        "file_upload": "WRI_001.png",
+        "data": {
+            "image": "WRI_001.png"
+        }
+    },
+    {
+        "id": "SHF_019.jpg",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [
+                    {
+                        "original_width": 960,
+                        "original_height": 556,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 41.69076979160309,
+                            "y": 17.04951524734497,
+                            "width": 12.909126281738281,
+                            "height": 14.222490787506104,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    }
+                ],
+                "lead_time": 0.06052656000065326,
+                "created_at": "2026-05-11T11:09:45.828475Z"
+            }
+        ],
+        "file_upload": "SHF_019.jpg",
+        "data": {
+            "image": "SHF_019.jpg"
+        }
+    },
+    {
+        "id": "UR_028.png",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [
+                    {
+                        "original_width": 948,
+                        "original_height": 1102,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 44.29504107683897,
+                            "y": 56.71700909733772,
+                            "width": 5.124751105904579,
+                            "height": 3.436766564846039,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    }
+                ],
+                "lead_time": 0.10861125700012053,
+                "created_at": "2026-05-11T11:09:45.960726Z"
+            }
+        ],
+        "file_upload": "UR_028.png",
+        "data": {
+            "image": "UR_028.png"
+        }
+    },
+    {
+        "id": "UR_013.png",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [
+                    {
+                        "original_width": 1102,
+                        "original_height": 2240,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 35.07574871182442,
+                            "y": 77.20622010529041,
+                            "width": 14.990608394145966,
+                            "height": 3.7097059190273285,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    }
+                ],
+                "lead_time": 0.04853371100034565,
+                "created_at": "2026-05-11T11:09:46.056208Z"
+            }
+        ],
+        "file_upload": "UR_013.png",
+        "data": {
+            "image": "UR_013.png"
+        }
+    },
+    {
+        "id": "SHF_016.jpg",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [
+                    {
+                        "original_width": 960,
+                        "original_height": 556,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 42.9949089884758,
+                            "y": 50.9842149913311,
+                            "width": 16.744700074195862,
+                            "height": 22.829844057559967,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    }
+                ],
+                "lead_time": 0.05479966699931538,
+                "created_at": "2026-05-11T11:09:46.115897Z"
+            }
+        ],
+        "file_upload": "SHF_016.jpg",
+        "data": {
+            "image": "SHF_016.jpg"
+        }
+    },
+    {
+        "id": "SHF_009.jpg",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [
+                    {
+                        "original_width": 960,
+                        "original_height": 556,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 35.90177744626999,
+                            "y": 34.44618135690689,
+                            "width": 13.598290085792542,
+                            "height": 21.31424844264984,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    }
+                ],
+                "lead_time": 0.06412855599955947,
+                "created_at": "2026-05-11T11:09:46.186814Z"
+            }
+        ],
+        "file_upload": "SHF_009.jpg",
+        "data": {
+            "image": "SHF_009.jpg"
+        }
+    },
+    {
+        "id": "UR_026.png",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [
+                    {
+                        "original_width": 1102,
+                        "original_height": 1480,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 37.062784656882286,
+                            "y": 64.01172857731581,
+                            "width": 11.94879487156868,
+                            "height": 4.179287329316139,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    },
+                    {
+                        "original_width": 1102,
+                        "original_height": 1480,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 44.811432249844074,
+                            "y": 74.73224923014641,
+                            "width": 5.870881304144859,
+                            "height": 4.29767519235611,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    }
+                ],
+                "lead_time": 0.06808094200005144,
+                "created_at": "2026-05-11T11:09:46.293401Z"
+            }
+        ],
+        "file_upload": "UR_026.png",
+        "data": {
+            "image": "UR_026.png"
+        }
+    },
+    {
+        "id": "SHF_025.jpg",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [
+                    {
+                        "original_width": 960,
+                        "original_height": 748,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 35.089053213596344,
+                            "y": 10.784032195806503,
+                            "width": 14.837649464607239,
+                            "height": 23.517055809497833,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    }
+                ],
+                "lead_time": 0.11093218000041816,
+                "created_at": "2026-05-11T11:09:46.413690Z"
+            }
+        ],
+        "file_upload": "SHF_025.jpg",
+        "data": {
+            "image": "SHF_025.jpg"
+        }
+    },
+    {
+        "id": "UR_015.png",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [
+                    {
+                        "original_width": 1096,
+                        "original_height": 1884,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 43.63843873143196,
+                            "y": 79.27883490920067,
+                            "width": 19.45091336965561,
+                            "height": 6.253738701343536,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    },
+                    {
+                        "original_width": 1096,
+                        "original_height": 1884,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 44.6937195956707,
+                            "y": 79.37121521681547,
+                            "width": 17.792321741580963,
+                            "height": 4.743442311882973,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    }
+                ],
+                "lead_time": 0.16840114099977654,
+                "created_at": "2026-05-11T11:09:46.629519Z"
+            }
+        ],
+        "file_upload": "UR_015.png",
+        "data": {
+            "image": "UR_015.png"
+        }
+    },
+    {
+        "id": "SHF_004.jpg",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [
+                    {
+                        "original_width": 1612,
+                        "original_height": 1400,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 42.57964938879013,
+                            "y": 29.148367792367935,
+                            "width": 18.020477890968323,
+                            "height": 17.373691499233246,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    }
+                ],
+                "lead_time": 0.20304971499990643,
+                "created_at": "2026-05-11T11:09:46.845425Z"
+            }
+        ],
+        "file_upload": "SHF_004.jpg",
+        "data": {
+            "image": "SHF_004.jpg"
+        }
+    },
+    {
+        "id": "UR_032.png",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [],
+                "lead_time": 0.14434706500014727,
+                "created_at": "2026-05-11T11:09:47.018380Z"
+            }
+        ],
+        "file_upload": "UR_032.png",
+        "data": {
+            "image": "UR_032.png"
+        }
+    },
+    {
+        "id": "UR_002.png",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [
+                    {
+                        "original_width": 1166,
+                        "original_height": 2328,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 39.49296846985817,
+                            "y": 79.84983939677477,
+                            "width": 16.676191985607147,
+                            "height": 4.868995770812035,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    }
+                ],
+                "lead_time": 0.058043124000505486,
+                "created_at": "2026-05-11T11:09:47.203469Z"
+            }
+        ],
+        "file_upload": "UR_002.png",
+        "data": {
+            "image": "UR_002.png"
+        }
+    },
+    {
+        "id": "UR_009.png",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [
+                    {
+                        "original_width": 1276,
+                        "original_height": 2462,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 34.41145196557045,
+                            "y": 76.82032510638237,
+                            "width": 17.67476052045822,
+                            "height": 4.451932013034821,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    }
+                ],
+                "lead_time": 0.04291340600047988,
+                "created_at": "2026-05-11T11:09:47.451560Z"
+            }
+        ],
+        "file_upload": "UR_009.png",
+        "data": {
+            "image": "UR_009.png"
+        }
+    },
+    {
+        "id": "UR_022.png",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [
+                    {
+                        "original_width": 1102,
+                        "original_height": 1434,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 59.80851985514164,
+                            "y": 63.64398971199989,
+                            "width": 6.998234242200851,
+                            "height": 4.0151044726371765,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    },
+                    {
+                        "original_width": 1102,
+                        "original_height": 1434,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 65.3695572167635,
+                            "y": 53.08823697268963,
+                            "width": 7.654871791601181,
+                            "height": 4.970381408929825,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    }
+                ],
+                "lead_time": 0.08849183900019852,
+                "created_at": "2026-05-11T11:09:47.569900Z"
+            }
+        ],
+        "file_upload": "UR_022.png",
+        "data": {
+            "image": "UR_022.png"
+        }
+    },
+    {
+        "id": "WRI_004.png",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [
+                    {
+                        "original_width": 544,
+                        "original_height": 674,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 29.614611715078354,
+                            "y": 53.33897918462753,
+                            "width": 20.140375196933746,
+                            "height": 13.053491711616516,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    }
+                ],
+                "lead_time": 0.09992061400043895,
+                "created_at": "2026-05-11T11:09:47.681734Z"
+            }
+        ],
+        "file_upload": "WRI_004.png",
+        "data": {
+            "image": "WRI_004.png"
+        }
+    },
+    {
+        "id": "WRI_017.png",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [
+                    {
+                        "original_width": 602,
+                        "original_height": 1521,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 49.29952323436737,
+                            "y": 42.670344188809395,
+                            "width": 29.938560724258423,
+                            "height": 8.934583514928818,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    },
+                    {
+                        "original_width": 602,
+                        "original_height": 1521,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 25.223954766988754,
+                            "y": 41.03979952633381,
+                            "width": 20.350278913974762,
+                            "height": 7.825352996587753,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    }
+                ],
+                "lead_time": 0.050852083000791026,
+                "created_at": "2026-05-11T11:09:47.758856Z"
+            }
+        ],
+        "file_upload": "WRI_017.png",
+        "data": {
+            "image": "WRI_017.png"
+        }
+    },
+    {
+        "id": "WRI_028.png",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [
+                    {
+                        "original_width": 554,
+                        "original_height": 652,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 47.61947840452194,
+                            "y": 65.42494371533394,
+                            "width": 21.74265682697296,
+                            "height": 11.82539314031601,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    },
+                    {
+                        "original_width": 554,
+                        "original_height": 652,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 25.472109019756317,
+                            "y": 68.35671588778496,
+                            "width": 12.657168507575989,
+                            "height": 7.106448709964752,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    }
+                ],
+                "lead_time": 0.07247604900021543,
+                "created_at": "2026-05-11T11:09:47.843723Z"
+            }
+        ],
+        "file_upload": "WRI_028.png",
+        "data": {
+            "image": "WRI_028.png"
+        }
+    },
+    {
+        "id": "WRI_012.png",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [
+                    {
+                        "original_width": 445,
+                        "original_height": 848,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 28.948836773633957,
+                            "y": 55.482517927885056,
+                            "width": 22.80287891626358,
+                            "height": 9.486259520053864,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    }
+                ],
+                "lead_time": 0.050353408000773925,
+                "created_at": "2026-05-11T11:09:47.907331Z"
+            }
+        ],
+        "file_upload": "WRI_012.png",
+        "data": {
+            "image": "WRI_012.png"
+        }
+    },
+    {
+        "id": "WRI_022.png",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [],
+                "lead_time": 0.05368350200023997,
+                "created_at": "2026-05-11T11:09:47.978142Z"
+            }
+        ],
+        "file_upload": "WRI_022.png",
+        "data": {
+            "image": "WRI_022.png"
+        }
+    },
+    {
+        "id": "WRI_014.png",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [
+                    {
+                        "original_width": 581,
+                        "original_height": 1562,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 41.990986466407776,
+                            "y": 53.52352149784565,
+                            "width": 39.369767904281616,
+                            "height": 8.550205081701279,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    }
+                ],
+                "lead_time": 0.04090752800038899,
+                "created_at": "2026-05-11T11:09:48.045788Z"
+            }
+        ],
+        "file_upload": "WRI_014.png",
+        "data": {
+            "image": "WRI_014.png"
+        }
+    },
+    {
+        "id": "NoF_UR_005.jpg",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [],
+                "lead_time": 0.05797490700024355,
+                "created_at": "2026-05-11T11:09:48.114043Z"
+            }
+        ],
+        "file_upload": "NoF_UR_005.jpg",
+        "data": {
+            "image": "NoF_UR_005.jpg"
+        }
+    },
+    {
+        "id": "SHF_015.jpg",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [
+                    {
+                        "original_width": 960,
+                        "original_height": 556,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 44.845638424158096,
+                            "y": 13.153418898582458,
+                            "width": 17.38002747297287,
+                            "height": 29.91260290145874,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    }
+                ],
+                "lead_time": 0.06320391900044342,
+                "created_at": "2026-05-11T11:09:48.182588Z"
+            }
+        ],
+        "file_upload": "SHF_015.jpg",
+        "data": {
+            "image": "SHF_015.jpg"
+        }
+    },
+    {
+        "id": "NoF_UR_009.jpg",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [],
+                "lead_time": 0.1056696550003835,
+                "created_at": "2026-05-11T11:09:48.302139Z"
+            }
+        ],
+        "file_upload": "NoF_UR_009.jpg",
+        "data": {
+            "image": "NoF_UR_009.jpg"
+        }
+    },
+    {
+        "id": "WRI_011.png",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [],
+                "lead_time": 0.07509049999953277,
+                "created_at": "2026-05-11T11:09:48.412938Z"
+            }
+        ],
+        "file_upload": "WRI_011.png",
+        "data": {
+            "image": "WRI_011.png"
+        }
+    },
+    {
+        "id": "SHF_008.jpg",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [
+                    {
+                        "original_width": 960,
+                        "original_height": 556,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 74.33474250137806,
+                            "y": 6.549979001283646,
+                            "width": 9.366067498922348,
+                            "height": 13.147307932376862,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    }
+                ],
+                "lead_time": 0.05328900400036218,
+                "created_at": "2026-05-11T11:09:48.470773Z"
+            }
+        ],
+        "file_upload": "SHF_008.jpg",
+        "data": {
+            "image": "SHF_008.jpg"
+        }
+    },
+    {
+        "id": "SHF_020.jpg",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [
+                    {
+                        "original_width": 1288,
+                        "original_height": 1184,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 43.41327100992203,
+                            "y": 33.78382846713066,
+                            "width": 15.750131011009216,
+                            "height": 11.250926554203033,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    }
+                ],
+                "lead_time": 0.11170268499972735,
+                "created_at": "2026-05-11T11:09:48.591462Z"
+            }
+        ],
+        "file_upload": "SHF_020.jpg",
+        "data": {
+            "image": "SHF_020.jpg"
+        }
+    },
+    {
+        "id": "NoF_UR_008.jpg",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [],
+                "lead_time": 0.12291910899966751,
+                "created_at": "2026-05-11T11:09:48.725417Z"
+            }
+        ],
+        "file_upload": "NoF_UR_008.jpg",
+        "data": {
+            "image": "NoF_UR_008.jpg"
+        }
+    },
+    {
+        "id": "NoF_UR_006.jpg",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [],
+                "lead_time": 0.12293993500043143,
+                "created_at": "2026-05-11T11:09:48.860262Z"
+            }
+        ],
+        "file_upload": "NoF_UR_006.jpg",
+        "data": {
+            "image": "NoF_UR_006.jpg"
+        }
+    },
+    {
+        "id": "UR_035.png",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [],
+                "lead_time": 0.0597066199998153,
+                "created_at": "2026-05-11T11:09:48.972302Z"
+            }
+        ],
+        "file_upload": "UR_035.png",
+        "data": {
+            "image": "UR_035.png"
+        }
+    },
+    {
+        "id": "WRI_015.png",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [
+                    {
+                        "original_width": 618,
+                        "original_height": 976,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 53.76311391592026,
+                            "y": 53.0645277351141,
+                            "width": 17.630591988563538,
+                            "height": 10.740811377763748,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    }
+                ],
+                "lead_time": 0.08603097200011689,
+                "created_at": "2026-05-11T11:09:49.077799Z"
+            }
+        ],
+        "file_upload": "WRI_015.png",
+        "data": {
+            "image": "WRI_015.png"
+        }
+    },
+    {
+        "id": "SHF_024.jpg",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [
+                    {
+                        "original_width": 1364,
+                        "original_height": 1200,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 40.6524159014225,
+                            "y": 18.317100405693054,
+                            "width": 24.57616776227951,
+                            "height": 17.627763748168945,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    }
+                ],
+                "lead_time": 0.11758345299949724,
+                "created_at": "2026-05-11T11:09:49.206298Z"
+            }
+        ],
+        "file_upload": "SHF_024.jpg",
+        "data": {
+            "image": "SHF_024.jpg"
+        }
+    },
+    {
+        "id": "NoF_UR_004.jpg",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [],
+                "lead_time": 0.10018475299966667,
+                "created_at": "2026-05-11T11:09:49.319556Z"
+            }
+        ],
+        "file_upload": "NoF_UR_004.jpg",
+        "data": {
+            "image": "NoF_UR_004.jpg"
+        }
+    },
+    {
+        "id": "WRI_029.png",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [],
+                "lead_time": 0.053282228999705694,
+                "created_at": "2026-05-11T11:09:49.394295Z"
+            }
+        ],
+        "file_upload": "WRI_029.png",
+        "data": {
+            "image": "WRI_029.png"
+        }
+    },
+    {
+        "id": "SHF_007.jpg",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [
+                    {
+                        "original_width": 1952,
+                        "original_height": 1588,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 60.9315924346447,
+                            "y": 41.2673756480217,
+                            "width": 10.88184267282486,
+                            "height": 15.748199820518494,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    }
+                ],
+                "lead_time": 0.11111750400050369,
+                "created_at": "2026-05-11T11:09:49.519113Z"
+            }
+        ],
+        "file_upload": "SHF_007.jpg",
+        "data": {
+            "image": "SHF_007.jpg"
+        }
+    },
+    {
+        "id": "WRI_024.png",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [
+                    {
+                        "original_width": 507,
+                        "original_height": 784,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 39.660272002220154,
+                            "y": 62.613943591713905,
+                            "width": 23.37673306465149,
+                            "height": 11.008398979902267,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    },
+                    {
+                        "original_width": 507,
+                        "original_height": 784,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 20.00749297440052,
+                            "y": 58.446758799254894,
+                            "width": 11.952009052038193,
+                            "height": 4.97053898870945,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    }
+                ],
+                "lead_time": 0.06232092600021133,
+                "created_at": "2026-05-11T11:09:49.595783Z"
+            }
+        ],
+        "file_upload": "WRI_024.png",
+        "data": {
+            "image": "WRI_024.png"
+        }
+    },
+    {
+        "id": "WRI_003.png",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [],
+                "lead_time": 0.09062445300060062,
+                "created_at": "2026-05-11T11:09:49.701596Z"
+            }
+        ],
+        "file_upload": "WRI_003.png",
+        "data": {
+            "image": "WRI_003.png"
+        }
+    },
+    {
+        "id": "SHF_013.jpg",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [
+                    {
+                        "original_width": 960,
+                        "original_height": 762,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 40.98557308316231,
+                            "y": 0.0,
+                            "width": 16.34780615568161,
+                            "height": 12.123408168554306,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    }
+                ],
+                "lead_time": 0.09383933099979913,
+                "created_at": "2026-05-11T11:09:49.802277Z"
+            }
+        ],
+        "file_upload": "SHF_013.jpg",
+        "data": {
+            "image": "SHF_013.jpg"
+        }
+    },
+    {
+        "id": "NoF_UR_002.jpg",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [],
+                "lead_time": 0.12688900400007697,
+                "created_at": "2026-05-11T11:09:49.939878Z"
+            }
+        ],
+        "file_upload": "NoF_UR_002.jpg",
+        "data": {
+            "image": "NoF_UR_002.jpg"
+        }
+    },
+    {
+        "id": "UR_017.png",
+        "annotations": [
+            {
+                "completed_by": 99,
+                "result": [
+                    {
+                        "original_width": 1262,
+                        "original_height": 1866,
+                        "image_rotation": 0,
+                        "value": {
+                            "x": 47.905515879392624,
+                            "y": 46.44809179008007,
+                            "width": 7.597638666629791,
+                            "height": 7.279089838266373,
+                            "rotation": 0,
+                            "rectanglelabels": [
+                                "0"
+                            ]
+                        },
+                        "from_name": "label",
+                        "to_name": "image",
+                        "type": "rectanglelabels"
+                    }
+                ],
+                "lead_time": 0.05712403000052291,
+                "created_at": "2026-05-11T11:09:50.036569Z"
+            }
+        ],
+        "file_upload": "UR_017.png",
+        "data": {
+            "image": "UR_017.png"
+        }
+    }
+]

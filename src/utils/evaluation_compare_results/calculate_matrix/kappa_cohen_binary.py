@@ -113,6 +113,7 @@ def main():
         'yoloV8n_optA': 'IA_Evaluation_E3_yoloV8n_optA.json',
         'yoloV8m_optA': 'IA_Evaluation_E6_yoloV8m_optA.json',
         'yoloV11n_optA': 'IA_Evaluation_E7_yoloV11n_optA.json',
+        'especialista': 'IA_Evaluation_specialist_agents.json',
         "Usuario_Control": "Control_User_Evaluation_Yasmina_Moreira.json",
         "Usuario_R1": "R1_User_Evaluation_Marina.json",
         "Usuario_Catedratico": "Catedratico_User_Evaluation_Jose_Carlos.json"

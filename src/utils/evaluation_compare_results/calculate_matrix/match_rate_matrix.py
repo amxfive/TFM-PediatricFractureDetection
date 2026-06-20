@@ -1,181 +1,165 @@
 #!/usr/bin/env python3
-"""Matriz de tasa de matching simétrica (IoU > threshold) entre evaluadores."""
+"""Calcula matrices de tasa de matching simétrica para distintos umbrales IoU."""
 
-import json
+from __future__ import annotations
+
 import csv
-import numpy as np
-import matplotlib.pyplot as plt
-import seaborn as sns
+import sys
 from pathlib import Path
 
-# ── CONFIG ──────────────────────────────────────────
-IOU_THRESHOLD = 0.2
-# ────────────────────────────────────────────────────
+import matplotlib
+import numpy as np
 
-def load_json(path):
-    with open(path, 'r') as f:
-        return json.load(f)
+matplotlib.use("Agg")
+import matplotlib.pyplot as plt
 
-def extract_boxes(data):
-    result = {}
-    for item in data:
-        fn = (item.get('file_upload')
-              or item.get('data', {}).get('image', '')
-              or str(item.get('id', '')))
-        annotations = item.get('annotations', [])
-        boxes = []
-        for ann in annotations:
-            for r in ann.get('result', []):
-                value = r.get('value', {})
-                orig_w = r.get('original_width', 1)
-                orig_h = r.get('original_height', 1)
-                x = value['x'] / 100 * orig_w
-                y = value['y'] / 100 * orig_h
-                w = value['width'] / 100 * orig_w
-                h = value['height'] / 100 * orig_h
-                boxes.append({'x': x, 'y': y, 'w': w, 'h': h})
-        result[fn] = boxes
-    return result
+sys.path.append(str(Path(__file__).resolve().parents[1]))
+from evaluation_common import (  # noqa: E402
+    EVALUATORS,
+    IMAGES_DIR,
+    MATRIX_DIR,
+    TABLES_DIR,
+    display_name,
+    ensure_output_dirs,
+    extract_boxes,
+    iou,
+    load_evaluator_json,
+)
 
-def iou(b1, b2):
-    x1 = max(b1['x'], b2['x'])
-    y1 = max(b1['y'], b2['y'])
-    x2 = min(b1['x'] + b1['w'], b2['x'] + b2['w'])
-    y2 = min(b1['y'] + b1['h'], b2['y'] + b2['h'])
-    if x2 <= x1 or y2 <= y1:
-        return 0.0
-    inter = (x2 - x1) * (y2 - y1)
-    area1 = b1['w'] * b1['h']
-    area2 = b2['w'] * b2['h']
-    union = area1 + area2 - inter
-    return inter / union if union > 0 else 0.0
 
-def best_iou_val(box, other_boxes):
-    best = 0.0
-    for ob in other_boxes:
-        val = iou(box, ob)
-        if val > best:
-            best = val
-    return best
+THRESHOLDS = [
+    (0.2, "t20", "Matriz IoU > 0.2"),
+    (1e-6, "epsilon", "Matriz IoU > ε"),
+]
 
-def calculate_match_rate_matrix(boxes_data, evaluadores, threshold):
-    nombres = list(evaluadores.keys())
-    n = len(nombres)
-    matriz = np.zeros((n, n))
 
-    for i, nom1 in enumerate(nombres):
-        for j, nom2 in enumerate(nombres):
-            if i == j:
-                matriz[i, j] = 1.0
-                continue
+def best_iou_val(box, other_boxes) -> float:
+    return max((iou(box, other_box) for other_box in other_boxes), default=0.0)
 
-            total_matches_1in2 = 0
-            total_boxes_1 = 0
-            total_matches_2in1 = 0
-            total_boxes_2 = 0
 
-            for img in boxes_data[nom1]:
-                boxes1 = boxes_data[nom1].get(img, [])
-                boxes2 = boxes_data[nom2].get(img, [])
+def calculate_match_rate(eval1_boxes, eval2_boxes, threshold: float) -> float:
+    total_matches_1in2 = 0
+    total_boxes_1 = 0
+    total_matches_2in1 = 0
+    total_boxes_2 = 0
 
-                if not boxes1 and not boxes2:
-                    continue
+    common_images = set(eval1_boxes) & set(eval2_boxes)
+    for image_name in common_images:
+        boxes1 = eval1_boxes.get(image_name, [])
+        boxes2 = eval2_boxes.get(image_name, [])
 
-                # A→B: cajas de 1 que tienen match > threshold en 2
-                if boxes1:
-                    for b1 in boxes1:
-                        if best_iou_val(b1, boxes2) > threshold:
-                            total_matches_1in2 += 1
-                    total_boxes_1 += len(boxes1)
+        for box1 in boxes1:
+            if best_iou_val(box1, boxes2) > threshold:
+                total_matches_1in2 += 1
+        total_boxes_1 += len(boxes1)
 
-                # B→A: cajas de 2 que tienen match > threshold en 1
-                if boxes2:
-                    for b2 in boxes2:
-                        if best_iou_val(b2, boxes1) > threshold:
-                            total_matches_2in1 += 1
-                    total_boxes_2 += len(boxes2)
+        for box2 in boxes2:
+            if best_iou_val(box2, boxes1) > threshold:
+                total_matches_2in1 += 1
+        total_boxes_2 += len(boxes2)
 
-            rate_1in2 = total_matches_1in2 / total_boxes_1 if total_boxes_1 > 0 else 0
-            rate_2in1 = total_matches_2in1 / total_boxes_2 if total_boxes_2 > 0 else 0
-            matriz[i, j] = (rate_1in2 + rate_2in1) / 2
+    rate_1in2 = total_matches_1in2 / total_boxes_1 if total_boxes_1 else np.nan
+    rate_2in1 = total_matches_2in1 / total_boxes_2 if total_boxes_2 else np.nan
 
-    return matriz, nombres
+    if np.isnan(rate_1in2) and np.isnan(rate_2in1):
+        return np.nan
+    return float(np.nanmean([rate_1in2, rate_2in1]))
 
-def main():
-    JSONS = {
-        'yoloV8n_optA': 'IA_Evaluation_E3_yoloV8n_optA.json',
-        'yoloV8m_optA': 'IA_Evaluation_E6_yoloV8m_optA.json',
-        'yoloV11n_optA': 'IA_Evaluation_E7_yoloV11n_optA.json',
-        'Usuario_Control': 'Control_User_Evaluation_Yasmina_Moreira.json',
-        'Usuario_R1': 'R1_User_Evaluation_Marina.json',
-        'Usuario_Catedratico': 'Catedratico_User_Evaluation_Jose_Carlos.json'
-    }
-    base = Path('src/evaluation/annotation_json')
 
-    boxes_data = {}
-    for nombre, path in JSONS.items():
-        data = load_json(base / path)
-        boxes_data[nombre] = extract_boxes(data)
-        n_boxes = sum(len(v) for v in boxes_data[nombre].values())
-        print(f'{nombre}: {len(boxes_data[nombre])} imágenes, {n_boxes} cajas')
+def calculate_matrix(boxes_data, keys: list[str], threshold: float) -> np.ndarray:
+    matrix = np.full((len(keys), len(keys)), np.nan)
+    for i, key1 in enumerate(keys):
+        matrix[i, i] = 1.0
+        for j in range(i + 1, len(keys)):
+            key2 = keys[j]
+            value = calculate_match_rate(boxes_data[key1], boxes_data[key2], threshold)
+            matrix[i, j] = value
+            matrix[j, i] = value
+    return matrix
 
-    threshold = IOU_THRESHOLD
-    print(f'\nThreshold IoU = {threshold}')
 
-    matriz, nombres = calculate_match_rate_matrix(boxes_data, JSONS, threshold)
+def write_csv(matrix: np.ndarray, keys: list[str], suffix: str) -> None:
+    csv_path = TABLES_DIR / f"match_rate_{suffix}.csv"
+    with open(csv_path, "w", newline="", encoding="utf-8") as file:
+        writer = csv.writer(file)
+        writer.writerow([""] + [display_name(key) for key in keys])
+        for index, key in enumerate(keys):
+            writer.writerow(
+                [display_name(key)]
+                + [
+                    "" if np.isnan(matrix[index, col]) else f"{matrix[index, col]:.4f}"
+                    for col in range(len(keys))
+                ]
+            )
+    print(f"CSV guardado: {csv_path}")
 
-    print('\n' + " " * 20 + "".join(f"{n:>18}" for n in nombres))
-    for i, nom in enumerate(nombres):
-        row = "".join(f"{matriz[i, j]:>18.4f}" for j in range(len(nombres)))
-        print(f"{nom:>20}{row}")
 
-    # Save matrix
-    out_dir = Path('src/evaluation/matrix')
-    out_dir.mkdir(parents=True, exist_ok=True)
-    np.save(out_dir / f'match_rate_matrix_t{int(threshold*100)}.npy', matriz)
+def plot_heatmap(matrix: np.ndarray, keys: list[str], suffix: str, title: str) -> None:
+    labels = [display_name(key) for key in keys]
+    plot_matrix = matrix.copy()
+    triangle_mask = np.tril(np.ones_like(plot_matrix, dtype=bool), k=-1)
+    plot_matrix[triangle_mask] = np.nan
+    masked = np.ma.masked_invalid(plot_matrix)
 
-    # CSV
-    csv_path = Path('src/evaluation/results') / f'match_rate_t{int(threshold*100)}.csv'
-    with open(csv_path, 'w', newline='') as f:
-        writer = csv.writer(f)
-        writer.writerow([''] + nombres)
-        for i, nom in enumerate(nombres):
-            writer.writerow([nom] + [f"{matriz[i, j]:.4f}" for j in range(len(nombres))])
-    print(f'\nCSV guardado: {csv_path}')
+    cmap = plt.get_cmap("RdYlBu_r").copy()
+    cmap.set_bad("#F2F2F2")
 
-    # Half-matrix heatmap
-    n = len(nombres)
-    half = np.full((n, n), np.nan)
-    for i in range(n):
-        for j in range(i, n):
-            half[i, j] = matriz[i, j]
+    fig, ax = plt.subplots(figsize=(10.5, 8))
+    image = ax.imshow(masked, cmap=cmap, vmin=0, vmax=1)
+    colorbar = fig.colorbar(image, ax=ax, fraction=0.046, pad=0.04)
+    colorbar.set_label("Tasa de coincidencia")
 
-    fig, ax = plt.subplots(figsize=(10, 8))
-    sns.heatmap(
-        half,
-        annot=True,
-        fmt='.3f',
-        cmap=sns.diverging_palette(220, 20, as_cmap=True),
-        xticklabels=nombres,
-        yticklabels=nombres,
-        vmin=0,
-        vmax=1,
-        center=0.5,
-        square=True,
-        cbar_kws={'label': f'Match Rate (IoU > {threshold})'},
-        ax=ax,
-        annot_kws={'size': 10},
-        linewidths=0.5,
-        linecolor='white'
-    )
-    ax.set_title(f'Tasa de Matching (IoU > {threshold})', fontsize=14, fontweight='bold')
-    plt.xticks(rotation=30, ha='right')
+    ax.set_xticks(np.arange(len(labels)))
+    ax.set_yticks(np.arange(len(labels)))
+    ax.set_xticklabels(labels)
+    ax.set_yticklabels(labels)
+    ax.set_xticks(np.arange(-0.5, len(labels), 1), minor=True)
+    ax.set_yticks(np.arange(-0.5, len(labels), 1), minor=True)
+    ax.grid(which="minor", color="white", linestyle="-", linewidth=0.7)
+    ax.tick_params(which="minor", bottom=False, left=False)
+
+    for row in range(matrix.shape[0]):
+        for col in range(matrix.shape[1]):
+            if not np.isnan(plot_matrix[row, col]):
+                ax.text(col, row, f"{plot_matrix[row, col]:.3f}", ha="center", va="center", fontsize=9)
+
+    ax.set_title(title, fontsize=15, fontweight="bold", pad=12)
+    ax.set_xlabel("Agente")
+    ax.set_ylabel("Agente")
+    plt.xticks(rotation=35, ha="right")
     plt.yticks(rotation=0)
     plt.tight_layout()
 
-    png_path = Path('src/evaluation/results') / f'match_rate_heatmap_t{int(threshold*100)}.png'
-    plt.savefig(png_path, dpi=150, bbox_inches='tight')
-    print(f'Heatmap guardado: {png_path}')
+    png_path = IMAGES_DIR / f"match_rate_matrix_{suffix}.png"
+    pdf_path = IMAGES_DIR / f"match_rate_matrix_{suffix}.pdf"
+    plt.savefig(png_path, dpi=300, bbox_inches="tight", facecolor="white")
+    plt.savefig(pdf_path, bbox_inches="tight", facecolor="white")
+    plt.close(fig)
+    print(f"Heatmap guardado: {png_path}")
+    print(f"Heatmap guardado: {pdf_path}")
 
-if __name__ == '__main__':
+
+def main():
+    ensure_output_dirs()
+
+    boxes_data = {}
+    for evaluator in EVALUATORS:
+        data = load_evaluator_json(evaluator)
+        boxes_data[evaluator.key] = extract_boxes(data)
+        n_boxes = sum(len(boxes) for boxes in boxes_data[evaluator.key].values())
+        print(f"{evaluator.display_name}: {len(boxes_data[evaluator.key])} imágenes, {n_boxes} cajas")
+
+    keys = [evaluator.key for evaluator in EVALUATORS]
+
+    for threshold, suffix, title in THRESHOLDS:
+        print(f"\n--- {title} ---")
+        matrix = calculate_matrix(boxes_data, keys, threshold)
+        matrix_path = MATRIX_DIR / f"match_rate_matrix_{suffix}.npy"
+        np.save(matrix_path, matrix)
+        print(f"Matriz guardada: {matrix_path}")
+        write_csv(matrix, keys, suffix)
+        plot_heatmap(matrix, keys, suffix, title)
+
+
+if __name__ == "__main__":
     main()

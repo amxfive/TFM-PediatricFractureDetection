@@ -1,168 +1,134 @@
 #!/usr/bin/env python3
-"""Calcula matriz de concordancia basada en IoU entre evaluadores."""
+"""Calcula la matriz de concordancia IoU promedio entre agentes."""
 
-import json
-import numpy as np
-import matplotlib.pyplot as plt
-import seaborn as sns
+from __future__ import annotations
+
+import csv
+import sys
 from pathlib import Path
 
-def load_json(path):
-    with open(path, 'r') as f:
-        return json.load(f)
+import matplotlib
+import numpy as np
 
-def extract_boxes(data):
-    """Extrae bounding boxes de un JSON de evaluación."""
-    result = {}
-    for item in data:
-        file_upload = item.get('data').get("image") or item.get('file_upload', '')
-        annotations = item.get('annotations', [])
-        
-        boxes = []
-        for ann in annotations:
-            results = ann.get('result', [])
-            for r in results:
-                value = r.get('value', {})
-                orig_w = r.get('original_width', 1)
-                orig_h = r.get('original_height', 1)
-                
-                x = value['x'] / 100 * orig_w
-                y = value['y'] / 100 * orig_h
-                w = value['width'] / 100 * orig_w
-                h = value['height'] / 100 * orig_h
-                
-                label = value.get('rectanglelabels', ['0'])[0]
-                boxes.append({
-                    'x': x, 'y': y, 'w': w, 'h': h,
-                    'label': label,
-                    'orig_w': orig_w, 'orig_h': orig_h
-                })
-        
-        result[file_upload] = boxes
-    return result
+matplotlib.use("Agg")
+import matplotlib.pyplot as plt
 
-def iou(box1, box2):
-    """Calcula IoU entre dos bounding boxes."""
-    x1 = max(box1['x'], box2['x'])
-    y1 = max(box1['y'], box2['y'])
-    x2 = min(box1['x'] + box1['w'], box2['x'] + box2['w'])
-    y2 = min(box1['y'] + box1['h'], box2['y'] + box2['h'])
-    
-    if x2 <= x1 or y2 <= y1:
-        return 0.0
-    
-    inter = (x2 - x1) * (y2 - y1)
-    area1 = box1['w'] * box1['h']
-    area2 = box2['w'] * box2['h']
-    union = area1 + area2 - inter
-    
-    return inter / union if union > 0 else 0.0
+sys.path.append(str(Path(__file__).resolve().parents[1]))
+from evaluation_common import (  # noqa: E402
+    EVALUATORS,
+    IMAGES_DIR,
+    MATRIX_DIR,
+    TABLES_DIR,
+    display_name,
+    ensure_output_dirs,
+    extract_boxes,
+    load_evaluator_json,
+    optimal_iou_match,
+)
 
-def best_iou_match(boxes1, boxes2):
-    """Encuentra el mejor matching IoU entre dos listas de boxes."""
-    if not boxes1 and not boxes2:
-        return None  # Acuerdo (ambos vacíos)
-    
-    if not boxes1 or not boxes2:
-        return 0.0  # Discrepancia (uno vacío)
-    
-    max_iou = 0.0
-    used = set()
-    
-    for b1 in boxes1:
-        best_val = 0.0
-        best_j = -1
-        for j, b2 in enumerate(boxes2):
-            if j not in used:
-                val = iou(b1, b2)
-                if val > best_val:
-                    best_val = val
-                    best_j = j
-        if best_j >= 0:
-            max_iou += best_val
-            used.add(best_j)
-    
-    n_matches = max(len(boxes1), len(boxes2))
-    return max_iou / n_matches if n_matches > 0 else 0.0
 
-def calculate_concordance(eval1_boxes, eval2_boxes):
-    """Calcula concordancia promedio IoU entre dos evaluadores."""
+def calculate_concordance(eval1_boxes, eval2_boxes) -> float:
     ious = []
-    
-    common_images = set(eval1_boxes.keys()) & set(eval2_boxes.keys())
-    
-    for img in common_images:
-        boxes1 = eval1_boxes[img]
-        boxes2 = eval2_boxes[img]
-        
-        iou_val = best_iou_match(boxes1, boxes2)
-        if iou_val is not None:
-            ious.append(iou_val)
-    
-    return np.mean(ious) if ious else 0.0
+    common_images = set(eval1_boxes) & set(eval2_boxes)
 
-def main():
-    base = Path('src/evaluation/annotation_json')
-    
-    evaluadores = {
-        'yoloV8n_optA': 'IA_Evaluation_E3_yoloV8n_optA.json',
-        'yoloV8m_optA': 'IA_Evaluation_E6_yoloV8m_optA.json',
-        'yoloV11n_optA': 'IA_Evaluation_E7_yoloV11n_optA.json',
-        "Usuario_Control": "Control_User_Evaluation_Yasmina_Moreira.json",
-        "Usuario_R1": "R1_User_Evaluation_Marina.json",
-        "Usuario_Catedratico": "Catedratico_User_Evaluation_Jose_Carlos.json"
-    }
-    
-    boxes_data = {}
-    for nombre, path in evaluadores.items():
-        data = load_json(base / path)
-        boxes_data[nombre] = extract_boxes(data)
-        print(f"{nombre}: {len(boxes_data[nombre])} imágenes")
-    
-    nombres = list(evaluadores.keys())
-    n = len(nombres)
-    matriz = np.zeros((n, n))
-    
-    print("\n--- Matriz de Concordancia IoU ---")
-    
-    for i, nom1 in enumerate(nombres):
-        for j, nom2 in enumerate(nombres):
-            if i == j:
-                matriz[i, j] = 1.0
-            else:
-                matriz[i, j] = calculate_concordance(boxes_data[nom1], boxes_data[nom2])
-    
-    print("\n" + " " * 15 + "".join(f"{n:>12}" for n in nombres))
-    for i, nom in enumerate(nombres):
-        row = "".join(f"{matriz[i, j]:>12.4f}" for j in range(n))
-        print(f"{nom:>15}{row}")
-    
-    np.save('src/evaluation/matrix/concordance_matrix_v2.npy', matriz)
-    print("\nMatriz guardada en src/evaluation/matrix/concordance_matrix_v2.npy")
+    for image_name in common_images:
+        value = optimal_iou_match(eval1_boxes[image_name], eval2_boxes[image_name])
+        if value is not None:
+            ious.append(value)
 
-    # Heatmap
-    n = len(nombres)
-    half = np.full((n, n), np.nan)
-    for i in range(n):
-        for j in range(i, n):
-            half[i, j] = matriz[i, j]
+    return float(np.mean(ious)) if ious else np.nan
 
-    fig, ax = plt.subplots(figsize=(9, 7))
-    sns.heatmap(
-        half, annot=True, fmt='.3f', cmap=sns.diverging_palette(220, 20, as_cmap=True),
-        xticklabels=nombres, yticklabels=nombres,
-        vmin=0, vmax=1, center=0.5, square=True,
-        cbar_kws={'label': 'IoU Concordance'}, ax=ax,
-        annot_kws={'size': 9}, linewidths=0.5, linecolor='white'
-    )
-    ax.set_title('Matriz de Concordancia IoU', fontsize=14, fontweight='bold')
-    plt.xticks(rotation=30, ha='right')
+
+def write_csv(matrix: np.ndarray, keys: list[str]) -> None:
+    csv_path = TABLES_DIR / "iou_average_matrix.csv"
+    with open(csv_path, "w", newline="", encoding="utf-8") as file:
+        writer = csv.writer(file)
+        writer.writerow([""] + [display_name(key) for key in keys])
+        for index, key in enumerate(keys):
+            writer.writerow(
+                [display_name(key)]
+                + [
+                    "" if np.isnan(matrix[index, col]) else f"{matrix[index, col]:.4f}"
+                    for col in range(len(keys))
+                ]
+            )
+    print(f"CSV guardado: {csv_path}")
+
+
+def plot_heatmap(matrix: np.ndarray, keys: list[str]) -> None:
+    labels = [display_name(key) for key in keys]
+    plot_matrix = matrix.copy()
+    triangle_mask = np.tril(np.ones_like(plot_matrix, dtype=bool), k=-1)
+    plot_matrix[triangle_mask] = np.nan
+    masked = np.ma.masked_invalid(plot_matrix)
+
+    cmap = plt.get_cmap("RdYlBu_r").copy()
+    cmap.set_bad("#F2F2F2")
+
+    fig, ax = plt.subplots(figsize=(10.5, 8))
+    image = ax.imshow(masked, cmap=cmap, vmin=0, vmax=1)
+    colorbar = fig.colorbar(image, ax=ax, fraction=0.046, pad=0.04)
+    colorbar.set_label("IoU promedio")
+
+    ax.set_xticks(np.arange(len(labels)))
+    ax.set_yticks(np.arange(len(labels)))
+    ax.set_xticklabels(labels)
+    ax.set_yticklabels(labels)
+    ax.set_xticks(np.arange(-0.5, len(labels), 1), minor=True)
+    ax.set_yticks(np.arange(-0.5, len(labels), 1), minor=True)
+    ax.grid(which="minor", color="white", linestyle="-", linewidth=0.7)
+    ax.tick_params(which="minor", bottom=False, left=False)
+
+    for row in range(matrix.shape[0]):
+        for col in range(matrix.shape[1]):
+            if not np.isnan(plot_matrix[row, col]):
+                ax.text(col, row, f"{plot_matrix[row, col]:.3f}", ha="center", va="center", fontsize=9)
+
+    ax.set_title("Matriz de IoU promedio", fontsize=15, fontweight="bold", pad=12)
+    ax.set_xlabel("Agente")
+    ax.set_ylabel("Agente")
+    plt.xticks(rotation=35, ha="right")
     plt.yticks(rotation=0)
     plt.tight_layout()
-    plt.savefig('src/evaluation/results/concordance_halfmatrix.png', dpi=500, bbox_inches='tight')
-    print("Heatmap guardado en src/evaluation/results/concordance_halfmatrix.png")
-    
-    return matriz, nombres
 
-if __name__ == '__main__':
+    png_path = IMAGES_DIR / "iou_average_matrix.png"
+    pdf_path = IMAGES_DIR / "iou_average_matrix.pdf"
+    plt.savefig(png_path, dpi=300, bbox_inches="tight", facecolor="white")
+    plt.savefig(pdf_path, bbox_inches="tight", facecolor="white")
+    plt.close(fig)
+    print(f"Heatmap guardado: {png_path}")
+    print(f"Heatmap guardado: {pdf_path}")
+
+
+def main():
+    ensure_output_dirs()
+
+    boxes_data = {}
+    for evaluator in EVALUATORS:
+        data = load_evaluator_json(evaluator)
+        boxes_data[evaluator.key] = extract_boxes(data)
+        n_boxes = sum(len(boxes) for boxes in boxes_data[evaluator.key].values())
+        print(f"{evaluator.display_name}: {len(boxes_data[evaluator.key])} imágenes, {n_boxes} cajas")
+
+    keys = [evaluator.key for evaluator in EVALUATORS]
+    matrix = np.full((len(keys), len(keys)), np.nan)
+
+    for i, key1 in enumerate(keys):
+        matrix[i, i] = 1.0
+        for j in range(i + 1, len(keys)):
+            key2 = keys[j]
+            value = calculate_concordance(boxes_data[key1], boxes_data[key2])
+            matrix[i, j] = value
+            matrix[j, i] = value
+
+    matrix_path = MATRIX_DIR / "iou_average_matrix.npy"
+    np.save(matrix_path, matrix)
+    print(f"Matriz guardada: {matrix_path}")
+
+    write_csv(matrix, keys)
+    plot_heatmap(matrix, keys)
+    return matrix, keys
+
+
+if __name__ == "__main__":
     main()

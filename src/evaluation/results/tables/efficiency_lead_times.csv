@@ -1,0 +1,708 @@
+evaluador,nombre,tipo,image_index,lead_time_seg
+E5,E5,ai,1,0.5506165869992401
+E5,E5,ai,2,0.21956650399806676
+E5,E5,ai,3,0.2801808570002322
+E5,E5,ai,4,0.42131973299910896
+E5,E5,ai,5,0.362957721001294
+E5,E5,ai,6,0.29326530500111403
+E5,E5,ai,7,0.3181433850004396
+E5,E5,ai,8,0.28587803799746325
+E5,E5,ai,9,0.4929562300021644
+E5,E5,ai,10,0.3113780940002471
+E5,E5,ai,11,0.41793648000020767
+E5,E5,ai,12,0.22107567499915604
+E5,E5,ai,13,0.2216642210005375
+E5,E5,ai,14,0.34503328700157
+E5,E5,ai,15,0.3750030629998946
+E5,E5,ai,16,0.3207877879976877
+E5,E5,ai,17,0.21754817299733986
+E5,E5,ai,18,0.16442737800025498
+E5,E5,ai,19,0.21494077000170364
+E5,E5,ai,20,0.25844044699988444
+E5,E5,ai,21,0.35995454200019594
+E5,E5,ai,22,0.30501854400063166
+E5,E5,ai,23,0.48762781100231223
+E5,E5,ai,24,0.26445933600189164
+E5,E5,ai,25,0.27118316999985836
+E5,E5,ai,26,0.43519509299949277
+E5,E5,ai,27,0.5751299549992837
+E5,E5,ai,28,0.3245724189982866
+E5,E5,ai,29,0.4280530850010109
+E5,E5,ai,30,0.39757972200095537
+E5,E5,ai,31,0.5447027919981338
+E5,E5,ai,32,0.35068717600006494
+E5,E5,ai,33,0.299616011998296
+E5,E5,ai,34,0.488198350998573
+E5,E5,ai,35,0.540129363998858
+E5,E5,ai,36,0.6163103079998109
+E5,E5,ai,37,0.27419730100154993
+E5,E5,ai,38,0.448249417997431
+E5,E5,ai,39,0.30110993000198505
+E5,E5,ai,40,0.5847332140001527
+E5,E5,ai,41,0.3096927410006174
+E5,E5,ai,42,0.3539359960013826
+E5,E5,ai,43,0.2986547940017772
+E5,E5,ai,44,0.578325627000595
+E5,E5,ai,45,0.5457863850024296
+E5,E5,ai,46,0.34505742200053646
+E5,E5,ai,47,0.490055153000867
+E5,E5,ai,48,0.4194510320012341
+E5,E5,ai,49,0.7690758729986555
+E5,E5,ai,50,0.35243426600209204
+E5,E5,ai,51,0.3494862550032849
+E5,E5,ai,52,0.3394466299978376
+E5,E5,ai,53,0.36276901599921985
+E5,E5,ai,54,0.3951362320003682
+E5,E5,ai,55,0.3839133319997927
+E5,E5,ai,56,0.4162283660007233
+E5,E5,ai,57,0.4026322449972213
+E5,E5,ai,58,0.46649257600074634
+E5,E5,ai,59,0.310654044002149
+E5,E5,ai,60,0.5796874540028512
+E5,E5,ai,61,0.5475849079994077
+E5,E5,ai,62,0.3132714239982306
+E5,E5,ai,63,0.41531926300012856
+E5,E5,ai,64,0.5444633070001146
+E5,E5,ai,65,0.6751955940017069
+E5,E5,ai,66,0.3103666550014168
+E5,E5,ai,67,0.3548382059998403
+E5,E5,ai,68,0.366909347998444
+E5,E5,ai,69,0.9434982510028931
+E5,E5,ai,70,0.672893135000777
+E5,E5,ai,71,0.7000106769992271
+E5,E5,ai,72,0.822884132998297
+E5,E5,ai,73,0.7295723239985819
+E5,E5,ai,74,0.3862047619986697
+E5,E5,ai,75,0.3602002710031229
+E5,E5,ai,76,0.6406795919974684
+E5,E5,ai,77,0.6365901169992867
+E5,E5,ai,78,0.3339242000001832
+E5,E5,ai,79,0.7037004360026913
+E5,E5,ai,80,0.6237710480017995
+E5,E5,ai,81,0.5272835770010715
+E5,E5,ai,82,0.5327767870003299
+E5,E5,ai,83,0.4769973830007075
+E5,E5,ai,84,0.5438011299993377
+E5,E5,ai,85,0.8323079829970084
+E5,E5,ai,86,0.4193660140008433
+E5,E5,ai,87,0.45255511999857845
+E5,E5,ai,88,0.8631976760007092
+E5,E5,ai,89,0.809522105002543
+E5,E5,ai,90,0.7319788269996934
+E5,E5,ai,91,1.2312696320004761
+E5,E5,ai,92,0.7883531359984772
+E5,E5,ai,93,0.7350931740002125
+E5,E5,ai,94,0.5411966350002331
+E5,E5,ai,95,0.43920624400197994
+E5,E5,ai,96,0.587030271999538
+E5,E5,ai,97,0.42679773599957116
+E5,E5,ai,98,0.4854090820008423
+E5,E5,ai,99,0.4919483509984275
+E5,E5,ai,100,0.6227338209973823
+E5,E5,ai,101,0.4112691869995615
+E6,E6,ai,1,1.2874017519989138
+E6,E6,ai,2,0.3079260160011472
+E6,E6,ai,3,0.4754153760004556
+E6,E6,ai,4,0.9355385910002951
+E6,E6,ai,5,0.5945795150000777
+E6,E6,ai,6,0.3133627239985799
+E6,E6,ai,7,0.35298834500099474
+E6,E6,ai,8,0.35090672700061987
+E6,E6,ai,9,0.6061920030006149
+E6,E6,ai,10,0.49140811299912457
+E6,E6,ai,11,0.5208993699998246
+E6,E6,ai,12,0.3658841159995063
+E6,E6,ai,13,0.3418821699997352
+E6,E6,ai,14,0.4993750329995237
+E6,E6,ai,15,0.5473289110013866
+E6,E6,ai,16,0.4841588640010741
+E6,E6,ai,17,0.36525792499924137
+E6,E6,ai,18,0.2469018589999905
+E6,E6,ai,19,0.2868704529992101
+E6,E6,ai,20,0.2914941950002685
+E6,E6,ai,21,0.309957673000099
+E6,E6,ai,22,0.27628927899968403
+E6,E6,ai,23,0.49408858900096675
+E6,E6,ai,24,0.28863681000075303
+E6,E6,ai,25,0.2859756750003726
+E6,E6,ai,26,0.39128005400016264
+E6,E6,ai,27,0.5203734540009464
+E6,E6,ai,28,0.3244578569992882
+E6,E6,ai,29,0.437406003000433
+E6,E6,ai,30,0.4125413820001995
+E6,E6,ai,31,0.4990598130007129
+E6,E6,ai,32,0.33748414399997273
+E6,E6,ai,33,0.3667441540001164
+E6,E6,ai,34,0.5439669389998016
+E6,E6,ai,35,0.4588789760000509
+E6,E6,ai,36,0.5316913229999045
+E6,E6,ai,37,0.29661181600022246
+E6,E6,ai,38,0.5089497199987818
+E6,E6,ai,39,0.33533211299982213
+E6,E6,ai,40,0.5910137400005624
+E6,E6,ai,41,0.3111906079993787
+E6,E6,ai,42,0.38129603100060194
+E6,E6,ai,43,0.3243043670008774
+E6,E6,ai,44,0.6108379050001531
+E6,E6,ai,45,0.5218506920009531
+E6,E6,ai,46,0.3574149229989416
+E6,E6,ai,47,0.5044695350006805
+E6,E6,ai,48,0.33395227300025
+E6,E6,ai,49,0.44503409099888813
+E6,E6,ai,50,0.3167263989998901
+E6,E6,ai,51,0.32222665200060874
+E6,E6,ai,52,0.33212591300070926
+E6,E6,ai,53,0.3375229310004215
+E6,E6,ai,54,0.34536683699843707
+E6,E6,ai,55,0.3350303429997439
+E6,E6,ai,56,0.40649793299962766
+E6,E6,ai,57,0.4196638079993136
+E6,E6,ai,58,0.5457268819991441
+E6,E6,ai,59,0.3067305980002857
+E6,E6,ai,60,0.5021032799995737
+E6,E6,ai,61,0.45887480700002925
+E6,E6,ai,62,0.33783064499948523
+E6,E6,ai,63,0.31209461700018437
+E6,E6,ai,64,0.36691724400043313
+E6,E6,ai,65,0.5613463449990377
+E6,E6,ai,66,0.3012314699990384
+E6,E6,ai,67,0.35087698200004525
+E6,E6,ai,68,0.3312515040015569
+E6,E6,ai,69,0.4040193159999035
+E6,E6,ai,70,0.4270926490007696
+E6,E6,ai,71,0.32178303499858885
+E6,E6,ai,72,0.5273196220005048
+E6,E6,ai,73,0.6638094350000756
+E6,E6,ai,74,0.2967574269987381
+E6,E6,ai,75,0.2861301569992065
+E6,E6,ai,76,0.4460008320002089
+E6,E6,ai,77,0.5408874869990541
+E6,E6,ai,78,0.2746376009999949
+E6,E6,ai,79,0.5733290680000209
+E6,E6,ai,80,0.29823354600011953
+E6,E6,ai,81,0.33331643199926475
+E6,E6,ai,82,0.3313501829998131
+E6,E6,ai,83,0.32746728399979474
+E6,E6,ai,84,0.3462765699987358
+E6,E6,ai,85,0.7042013209993456
+E6,E6,ai,86,0.2831415759992524
+E6,E6,ai,87,0.3194593660009559
+E6,E6,ai,88,0.6279634949987667
+E6,E6,ai,89,0.40240450000055716
+E6,E6,ai,90,0.682919385999412
+E6,E6,ai,91,0.31475346600018383
+E6,E6,ai,92,0.38989382200088585
+E6,E6,ai,93,0.6142534509999678
+E6,E6,ai,94,0.4510531819996686
+E6,E6,ai,95,0.28666924400022253
+E6,E6,ai,96,0.46909941699959745
+E6,E6,ai,97,0.3523404660008964
+E6,E6,ai,98,0.4365372550000757
+E6,E6,ai,99,0.4512859780006693
+E6,E6,ai,100,0.5649272480004583
+E6,E6,ai,101,0.3638794559992675
+E7,E7,ai,1,0.13015735299995868
+E7,E7,ai,2,0.0888431910007057
+E7,E7,ai,3,0.07321369700002833
+E7,E7,ai,4,0.08797787800085644
+E7,E7,ai,5,0.08776823300013348
+E7,E7,ai,6,0.039921352000419574
+E7,E7,ai,7,0.04582932900029846
+E7,E7,ai,8,0.05406220300028508
+E7,E7,ai,9,0.06835856900033832
+E7,E7,ai,10,0.06882732899975963
+E7,E7,ai,11,0.07519088899971393
+E7,E7,ai,12,0.05098579900004552
+E7,E7,ai,13,0.04748041399943759
+E7,E7,ai,14,0.07205899899963697
+E7,E7,ai,15,0.06772604900015722
+E7,E7,ai,16,0.06537024400040536
+E7,E7,ai,17,0.05083823700078938
+E7,E7,ai,18,0.052069687999392045
+E7,E7,ai,19,0.04066070599947125
+E7,E7,ai,20,0.04679319300066709
+E7,E7,ai,21,0.0434516409995922
+E7,E7,ai,22,0.03583739400073682
+E7,E7,ai,23,0.07718092999948567
+E7,E7,ai,24,0.04060519199992996
+E7,E7,ai,25,0.043772665999313176
+E7,E7,ai,26,0.07546590600031777
+E7,E7,ai,27,0.08833172499998909
+E7,E7,ai,28,0.04777938200004428
+E7,E7,ai,29,0.061238009000589955
+E7,E7,ai,30,0.05680705099985062
+E7,E7,ai,31,0.06612961500013625
+E7,E7,ai,32,0.05476550399998814
+E7,E7,ai,33,0.043989571000565775
+E7,E7,ai,34,0.06084231299973908
+E7,E7,ai,35,0.08590663599989057
+E7,E7,ai,36,0.08553490199938096
+E7,E7,ai,37,0.054080061000604474
+E7,E7,ai,38,0.050835550000556395
+E7,E7,ai,39,0.044893786999637086
+E7,E7,ai,40,0.07064994899974408
+E7,E7,ai,41,0.04341459700026462
+E7,E7,ai,42,0.06634354600009829
+E7,E7,ai,43,0.06284292100008315
+E7,E7,ai,44,0.058258853000552335
+E7,E7,ai,45,0.06785299300008774
+E7,E7,ai,46,0.0405452389995844
+E7,E7,ai,47,0.09310564899988094
+E7,E7,ai,48,0.04904283799987752
+E7,E7,ai,49,0.05404276100034622
+E7,E7,ai,50,0.046527728000000934
+E7,E7,ai,51,0.0506599999998798
+E7,E7,ai,52,0.050090565000573406
+E7,E7,ai,53,0.05806194300021161
+E7,E7,ai,54,0.051185727000301995
+E7,E7,ai,55,0.042215692000354466
+E7,E7,ai,56,0.07155529200008459
+E7,E7,ai,57,0.07195673400019587
+E7,E7,ai,58,0.09308613400025934
+E7,E7,ai,59,0.0590592150001612
+E7,E7,ai,60,0.07994034699913755
+E7,E7,ai,61,0.09658114399917395
+E7,E7,ai,62,0.05413917399982893
+E7,E7,ai,63,0.0641393039995819
+E7,E7,ai,64,0.06052656000065326
+E7,E7,ai,65,0.10861125700012053
+E7,E7,ai,66,0.04853371100034565
+E7,E7,ai,67,0.05479966699931538
+E7,E7,ai,68,0.06412855599955947
+E7,E7,ai,69,0.06808094200005144
+E7,E7,ai,70,0.11093218000041816
+E7,E7,ai,71,0.16840114099977654
+E7,E7,ai,72,0.20304971499990643
+E7,E7,ai,73,0.14434706500014727
+E7,E7,ai,74,0.058043124000505486
+E7,E7,ai,75,0.04291340600047988
+E7,E7,ai,76,0.08849183900019852
+E7,E7,ai,77,0.09992061400043895
+E7,E7,ai,78,0.050852083000791026
+E7,E7,ai,79,0.07247604900021543
+E7,E7,ai,80,0.050353408000773925
+E7,E7,ai,81,0.05368350200023997
+E7,E7,ai,82,0.04090752800038899
+E7,E7,ai,83,0.05797490700024355
+E7,E7,ai,84,0.06320391900044342
+E7,E7,ai,85,0.1056696550003835
+E7,E7,ai,86,0.07509049999953277
+E7,E7,ai,87,0.05328900400036218
+E7,E7,ai,88,0.11170268499972735
+E7,E7,ai,89,0.12291910899966751
+E7,E7,ai,90,0.12293993500043143
+E7,E7,ai,91,0.0597066199998153
+E7,E7,ai,92,0.08603097200011689
+E7,E7,ai,93,0.11758345299949724
+E7,E7,ai,94,0.10018475299966667
+E7,E7,ai,95,0.053282228999705694
+E7,E7,ai,96,0.11111750400050369
+E7,E7,ai,97,0.06232092600021133
+E7,E7,ai,98,0.09062445300060062
+E7,E7,ai,99,0.09383933099979913
+E7,E7,ai,100,0.12688900400007697
+E7,E7,ai,101,0.05712403000052291
+ModeloEspecialista,ModeloEspecialista,ai,1,0.6002138390031178
+ModeloEspecialista,ModeloEspecialista,ai,2,1.4927596330089727
+ModeloEspecialista,ModeloEspecialista,ai,3,1.4355558850002126
+ModeloEspecialista,ModeloEspecialista,ai,4,2.6195832419980434
+ModeloEspecialista,ModeloEspecialista,ai,5,1.631767500002752
+ModeloEspecialista,ModeloEspecialista,ai,6,1.4554941539972788
+ModeloEspecialista,ModeloEspecialista,ai,7,1.456462839996675
+ModeloEspecialista,ModeloEspecialista,ai,8,0.6089488239958882
+ModeloEspecialista,ModeloEspecialista,ai,9,0.7634309860004578
+ModeloEspecialista,ModeloEspecialista,ai,10,1.0495626230040216
+ModeloEspecialista,ModeloEspecialista,ai,11,1.1117646699931356
+ModeloEspecialista,ModeloEspecialista,ai,12,0.7690675810008543
+ModeloEspecialista,ModeloEspecialista,ai,13,0.6171314579987666
+ModeloEspecialista,ModeloEspecialista,ai,14,0.6357869519997621
+ModeloEspecialista,ModeloEspecialista,ai,15,0.7665205270022852
+ModeloEspecialista,ModeloEspecialista,ai,16,0.5787505990010686
+ModeloEspecialista,ModeloEspecialista,ai,17,0.3247935679901275
+ModeloEspecialista,ModeloEspecialista,ai,18,0.2425946750008734
+ModeloEspecialista,ModeloEspecialista,ai,19,0.388164850002795
+ModeloEspecialista,ModeloEspecialista,ai,20,0.41530972099280916
+ModeloEspecialista,ModeloEspecialista,ai,21,0.20910975300648715
+ModeloEspecialista,ModeloEspecialista,ai,22,0.34203450099448673
+ModeloEspecialista,ModeloEspecialista,ai,23,0.2006408340021153
+ModeloEspecialista,ModeloEspecialista,ai,24,0.17711669599520974
+ModeloEspecialista,ModeloEspecialista,ai,25,0.19467041600000812
+ModeloEspecialista,ModeloEspecialista,ai,26,0.3148268709992408
+ModeloEspecialista,ModeloEspecialista,ai,27,1.0580689770067693
+ModeloEspecialista,ModeloEspecialista,ai,28,0.2555489910009783
+ModeloEspecialista,ModeloEspecialista,ai,29,0.5059104049942107
+ModeloEspecialista,ModeloEspecialista,ai,30,0.43850448400189634
+ModeloEspecialista,ModeloEspecialista,ai,31,0.4560456549952505
+ModeloEspecialista,ModeloEspecialista,ai,32,0.2078048059993307
+ModeloEspecialista,ModeloEspecialista,ai,33,0.4485692160014878
+ModeloEspecialista,ModeloEspecialista,ai,34,0.39384994800639106
+ModeloEspecialista,ModeloEspecialista,ai,35,0.4650582110043615
+ModeloEspecialista,ModeloEspecialista,ai,36,0.3567832100088708
+ModeloEspecialista,ModeloEspecialista,ai,37,0.22940359199856175
+ModeloEspecialista,ModeloEspecialista,ai,38,0.3965752459989744
+ModeloEspecialista,ModeloEspecialista,ai,39,0.5216290069947718
+ModeloEspecialista,ModeloEspecialista,ai,40,1.8724541850024252
+ModeloEspecialista,ModeloEspecialista,ai,41,0.45553573499637423
+ModeloEspecialista,ModeloEspecialista,ai,42,0.49524496399681084
+ModeloEspecialista,ModeloEspecialista,ai,43,0.326579127999139
+ModeloEspecialista,ModeloEspecialista,ai,44,0.4180014619923895
+ModeloEspecialista,ModeloEspecialista,ai,45,0.44811409799876856
+ModeloEspecialista,ModeloEspecialista,ai,46,0.26265705799596617
+ModeloEspecialista,ModeloEspecialista,ai,47,0.22865170599834528
+ModeloEspecialista,ModeloEspecialista,ai,48,0.4529042119975202
+ModeloEspecialista,ModeloEspecialista,ai,49,1.2640246660012053
+ModeloEspecialista,ModeloEspecialista,ai,50,0.6368937009974616
+ModeloEspecialista,ModeloEspecialista,ai,51,0.39126347800629446
+ModeloEspecialista,ModeloEspecialista,ai,52,0.6760140149999643
+ModeloEspecialista,ModeloEspecialista,ai,53,1.1170451790021616
+ModeloEspecialista,ModeloEspecialista,ai,54,0.23179010299645597
+ModeloEspecialista,ModeloEspecialista,ai,55,0.40714293299242854
+ModeloEspecialista,ModeloEspecialista,ai,56,0.3116465249986504
+ModeloEspecialista,ModeloEspecialista,ai,57,0.41967649300204357
+ModeloEspecialista,ModeloEspecialista,ai,58,0.26584470400121063
+ModeloEspecialista,ModeloEspecialista,ai,59,0.36741588900622446
+ModeloEspecialista,ModeloEspecialista,ai,60,0.19145243799721356
+ModeloEspecialista,ModeloEspecialista,ai,61,0.32988491199648706
+ModeloEspecialista,ModeloEspecialista,ai,62,0.42548621299647493
+ModeloEspecialista,ModeloEspecialista,ai,63,0.3808658500056481
+ModeloEspecialista,ModeloEspecialista,ai,64,0.4450254270050209
+ModeloEspecialista,ModeloEspecialista,ai,65,0.6207975249999436
+ModeloEspecialista,ModeloEspecialista,ai,66,4.042427490996488
+ModeloEspecialista,ModeloEspecialista,ai,67,2.9305476660083514
+ModeloEspecialista,ModeloEspecialista,ai,68,1.2784537839979748
+ModeloEspecialista,ModeloEspecialista,ai,69,0.34138265799265355
+ModeloEspecialista,ModeloEspecialista,ai,70,0.22430920400074683
+ModeloEspecialista,ModeloEspecialista,ai,71,1.0254777889931574
+ModeloEspecialista,ModeloEspecialista,ai,72,3.461490743997274
+ModeloEspecialista,ModeloEspecialista,ai,73,1.5756804900011048
+ModeloEspecialista,ModeloEspecialista,ai,74,2.333483583002817
+ModeloEspecialista,ModeloEspecialista,ai,75,1.6515478789951885
+ModeloEspecialista,ModeloEspecialista,ai,76,5.87794478199794
+ModeloEspecialista,ModeloEspecialista,ai,77,1.9111239409976406
+ModeloEspecialista,ModeloEspecialista,ai,78,2.0246987249993253
+ModeloEspecialista,ModeloEspecialista,ai,79,1.1702562540012877
+ModeloEspecialista,ModeloEspecialista,ai,80,0.9549001490086084
+ModeloEspecialista,ModeloEspecialista,ai,81,1.1005707529984647
+ModeloEspecialista,ModeloEspecialista,ai,82,0.8692244300036691
+ModeloEspecialista,ModeloEspecialista,ai,83,0.7512221210054122
+ModeloEspecialista,ModeloEspecialista,ai,84,0.9262011270038784
+ModeloEspecialista,ModeloEspecialista,ai,85,0.7829758110019611
+ModeloEspecialista,ModeloEspecialista,ai,86,1.5058293549955124
+ModeloEspecialista,ModeloEspecialista,ai,87,1.3882287599990377
+ModeloEspecialista,ModeloEspecialista,ai,88,0.5982332500061602
+ModeloEspecialista,ModeloEspecialista,ai,89,1.422637397008657
+ModeloEspecialista,ModeloEspecialista,ai,90,1.0725073130015517
+ModeloEspecialista,ModeloEspecialista,ai,91,0.9557426000028499
+ModeloEspecialista,ModeloEspecialista,ai,92,0.8858667400054401
+ModeloEspecialista,ModeloEspecialista,ai,93,0.8767524590002722
+ModeloEspecialista,ModeloEspecialista,ai,94,1.311367225003778
+ModeloEspecialista,ModeloEspecialista,ai,95,1.1155939959935495
+ModeloEspecialista,ModeloEspecialista,ai,96,1.9941173149927636
+ModeloEspecialista,ModeloEspecialista,ai,97,1.1760905039991485
+ModeloEspecialista,ModeloEspecialista,ai,98,0.9839050309965387
+ModeloEspecialista,ModeloEspecialista,ai,99,2.049834372002806
+ModeloEspecialista,ModeloEspecialista,ai,100,0.8913138260031701
+ModeloEspecialista,ModeloEspecialista,ai,101,1.3637339789929683
+Usuario_Control,Usuario Control,human,1,27.626
+Usuario_Control,Usuario Control,human,2,60.081
+Usuario_Control,Usuario Control,human,3,15.344
+Usuario_Control,Usuario Control,human,4,11.697
+Usuario_Control,Usuario Control,human,5,5.658
+Usuario_Control,Usuario Control,human,6,10.676
+Usuario_Control,Usuario Control,human,7,5.24
+Usuario_Control,Usuario Control,human,8,17.679
+Usuario_Control,Usuario Control,human,9,17.189
+Usuario_Control,Usuario Control,human,10,36.373
+Usuario_Control,Usuario Control,human,11,14.294
+Usuario_Control,Usuario Control,human,12,68.868
+Usuario_Control,Usuario Control,human,13,30.218
+Usuario_Control,Usuario Control,human,14,40.601
+Usuario_Control,Usuario Control,human,15,37.729
+Usuario_Control,Usuario Control,human,16,24.036
+Usuario_Control,Usuario Control,human,17,7.096
+Usuario_Control,Usuario Control,human,18,35.262
+Usuario_Control,Usuario Control,human,19,29.845
+Usuario_Control,Usuario Control,human,20,24.801
+Usuario_Control,Usuario Control,human,21,54.979
+Usuario_Control,Usuario Control,human,22,59.85
+Usuario_Control,Usuario Control,human,23,6.337
+Usuario_Control,Usuario Control,human,24,14.963
+Usuario_Control,Usuario Control,human,25,13.149
+Usuario_Control,Usuario Control,human,26,5.894
+Usuario_Control,Usuario Control,human,27,39.01
+Usuario_Control,Usuario Control,human,28,12.241
+Usuario_Control,Usuario Control,human,29,30.402
+Usuario_Control,Usuario Control,human,30,65.399
+Usuario_Control,Usuario Control,human,31,35.409
+Usuario_Control,Usuario Control,human,32,10.728
+Usuario_Control,Usuario Control,human,33,21.923
+Usuario_Control,Usuario Control,human,34,10.038
+Usuario_Control,Usuario Control,human,35,39.344
+Usuario_Control,Usuario Control,human,36,25.442
+Usuario_Control,Usuario Control,human,37,37.412
+Usuario_Control,Usuario Control,human,38,66.704
+Usuario_Control,Usuario Control,human,39,28.262
+Usuario_Control,Usuario Control,human,40,39.499
+Usuario_Control,Usuario Control,human,41,58.029
+Usuario_Control,Usuario Control,human,42,111.213
+Usuario_Control,Usuario Control,human,43,45.012
+Usuario_Control,Usuario Control,human,44,63.801
+Usuario_Control,Usuario Control,human,45,8.264
+Usuario_Control,Usuario Control,human,46,15.002
+Usuario_Control,Usuario Control,human,47,40.246
+Usuario_Control,Usuario Control,human,48,112.312
+Usuario_Control,Usuario Control,human,49,16.275
+Usuario_Control,Usuario Control,human,50,71.202
+Usuario_Control,Usuario Control,human,51,62.792
+Usuario_Control,Usuario Control,human,52,32.477
+Usuario_Control,Usuario Control,human,53,39.33
+Usuario_Control,Usuario Control,human,54,6.612
+Usuario_Control,Usuario Control,human,55,5.531
+Usuario_Control,Usuario Control,human,56,13.969
+Usuario_Control,Usuario Control,human,57,12.282
+Usuario_Control,Usuario Control,human,58,29.566
+Usuario_Control,Usuario Control,human,59,55.035
+Usuario_Control,Usuario Control,human,60,29.026
+Usuario_Control,Usuario Control,human,61,25.571
+Usuario_Control,Usuario Control,human,62,48.913
+Usuario_Control,Usuario Control,human,63,41.698
+Usuario_Control,Usuario Control,human,64,59.784
+Usuario_Control,Usuario Control,human,65,16.829
+Usuario_Control,Usuario Control,human,66,18.825
+Usuario_Control,Usuario Control,human,67,21.872
+Usuario_Control,Usuario Control,human,68,58.428
+Usuario_Control,Usuario Control,human,69,28.742
+Usuario_Control,Usuario Control,human,70,39.842
+Usuario_Control,Usuario Control,human,71,61.232
+Usuario_Control,Usuario Control,human,72,44.442
+Usuario_Control,Usuario Control,human,73,26.475
+Usuario_Control,Usuario Control,human,74,24.177
+Usuario_Control,Usuario Control,human,75,6.425
+Usuario_Control,Usuario Control,human,76,38.552
+Usuario_Control,Usuario Control,human,77,27.158
+Usuario_Control,Usuario Control,human,78,43.535
+Usuario_Control,Usuario Control,human,79,12.917
+Usuario_Control,Usuario Control,human,80,30.145
+Usuario_Control,Usuario Control,human,81,21.434
+Usuario_Control,Usuario Control,human,82,32.843
+Usuario_Control,Usuario Control,human,83,36.605
+Usuario_Control,Usuario Control,human,84,53.65
+Usuario_Control,Usuario Control,human,85,27.389
+Usuario_Control,Usuario Control,human,86,25.078
+Usuario_Control,Usuario Control,human,87,17.776
+Usuario_Control,Usuario Control,human,88,42.227
+Usuario_Control,Usuario Control,human,89,41.879
+Usuario_Control,Usuario Control,human,90,20.511
+Usuario_Control,Usuario Control,human,91,14.871
+Usuario_Control,Usuario Control,human,92,26.522
+Usuario_Control,Usuario Control,human,93,14.015
+Usuario_Control,Usuario Control,human,94,49.897
+Usuario_Control,Usuario Control,human,95,25.176
+Usuario_Control,Usuario Control,human,96,55.022
+Usuario_Control,Usuario Control,human,97,17.172
+Usuario_Control,Usuario Control,human,98,32.0
+Usuario_Control,Usuario Control,human,99,34.417
+Usuario_Control,Usuario Control,human,100,35.195
+Usuario_Control,Usuario Control,human,101,62.877
+R1_Radiologia,R1 Radiologia,human,1,143.79
+R1_Radiologia,R1 Radiologia,human,2,13.026
+R1_Radiologia,R1 Radiologia,human,3,7.603
+R1_Radiologia,R1 Radiologia,human,4,8.846
+R1_Radiologia,R1 Radiologia,human,5,15.322
+R1_Radiologia,R1 Radiologia,human,6,12.286
+R1_Radiologia,R1 Radiologia,human,7,12.822
+R1_Radiologia,R1 Radiologia,human,8,6.161
+R1_Radiologia,R1 Radiologia,human,9,10.84
+R1_Radiologia,R1 Radiologia,human,10,14.153
+R1_Radiologia,R1 Radiologia,human,11,17.214
+R1_Radiologia,R1 Radiologia,human,12,18.552
+R1_Radiologia,R1 Radiologia,human,13,18.003
+R1_Radiologia,R1 Radiologia,human,14,37.968
+R1_Radiologia,R1 Radiologia,human,15,58.676
+R1_Radiologia,R1 Radiologia,human,16,22.345
+R1_Radiologia,R1 Radiologia,human,17,7.563
+R1_Radiologia,R1 Radiologia,human,18,29.339
+R1_Radiologia,R1 Radiologia,human,19,23.157
+R1_Radiologia,R1 Radiologia,human,20,31.543
+R1_Radiologia,R1 Radiologia,human,21,9.2
+R1_Radiologia,R1 Radiologia,human,22,9.193
+R1_Radiologia,R1 Radiologia,human,23,25.956
+R1_Radiologia,R1 Radiologia,human,24,24.497
+R1_Radiologia,R1 Radiologia,human,25,17.546
+R1_Radiologia,R1 Radiologia,human,26,18.928
+R1_Radiologia,R1 Radiologia,human,27,18.152
+R1_Radiologia,R1 Radiologia,human,28,9.549
+R1_Radiologia,R1 Radiologia,human,29,196.93
+R1_Radiologia,R1 Radiologia,human,30,21.194
+R1_Radiologia,R1 Radiologia,human,31,127.278
+R1_Radiologia,R1 Radiologia,human,32,20.336
+R1_Radiologia,R1 Radiologia,human,33,26.926
+R1_Radiologia,R1 Radiologia,human,34,41.459
+R1_Radiologia,R1 Radiologia,human,35,13.528
+R1_Radiologia,R1 Radiologia,human,36,6.106
+R1_Radiologia,R1 Radiologia,human,37,39.591
+R1_Radiologia,R1 Radiologia,human,38,36.555
+R1_Radiologia,R1 Radiologia,human,39,21.776
+R1_Radiologia,R1 Radiologia,human,40,50.637
+R1_Radiologia,R1 Radiologia,human,41,99.873
+R1_Radiologia,R1 Radiologia,human,42,22.14
+R1_Radiologia,R1 Radiologia,human,43,51.121
+R1_Radiologia,R1 Radiologia,human,44,74.282
+R1_Radiologia,R1 Radiologia,human,45,28.412
+R1_Radiologia,R1 Radiologia,human,46,31.254
+R1_Radiologia,R1 Radiologia,human,47,23.398
+R1_Radiologia,R1 Radiologia,human,48,32.669
+R1_Radiologia,R1 Radiologia,human,49,16.953
+R1_Radiologia,R1 Radiologia,human,50,27.498
+R1_Radiologia,R1 Radiologia,human,51,60.524
+R1_Radiologia,R1 Radiologia,human,52,20.553
+R1_Radiologia,R1 Radiologia,human,53,15.136
+R1_Radiologia,R1 Radiologia,human,54,36.986
+R1_Radiologia,R1 Radiologia,human,55,14.115
+R1_Radiologia,R1 Radiologia,human,56,18.511
+R1_Radiologia,R1 Radiologia,human,57,13.761
+R1_Radiologia,R1 Radiologia,human,58,38.558
+R1_Radiologia,R1 Radiologia,human,59,115.238
+R1_Radiologia,R1 Radiologia,human,60,157.515
+R1_Radiologia,R1 Radiologia,human,61,32.736
+R1_Radiologia,R1 Radiologia,human,62,24.566
+R1_Radiologia,R1 Radiologia,human,63,20.664
+R1_Radiologia,R1 Radiologia,human,64,17.187
+R1_Radiologia,R1 Radiologia,human,65,20.244
+R1_Radiologia,R1 Radiologia,human,66,43.573
+R1_Radiologia,R1 Radiologia,human,67,20.127
+R1_Radiologia,R1 Radiologia,human,68,18.065
+R1_Radiologia,R1 Radiologia,human,69,68.713
+R1_Radiologia,R1 Radiologia,human,70,27.511
+R1_Radiologia,R1 Radiologia,human,71,22.937
+R1_Radiologia,R1 Radiologia,human,72,28.72
+R1_Radiologia,R1 Radiologia,human,73,38.815
+R1_Radiologia,R1 Radiologia,human,74,25.846
+R1_Radiologia,R1 Radiologia,human,75,15.07
+R1_Radiologia,R1 Radiologia,human,76,20.956
+R1_Radiologia,R1 Radiologia,human,77,5.959
+R1_Radiologia,R1 Radiologia,human,78,22.001
+R1_Radiologia,R1 Radiologia,human,79,11.305
+R1_Radiologia,R1 Radiologia,human,80,11.883
+R1_Radiologia,R1 Radiologia,human,81,38.105
+R1_Radiologia,R1 Radiologia,human,82,9.553
+R1_Radiologia,R1 Radiologia,human,83,24.434
+R1_Radiologia,R1 Radiologia,human,84,26.788
+R1_Radiologia,R1 Radiologia,human,85,18.154
+R1_Radiologia,R1 Radiologia,human,86,28.53
+R1_Radiologia,R1 Radiologia,human,87,23.055
+R1_Radiologia,R1 Radiologia,human,88,13.923
+R1_Radiologia,R1 Radiologia,human,89,61.609
+R1_Radiologia,R1 Radiologia,human,90,12.555
+R1_Radiologia,R1 Radiologia,human,91,15.382
+R1_Radiologia,R1 Radiologia,human,92,37.383
+R1_Radiologia,R1 Radiologia,human,93,17.577
+R1_Radiologia,R1 Radiologia,human,94,18.346
+R1_Radiologia,R1 Radiologia,human,95,20.13
+R1_Radiologia,R1 Radiologia,human,96,6.016
+R1_Radiologia,R1 Radiologia,human,97,6.49
+R1_Radiologia,R1 Radiologia,human,98,22.048
+R1_Radiologia,R1 Radiologia,human,99,13.244
+R1_Radiologia,R1 Radiologia,human,100,12.955
+R1_Radiologia,R1 Radiologia,human,101,7.512
+Experto_Radiologo,Experto Radiologo,human,1,156.971
+Experto_Radiologo,Experto Radiologo,human,2,51.512
+Experto_Radiologo,Experto Radiologo,human,3,37.251
+Experto_Radiologo,Experto Radiologo,human,4,21.333
+Experto_Radiologo,Experto Radiologo,human,5,15.586
+Experto_Radiologo,Experto Radiologo,human,6,36.699
+Experto_Radiologo,Experto Radiologo,human,7,15.84
+Experto_Radiologo,Experto Radiologo,human,8,23.011
+Experto_Radiologo,Experto Radiologo,human,9,24.465
+Experto_Radiologo,Experto Radiologo,human,10,78.44
+Experto_Radiologo,Experto Radiologo,human,11,19.85
+Experto_Radiologo,Experto Radiologo,human,12,65.278
+Experto_Radiologo,Experto Radiologo,human,13,76.461
+Experto_Radiologo,Experto Radiologo,human,14,25.238
+Experto_Radiologo,Experto Radiologo,human,15,316.726
+Experto_Radiologo,Experto Radiologo,human,16,106.466
+Experto_Radiologo,Experto Radiologo,human,17,19.832
+Experto_Radiologo,Experto Radiologo,human,18,76.291
+Experto_Radiologo,Experto Radiologo,human,19,46.227
+Experto_Radiologo,Experto Radiologo,human,20,32.318
+Experto_Radiologo,Experto Radiologo,human,21,22.702
+Experto_Radiologo,Experto Radiologo,human,22,36.771
+Experto_Radiologo,Experto Radiologo,human,23,55.659
+Experto_Radiologo,Experto Radiologo,human,24,97.096
+Experto_Radiologo,Experto Radiologo,human,25,39.475
+Experto_Radiologo,Experto Radiologo,human,26,48.309
+Experto_Radiologo,Experto Radiologo,human,27,22.917
+Experto_Radiologo,Experto Radiologo,human,28,63.171
+Experto_Radiologo,Experto Radiologo,human,29,20.703
+Experto_Radiologo,Experto Radiologo,human,30,19.349
+Experto_Radiologo,Experto Radiologo,human,31,60.75
+Experto_Radiologo,Experto Radiologo,human,32,38.424
+Experto_Radiologo,Experto Radiologo,human,33,48.851
+Experto_Radiologo,Experto Radiologo,human,34,82.121
+Experto_Radiologo,Experto Radiologo,human,35,32.628
+Experto_Radiologo,Experto Radiologo,human,36,34.726
+Experto_Radiologo,Experto Radiologo,human,37,69.576
+Experto_Radiologo,Experto Radiologo,human,38,26.27
+Experto_Radiologo,Experto Radiologo,human,39,100.98
+Experto_Radiologo,Experto Radiologo,human,40,37.72
+Experto_Radiologo,Experto Radiologo,human,41,50.193
+Experto_Radiologo,Experto Radiologo,human,42,53.983
+Experto_Radiologo,Experto Radiologo,human,43,145.476
+Experto_Radiologo,Experto Radiologo,human,44,7.181
+Experto_Radiologo,Experto Radiologo,human,45,106.546
+Experto_Radiologo,Experto Radiologo,human,46,53.816
+Experto_Radiologo,Experto Radiologo,human,47,42.666
+Experto_Radiologo,Experto Radiologo,human,48,59.909
+Experto_Radiologo,Experto Radiologo,human,49,42.359
+Experto_Radiologo,Experto Radiologo,human,50,35.112
+Experto_Radiologo,Experto Radiologo,human,51,43.538
+Experto_Radiologo,Experto Radiologo,human,52,42.536
+Experto_Radiologo,Experto Radiologo,human,53,27.376
+Experto_Radiologo,Experto Radiologo,human,54,57.418
+Experto_Radiologo,Experto Radiologo,human,55,30.534
+Experto_Radiologo,Experto Radiologo,human,56,63.442
+Experto_Radiologo,Experto Radiologo,human,57,49.797
+Experto_Radiologo,Experto Radiologo,human,58,48.408
+Experto_Radiologo,Experto Radiologo,human,59,57.286
+Experto_Radiologo,Experto Radiologo,human,60,34.011
+Experto_Radiologo,Experto Radiologo,human,61,31.575
+Experto_Radiologo,Experto Radiologo,human,62,38.131
+Experto_Radiologo,Experto Radiologo,human,63,65.45
+Experto_Radiologo,Experto Radiologo,human,64,33.886
+Experto_Radiologo,Experto Radiologo,human,65,50.048
+Experto_Radiologo,Experto Radiologo,human,66,129.533
+Experto_Radiologo,Experto Radiologo,human,67,28.583
+Experto_Radiologo,Experto Radiologo,human,68,50.534
+Experto_Radiologo,Experto Radiologo,human,69,23.562
+Experto_Radiologo,Experto Radiologo,human,70,159.51
+Experto_Radiologo,Experto Radiologo,human,71,90.189
+Experto_Radiologo,Experto Radiologo,human,72,66.548
+Experto_Radiologo,Experto Radiologo,human,73,70.039
+Experto_Radiologo,Experto Radiologo,human,74,80.995
+Experto_Radiologo,Experto Radiologo,human,75,110.004
+Experto_Radiologo,Experto Radiologo,human,76,33.739
+Experto_Radiologo,Experto Radiologo,human,77,22.071
+Experto_Radiologo,Experto Radiologo,human,78,229.965
+Experto_Radiologo,Experto Radiologo,human,79,37.488
+Experto_Radiologo,Experto Radiologo,human,80,32.578
+Experto_Radiologo,Experto Radiologo,human,81,27.986
+Experto_Radiologo,Experto Radiologo,human,82,24.185
+Experto_Radiologo,Experto Radiologo,human,83,21.981
+Experto_Radiologo,Experto Radiologo,human,84,21.458
+Experto_Radiologo,Experto Radiologo,human,85,48.705
+Experto_Radiologo,Experto Radiologo,human,86,105.428
+Experto_Radiologo,Experto Radiologo,human,87,45.257
+Experto_Radiologo,Experto Radiologo,human,88,52.998
+Experto_Radiologo,Experto Radiologo,human,89,85.203
+Experto_Radiologo,Experto Radiologo,human,90,31.046
+Experto_Radiologo,Experto Radiologo,human,91,18.608
+Experto_Radiologo,Experto Radiologo,human,92,76.506
+Experto_Radiologo,Experto Radiologo,human,93,49.185
+Experto_Radiologo,Experto Radiologo,human,94,34.073
+Experto_Radiologo,Experto Radiologo,human,95,26.624
+Experto_Radiologo,Experto Radiologo,human,96,13.736
+Experto_Radiologo,Experto Radiologo,human,97,13.984
+Experto_Radiologo,Experto Radiologo,human,98,71.958
+Experto_Radiologo,Experto Radiologo,human,99,64.337
+Experto_Radiologo,Experto Radiologo,human,100,25.25
+Experto_Radiologo,Experto Radiologo,human,101,33.879

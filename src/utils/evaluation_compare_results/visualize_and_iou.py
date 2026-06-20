@@ -1,249 +1,322 @@
 #!/usr/bin/env python3
-"""Dibuja bounding boxes de cada evaluador y calcula IoU por imagen."""
+"""Visualiza anotaciones y calcula IoU humano-humano y humano-IA."""
 
-import json
 import csv
-import numpy as np
-import cv2
+import json
 from pathlib import Path
 
-IMG_DIR = Path('data/EvalDatasetProperID')
-OUT_DIR = Path('data/EvalEvaluatedImages')
-CSV_OUT = Path('src/evaluation/results/iou_per_image.csv')
+import cv2
+import numpy as np
+
+from evaluation_common import (
+    ANNOTATION_DIR,
+    EVALUATORS,
+    PROJECT_ROOT,
+    optimal_iou_match,
+    pair_order,
+)
+
+
+IMG_DIR = PROJECT_ROOT / "data" / "EvalDatasetProperID"
+OUT_DIR = PROJECT_ROOT / "src" / "evaluation" / "results" / "images" / "iou_human_pairs"
+CSV_OUT = PROJECT_ROOT / "src" / "evaluation" / "results" / "tables" / "iou_per_image_human_pairs.csv"
+
+JSONS = {
+    evaluator.key: ANNOTATION_DIR / evaluator.filename
+    for evaluator in EVALUATORS
+}
+
+EVAL_ORDER = [evaluator.key for evaluator in EVALUATORS]
+HUMAN_EVALUATORS = [evaluator.key for evaluator in EVALUATORS if evaluator.kind == "human"]
+PAIR_ORDER = pair_order()
 
 COLORS = {
-    'Humano': (0, 180, 0),
-    'IA_E3': (200, 0, 0),
-    'IA_E6': (0, 140, 200),
-    'IA_E7': (180, 0, 180),
-    'Usuario_R1': (0, 0, 255)
+    "Usuario_Control": (0, 180, 0),
+    "R1_Radiologia": (0, 0, 255),
+    "Experto_Radiologo": (255, 120, 0),
+    "E5": (200, 0, 200),
+    "E6": (0, 140, 200),
+    "E7": (180, 0, 100),
+    "ModeloEspecialista": (0, 180, 180),
 }
-
-EVAL_ORDER = ['Humano', 'IA_E3', 'IA_E6', 'IA_E7', 'Usuario_R1']
 
 LABELS = {
-    'Humano': 'Humano',
-    'IA_E3': 'IA E3 YOLOv8n',
-    'IA_E6': 'IA E6 YOLOv8m',
-    'IA_E7': 'IA E7 YOLOv11n',
-    'Usuario_R1': 'Usuario_R1'
+    evaluator.key: evaluator.display_name
+    for evaluator in EVALUATORS
 }
 
+
 def load_json(path):
-    with open(path, 'r') as f:
-        return json.load(f)
+    with open(path, "r", encoding="utf-8") as file:
+        return json.load(file)
+
+
+def extract_filename(item):
+    """Obtiene un nombre comparable desde exportaciones humanas o de IA."""
+    raw_name = (
+        item.get("file_upload")
+        or item.get("data", {}).get("image")
+        or str(item.get("id", ""))
+    )
+    return Path(str(raw_name).replace("\\", "/")).name
+
 
 def extract_boxes_all(data):
-    """Extrae bounding boxes keyed by filename (sin hash uuid)."""
+    """Extrae bounding boxes agrupadas por nombre de imagen."""
     result = {}
     for item in data:
-        fn = (item.get('file_upload')
-              or item.get('data', {}).get('image', '')
-              or str(item.get('id', '')))
-        annotations = item.get('annotations', [])
+        filename = extract_filename(item)
         boxes = []
-        for ann in annotations:
-            for r in ann.get('result', []):
-                value = r.get('value', {})
-                orig_w = r.get('original_width', 1)
-                orig_h = r.get('original_height', 1)
-                x = value['x'] / 100 * orig_w
-                y = value['y'] / 100 * orig_h
-                w = value['width'] / 100 * orig_w
-                h = value['height'] / 100 * orig_h
-                boxes.append({'x': x, 'y': y, 'w': w, 'h': h,
-                              'orig_w': orig_w, 'orig_h': orig_h})
-        result[fn] = boxes
+
+        for annotation in item.get("annotations", []):
+            for annotation_result in annotation.get("result", []):
+                value = annotation_result.get("value", {})
+                original_width = annotation_result.get("original_width", 1)
+                original_height = annotation_result.get("original_height", 1)
+
+                boxes.append({
+                    "x": value["x"] / 100 * original_width,
+                    "y": value["y"] / 100 * original_height,
+                    "w": value["width"] / 100 * original_width,
+                    "h": value["height"] / 100 * original_height,
+                    "orig_w": original_width,
+                    "orig_h": original_height,
+                })
+
+        result[filename] = boxes
+
     return result
 
-def iou(b1, b2):
-    x1 = max(b1['x'], b2['x'])
-    y1 = max(b1['y'], b2['y'])
-    x2 = min(b1['x'] + b1['w'], b2['x'] + b2['w'])
-    y2 = min(b1['y'] + b1['h'], b2['y'] + b2['h'])
-    if x2 <= x1 or y2 <= y1:
-        return 0.0
-    inter = (x2 - x1) * (y2 - y1)
-    area1 = b1['w'] * b1['h']
-    area2 = b2['w'] * b2['h']
-    return inter / (area1 + area2 - inter) if (area1 + area2 - inter) > 0 else 0.0
 
-def best_iou_match(boxes1, boxes2):
-    if not boxes1 and not boxes2:
-        return None
-    if not boxes1 or not boxes2:
-        return 0.0
-    total = 0.0
-    used = set()
-    for b1 in boxes1:
-        best_val = 0.0
-        best_j = -1
-        for j, b2 in enumerate(boxes2):
-            if j not in used:
-                val = iou(b1, b2)
-                if val > best_val:
-                    best_val = val
-                    best_j = j
-        if best_j >= 0:
-            total += best_val
-            used.add(best_j)
-    n = max(len(boxes1), len(boxes2))
-    return total / n if n > 0 else 0.0
+def scale_boxes(boxes, image_width, image_height):
+    scaled = []
+    for box in boxes:
+        scaled.append({
+            "x": box["x"] * image_width / box["orig_w"],
+            "y": box["y"] * image_height / box["orig_h"],
+            "w": box["w"] * image_width / box["orig_w"],
+            "h": box["h"] * image_height / box["orig_h"],
+        })
+    return scaled
 
-def draw_boxes(img, boxes, color, thickness=2):
-    for b in boxes:
-        x1 = int(b['x'])
-        y1 = int(b['y'])
-        x2 = int(b['x'] + b['w'])
-        y2 = int(b['y'] + b['h'])
-        cv2.rectangle(img, (x1, y1), (x2, y2), color, thickness)
 
-def draw_legend(img, evaluator_names):
-    h, w = img.shape[:2]
-    box_w = 220
-    box_h = 20 + len(evaluator_names) * 22
-    x0 = 10
-    y0 = 10
+def draw_boxes(image, boxes, color, thickness=2):
+    for box in boxes:
+        x1 = int(box["x"])
+        y1 = int(box["y"])
+        x2 = int(box["x"] + box["w"])
+        y2 = int(box["y"] + box["h"])
+        cv2.rectangle(image, (x1, y1), (x2, y2), color, thickness)
 
-    overlay = img.copy()
-    cv2.rectangle(overlay, (x0, y0), (x0 + box_w, y0 + box_h), (0, 0, 0), -1)
-    cv2.addWeighted(overlay, 0.55, img, 0.45, 0, img)
 
+def calculate_pairwise_iou(boxes_by_evaluator):
+    values = {}
+    for evaluator1, evaluator2 in PAIR_ORDER:
+        key = f"IoU_{evaluator1}_{evaluator2}"
+        values[key] = optimal_iou_match(
+            boxes_by_evaluator[evaluator1],
+            boxes_by_evaluator[evaluator2],
+        )
+    return values
+
+
+def create_result_canvas(image, filename, iou_values):
+    """Anade un panel lateral para no tapar cajas sobre la radiografia."""
+    panel_width = 440
+    line_height = 21
+    required_height = 75 + len(EVAL_ORDER) * line_height
+    required_height += 45 + len(PAIR_ORDER) * line_height
+    canvas_height = max(image.shape[0], required_height)
+
+    canvas = np.full(
+        (canvas_height, image.shape[1] + panel_width, 3),
+        (24, 24, 24),
+        dtype=np.uint8,
+    )
+    canvas[:image.shape[0], :image.shape[1]] = image
+
+    panel_x = image.shape[1] + 16
     font = cv2.FONT_HERSHEY_SIMPLEX
-    cv2.putText(img, 'Evaluadores:', (x0 + 5, y0 + 16), font, 0.45, (255, 255, 255), 1)
 
-    for i, name in enumerate(evaluator_names):
-        cy = y0 + 18 + i * 22 + 10
-        cv2.rectangle(img, (x0 + 5, cy - 4), (x0 + 17, cy + 6), COLORS[name], -1)
-        cv2.putText(img, LABELS.get(name, name), (x0 + 22, cy + 6), font, 0.4, (255, 255, 255), 1)
+    cv2.putText(
+        canvas,
+        filename,
+        (panel_x, 28),
+        font,
+        0.55,
+        (255, 255, 255),
+        1,
+        cv2.LINE_AA,
+    )
 
-def draw_filename(img, filename):
-    h, w = img.shape[:2]
-    font = cv2.FONT_HERSHEY_SIMPLEX
-    cv2.putText(img, filename, (10, h - 10), font, 0.5, (255, 255, 255), 1)
+    cv2.putText(
+        canvas,
+        "Anotaciones",
+        (panel_x, 58),
+        font,
+        0.55,
+        (255, 255, 255),
+        1,
+        cv2.LINE_AA,
+    )
 
-def calc_pairwise_iou(boxes_dict):
-    names = list(boxes_dict.keys())
-    ious = {}
-    for i in range(len(names)):
-        for j in range(i + 1, len(names)):
-            key = f'IoU_{names[i]}_{names[j]}'
-            val = best_iou_match(boxes_dict[names[i]], boxes_dict[names[j]])
-            ious[key] = val if val is not None else 1.0
-    return ious
+    y = 82
+    for evaluator in EVAL_ORDER:
+        color = COLORS[evaluator]
+        cv2.rectangle(canvas, (panel_x, y - 10), (panel_x + 14, y + 3), color, -1)
+        cv2.putText(
+            canvas,
+            LABELS[evaluator],
+            (panel_x + 24, y + 2),
+            font,
+            0.43,
+            (235, 235, 235),
+            1,
+            cv2.LINE_AA,
+        )
+        y += line_height
+
+    y += 20
+    cv2.putText(
+        canvas,
+        "IoU por parejas",
+        (panel_x, y),
+        font,
+        0.55,
+        (255, 255, 255),
+        1,
+        cv2.LINE_AA,
+    )
+    y += 26
+
+    for evaluator1, evaluator2 in PAIR_ORDER:
+        key = f"IoU_{evaluator1}_{evaluator2}"
+        value = iou_values[key]
+        value_text = "N/A" if value is None else f"{value:.3f}"
+        pair_label = f"{LABELS[evaluator1]} vs {LABELS[evaluator2]}"
+
+        cv2.putText(
+            canvas,
+            f"{pair_label}: {value_text}",
+            (panel_x, y),
+            font,
+            0.39,
+            (225, 225, 225),
+            1,
+            cv2.LINE_AA,
+        )
+        y += line_height
+
+    return canvas
+
+
+def validate_evaluator_images(all_boxes):
+    """Avisa si algun evaluador no contiene exactamente las mismas imagenes."""
+    expected = set(all_boxes[HUMAN_EVALUATORS[0]])
+    for evaluator in EVAL_ORDER[1:]:
+        current = set(all_boxes[evaluator])
+        missing = expected - current
+        extra = current - expected
+        if missing or extra:
+            print(
+                f"[WARNING] {evaluator}: "
+                f"{len(missing)} imagenes ausentes, {len(extra)} adicionales"
+            )
+    return sorted(expected)
+
 
 def main():
-    JSONS = {
-        'Humano': 'src/evaluation/annotation_json/Control_User_Evaluation_Yasmina_Moreira.json',
-        'IA_E3': 'src/evaluation/annotation_json/IA_Evaluation_E3_yoloV8n_optA.json',
-        'IA_E6': 'src/evaluation/annotation_json/IA_Evaluation_E6_yoloV8m_optA.json',
-        'IA_E7': 'src/evaluation/annotation_json/IA_Evaluation_E7_yoloV11n_optA.json',
-        "Usuario_R1": "src/evaluation/annotation_json/R1_User_Evaluation_Marina.json"
-    }
-
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     CSV_OUT.parent.mkdir(parents=True, exist_ok=True)
 
-    # Load data
     all_boxes = {}
-    for name, path in JSONS.items():
+    for evaluator, path in JSONS.items():
         data = load_json(path)
-        all_boxes[name] = extract_boxes_all(data)
-        print(f'  {name}: {len(all_boxes[name])} imágenes, {sum(len(v) for v in all_boxes[name].values())} cajas')
+        all_boxes[evaluator] = extract_boxes_all(data)
+        box_count = sum(len(boxes) for boxes in all_boxes[evaluator].values())
+        print(
+            f"  {LABELS[evaluator]}: "
+            f"{len(all_boxes[evaluator])} imagenes, {box_count} cajas"
+        )
 
-    # Get all filenames in evaluation order
-    filenames = list(all_boxes['Humano'].keys())
-    filenames.sort()
-    print(f'\nTotal imágenes únicas: {len(filenames)}')
+    filenames = validate_evaluator_images(all_boxes)
+    print(f"\nTotal imagenes: {len(filenames)}")
+    print(f"Parejas IoU por imagen: {len(PAIR_ORDER)}")
 
-    # CSV rows
     csv_rows = []
-    csv_keys = []
 
-    for i, fn in enumerate(filenames):
-        img_path = IMG_DIR / fn
-        if not img_path.exists():
-            print(f'  [SKIP] {fn} no encontrada')
+    for index, filename in enumerate(filenames, start=1):
+        image_path = IMG_DIR / filename
+        if not image_path.exists():
+            print(f"  [SKIP] {filename} no encontrada")
             continue
 
-        img = cv2.imread(str(img_path))
-        if img is None:
-            print(f'  [ERROR] No se pudo leer {fn}')
+        image = cv2.imread(str(image_path))
+        if image is None:
+            print(f"  [ERROR] No se pudo leer {filename}")
             continue
 
-        img_h, img_w = img.shape[:2]
+        image_height, image_width = image.shape[:2]
+        boxes_by_evaluator = {}
 
-        boxes_by_eval = {}
-        for name in EVAL_ORDER:
-            raw_boxes = all_boxes[name].get(fn, [])
-            scaled = []
-            for b in raw_boxes:
-                sx = b['x'] * img_w / b['orig_w']
-                sy = b['y'] * img_h / b['orig_h']
-                sw = b['w'] * img_w / b['orig_w']
-                sh = b['h'] * img_h / b['orig_h']
-                scaled.append({'x': sx, 'y': sy, 'w': sw, 'h': sh})
-            boxes_by_eval[name] = scaled
+        for evaluator in EVAL_ORDER:
+            raw_boxes = all_boxes[evaluator].get(filename, [])
+            boxes_by_evaluator[evaluator] = scale_boxes(
+                raw_boxes,
+                image_width,
+                image_height,
+            )
+            draw_boxes(
+                image,
+                boxes_by_evaluator[evaluator],
+                COLORS[evaluator],
+                thickness=2,
+            )
 
-        # Draw bounding boxes for each evaluator
-        for name in EVAL_ORDER:
-            draw_boxes(img, boxes_by_eval[name], COLORS[name], thickness=2)
+        iou_values = calculate_pairwise_iou(boxes_by_evaluator)
+        result_image = create_result_canvas(image, filename, iou_values)
 
-        draw_legend(img, EVAL_ORDER)
-        draw_filename(img, fn)
+        output_path = OUT_DIR / filename
+        if not cv2.imwrite(str(output_path), result_image):
+            print(f"  [ERROR] No se pudo guardar {output_path}")
+            continue
 
-        # Calculate pairwise IoU
-        iou_vals = calc_pairwise_iou(boxes_by_eval)
-
-        # Draw IoU at bottom right
-        font = cv2.FONT_HERSHEY_SIMPLEX
-        y_offset = 30
-        iou_w, iou_h = 280, 20 + len(iou_vals) * 20
-        ox = img_w - iou_w - 10
-        oy = 10
-        overlay = img.copy()
-        cv2.rectangle(overlay, (ox, oy), (ox + iou_w, oy + iou_h), (0, 0, 0), -1)
-        cv2.addWeighted(overlay, 0.55, img, 0.45, 0, img)
-        cv2.putText(img, 'IoU Pairwise:', (ox + 5, oy + 16), font, 0.45, (255, 255, 255), 1)
-
-        for k, (key, val) in enumerate(sorted(iou_vals.items())):
-            label = key.replace('IoU_', '').replace('_', ' vs ')
-            cv2.putText(img, f'{label}: {val:.3f}', (ox + 5, oy + 18 + k * 20 + 16),
-                        font, 0.4, (255, 255, 255), 1)
-
-        # Save image
-        out_path = OUT_DIR / fn
-        cv2.imwrite(str(out_path), img)
-
-        # Build CSV row
-        row = {'image': fn}
-        for key, val in iou_vals.items():
-            row[key] = round(val, 4)
+        row = {"image": filename}
+        for key, value in iou_values.items():
+            row[key] = "" if value is None else round(value, 4)
         csv_rows.append(row)
 
-        if (i + 1) % 25 == 0:
-            print(f'  Procesadas {i + 1}/{len(filenames)}')
+        if index % 25 == 0 or index == len(filenames):
+            print(f"  Procesadas {index}/{len(filenames)}")
 
-    # Write CSV
-    if csv_rows:
-        csv_keys = list(csv_rows[0].keys())
-        with open(CSV_OUT, 'w', newline='') as f:
-            writer = csv.DictWriter(f, fieldnames=csv_keys)
-            writer.writeheader()
-            writer.writerows(csv_rows)
-        print(f'\nCSV guardado: {CSV_OUT} ({len(csv_rows)} filas)')
-        print(f'Imágenes guardadas en: {OUT_DIR}/ ({len(csv_rows)} archivos)')
+    if not csv_rows:
+        print("\nNo se genero ningun resultado.")
+        return
 
-    # Summary
-    print(f'\n--- Resumen IoU Promedio ---')
-    averages = {}
-    for key in csv_keys[1:]:
-        vals = [r[key] for r in csv_rows if r[key] is not None]
-        avg = np.mean(vals) if vals else 0
-        averages[key] = avg
-        label = key.replace('IoU_', '').replace('_', ' vs ')
-        print(f'  {label}: {avg:.4f}')
+    csv_keys = ["image"] + [
+        f"IoU_{evaluator1}_{evaluator2}"
+        for evaluator1, evaluator2 in PAIR_ORDER
+    ]
+    with open(CSV_OUT, "w", newline="", encoding="utf-8") as file:
+        writer = csv.DictWriter(file, fieldnames=csv_keys)
+        writer.writeheader()
+        writer.writerows(csv_rows)
+
+    print(f"\nCSV guardado: {CSV_OUT} ({len(csv_rows)} filas)")
+    print(f"Imagenes guardadas en: {OUT_DIR}/ ({len(csv_rows)} archivos)")
+    print("\n--- Resumen IoU promedio ---")
+
+    for evaluator1, evaluator2 in PAIR_ORDER:
+        key = f"IoU_{evaluator1}_{evaluator2}"
+        values = [
+            row[key]
+            for row in csv_rows
+            if row[key] != ""
+        ]
+        average = float(np.mean(values)) if values else float("nan")
+        label = f"{LABELS[evaluator1]} vs {LABELS[evaluator2]}"
+        print(f"  {label}: {average:.4f}")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
