@@ -156,7 +156,7 @@ La demostracion sigue una arquitectura de dos servicios:
 
 La interfaz incluye:
 
-- Casos de demostracion.
+- Casos de demostracion cuando las imagenes se proporcionan localmente.
 - Carga de JPG, JPEG y PNG anonimizados.
 - Ajustes de brillo y contraste solo para la visualizacion.
 - Configuracion del umbral de confianza.
@@ -223,11 +223,6 @@ En el estado actual del repositorio, el peso disponible para E6 es:
 ```text
 models_weights/generalist_architectures/E6_yoloV8m.pt
 ```
-
-Antes de iniciar Docker, compruebe que la variable `MODEL_PATH` de
-`docker-compose.yml` apunte a `/app/models/E6_yoloV8m.pt`. La configuracion
-historica puede conservar el nombre `E6_yoloV8m_optA.pt`, que no coincide con el
-archivo incluido actualmente.
 
 Para detener los servicios:
 
@@ -411,7 +406,6 @@ src/evaluation/results/tables/iou_per_image_human_pairs.csv
 |-- src/
 |   |-- backend/                  # API FastAPI e inferencia
 |   |-- frontend/                 # Aplicacion Streamlit actual
-|   |-- interface/                # Prototipo Streamlit antiguo
 |   |-- evaluation/               # JSON, matrices y resultados
 |   `-- utils/                    # Datos, evaluacion y utilidades
 |-- docker-compose.yml
@@ -420,8 +414,7 @@ src/evaluation/results/tables/iou_per_image_human_pairs.csv
 `-- uv.lock
 ```
 
-`src/interface/app.py` corresponde a una prueba de concepto anterior. La
-aplicacion mantenida para la demostracion es `src/frontend/app.py`.
+La aplicacion mantenida para la demostracion es `src/frontend/app.py`.
 
 ## Datos y modelos
 

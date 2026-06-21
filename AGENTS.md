@@ -11,11 +11,10 @@ The expected detection output is bounding boxes for one class: `fracture`.
 
 ## Main Architecture
 
-- `src/backend/main.py`: FastAPI inference backend. It currently loads a single YOLO detector (`E7_yoloV11n.pt`) and exposes:
+- `src/backend/main.py`: FastAPI inference backend. It currently loads a single YOLO detector (`E6_yoloV8m.pt`) and exposes:
   - `GET /health`
   - `POST /predict`
 - `src/frontend/app.py`: Streamlit frontend intended for Docker usage. It uploads JPG/PNG images, calls the backend, and draws detections.
-- `src/interface/app.py`: older standalone Streamlit proof of concept with login and direct YOLO loading. Treat as legacy unless the task explicitly targets it.
 - `docker-compose.yml`: starts backend and frontend containers.
 
 The backend preprocessing path decodes image bytes, normalizes non-8-bit images, applies bilateral denoising, applies CLAHE, converts to RGB, then runs YOLO.
@@ -25,8 +24,9 @@ The backend preprocessing path decodes image bytes, normalizes non-8-bit images,
 Generalist model weights:
 
 - `models_weights/generalist_architectures/E3_yoloV8n_optA.pt`
-- `models_weights/generalist_architectures/E6_yoloV8m_optA.pt`
-- `models_weights/generalist_architectures/E7_yoloV11n_optA.pt`
+- `models_weights/generalist_architectures/E5_yoloV8s.pt`
+- `models_weights/generalist_architectures/E6_yoloV8m.pt`
+- `models_weights/generalist_architectures/E7_yoloV11n.pt`
 
 Specialist model weights:
 
@@ -38,7 +38,9 @@ Classifier/router data:
 
 - `data/processed_2/ExpDataset_classification`
 - Classes observed: `supracondylar`, `wrist`, `ulna_radius`
-- `models_weights/classifier_models` is currently empty, so a trained/copied router model may still be needed before specialist inference can run end to end.
+- `models_weights/classifier_models` contains pretrained starting points, but a
+  trained router model is still needed before specialist inference can run end
+  to end.
 
 Dataset YAMLs for Colab/Kaggle training are in `data/colab_yaml/`.
 
@@ -68,8 +70,7 @@ Existing result tables are under `src/evaluation/results/tables/`.
 
 ## Known Friction Points
 
-- The Docker compose file mounts `./models:/app/models`, but the current backend loads model files copied inside `src/backend`. Align model paths before productionizing.
-- There are hard-coded absolute WSL paths in some older scripts/UI files.
+- Docker Compose mounts the generalist model directory read-only at
+  `/app/models` and selects the active model through `MODEL_PATH`.
 - Text encoding appears correct in files, but PowerShell output may show mojibake for Spanish accents.
 - The specialist architecture needs a router model and backend routing logic before it is complete.
-

@@ -1,12 +1,36 @@
 from pathlib import Path
 
+import pytest
+from PIL import Image
 from streamlit.testing.v1 import AppTest
 
 import api_client
+from case_catalog import DEMO_CASES
 
 
 APP_PATH = Path(__file__).resolve().parents[1] / "app.py"
 EXAMPLE_PATH = Path(__file__).resolve().parents[1] / "examples" / "SHF_001.jpg"
+
+
+@pytest.fixture(scope="module", autouse=True)
+def demo_images():
+    """Create temporary non-medical images so UI tests are self-contained."""
+    examples_dir = EXAMPLE_PATH.parent
+    examples_dir.mkdir(parents=True, exist_ok=True)
+    created = []
+
+    for case in DEMO_CASES:
+        path = examples_dir / case.filename
+        if path.exists():
+            continue
+        image = Image.new("L", (64, 96), color=128)
+        image.save(path)
+        created.append(path)
+
+    yield
+
+    for path in created:
+        path.unlink(missing_ok=True)
 
 
 def app_test() -> AppTest:

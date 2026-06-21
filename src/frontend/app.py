@@ -6,7 +6,7 @@ from pathlib import Path
 import streamlit as st
 
 import api_client
-from case_catalog import CASES_BY_ID, DEFAULT_CASE_ID, DEMO_CASES
+from case_catalog import DEFAULT_CASE_ID, DEMO_CASES
 from image_utils import (
     ImageValidationError,
     apply_view_adjustments,
@@ -29,6 +29,15 @@ st.set_page_config(
 
 BACKEND_URL = os.getenv("BACKEND_URL", "http://backend:8000/predict")
 EXAMPLES_DIR = Path(__file__).parent / "examples"
+AVAILABLE_DEMO_CASES = tuple(
+    case for case in DEMO_CASES if (EXAMPLES_DIR / case.filename).is_file()
+)
+AVAILABLE_CASES_BY_ID = {case.case_id: case for case in AVAILABLE_DEMO_CASES}
+AVAILABLE_DEFAULT_CASE_ID = (
+    DEFAULT_CASE_ID
+    if DEFAULT_CASE_ID in AVAILABLE_CASES_BY_ID
+    else (AVAILABLE_DEMO_CASES[0].case_id if AVAILABLE_DEMO_CASES else None)
+)
 CANVAS_SIZE = (960, 960)
 CONTROL_DEFAULTS = {
     "confidence_threshold": 0.30,
@@ -86,8 +95,8 @@ def handle_upload_change() -> None:
 
 def initialize_state() -> None:
     defaults = {
-        "source_mode": "Caso demo",
-        "selected_case_id": DEFAULT_CASE_ID,
+        "source_mode": "Caso demo" if AVAILABLE_DEMO_CASES else "Subir radiografía",
+        "selected_case_id": AVAILABLE_DEFAULT_CASE_ID,
         "analysis_result": None,
         "analysis_signature": None,
         "analysis_duration": None,
@@ -99,6 +108,11 @@ def initialize_state() -> None:
     for key, value in defaults.items():
         st.session_state.setdefault(key, value)
 
+    if not AVAILABLE_DEMO_CASES:
+        st.session_state.source_mode = "Subir radiografía"
+    elif st.session_state.selected_case_id not in AVAILABLE_CASES_BY_ID:
+        st.session_state.selected_case_id = AVAILABLE_DEFAULT_CASE_ID
+
 
 @st.cache_data(show_spinner=False)
 def load_demo_bytes(filename: str) -> bytes:
@@ -107,7 +121,7 @@ def load_demo_bytes(filename: str) -> bytes:
 
 def current_case() -> tuple[bytes | None, str | None, object | None]:
     if st.session_state.source_mode == "Caso demo":
-        case = CASES_BY_ID[st.session_state.selected_case_id]
+        case = AVAILABLE_CASES_BY_ID[st.session_state.selected_case_id]
         return load_demo_bytes(case.filename), case.filename, case
 
     if not st.session_state.privacy_confirmed:
@@ -181,7 +195,11 @@ def render_case_selector() -> None:
         st.subheader("1. Seleccione una radiografía", anchor=False)
         st.segmented_control(
             "Origen de la imagen",
-            ["Caso demo", "Subir radiografía"],
+            (
+                ["Caso demo", "Subir radiografía"]
+                if AVAILABLE_DEMO_CASES
+                else ["Subir radiografía"]
+            ),
             key="source_mode",
             on_change=handle_source_change,
             width="stretch",
@@ -190,12 +208,12 @@ def render_case_selector() -> None:
         if st.session_state.source_mode == "Caso demo":
             st.selectbox(
                 "Caso de demostración",
-                options=[case.case_id for case in DEMO_CASES],
+                options=[case.case_id for case in AVAILABLE_DEMO_CASES],
                 key="selected_case_id",
-                format_func=lambda case_id: CASES_BY_ID[case_id].selector_label,
+                format_func=lambda case_id: AVAILABLE_CASES_BY_ID[case_id].selector_label,
                 on_change=clear_analysis,
             )
-            case = CASES_BY_ID[st.session_state.selected_case_id]
+            case = AVAILABLE_CASES_BY_ID[st.session_state.selected_case_id]
             st.badge(
                 case.clinical_reference,
                 icon=(

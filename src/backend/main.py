@@ -6,6 +6,7 @@ Carga el modelo YOLOv8 una sola vez en el arranque y expone:
 """
 
 from contextlib import asynccontextmanager
+import hashlib
 import os
 from pathlib import Path
 
@@ -16,7 +17,6 @@ from fastapi import FastAPI, File, Form, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 
 from ultralytics import YOLO
-import hashlib
 
 # ---------------------------------------------------------------------------
 # Ruta del modelo generalista activo.
@@ -25,9 +25,14 @@ DEFAULT_MODEL_PATH = (
     Path(__file__).resolve().parents[2]
     / "models_weights"
     / "generalist_architectures"
-    / "E6_yoloV8m_optA.pt"
+    / "E6_yoloV8m.pt"
 )
 MODEL_PATH = Path(os.getenv("MODEL_PATH", DEFAULT_MODEL_PATH))
+ALLOWED_ORIGINS = [
+    origin.strip()
+    for origin in os.getenv("ALLOWED_ORIGINS", "http://localhost:8501").split(",")
+    if origin.strip()
+]
 PREPROCESSING_VERSION = (
     "grayscale-anydepth_norm8_bilateral-5-50-50_clahe-2.0-8x8_rgb_v1"
 )
@@ -39,6 +44,10 @@ _model: YOLO | None = None
 async def lifespan(app: FastAPI):
     """Carga el modelo al arrancar y lo libera al cerrar."""
     global _model
+    if not MODEL_PATH.exists():
+        raise FileNotFoundError(
+            f"No se encontro el modelo configurado en MODEL_PATH: {MODEL_PATH}"
+        )
     print(f"[Backend] Cargando modelo desde {MODEL_PATH} …")
     _model = YOLO(str(MODEL_PATH))
     print("[Backend] Modelo cargado correctamente.")
@@ -54,8 +63,8 @@ app = FastAPI(
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
-    allow_methods=["*"],
+    allow_origins=ALLOWED_ORIGINS,
+    allow_methods=["GET", "POST"],
     allow_headers=["*"],
 )
 

@@ -1,86 +1,64 @@
-import os
-import pydicom
-import numpy as np
+#!/usr/bin/env python3
+"""Convert a directory tree of DICOM studies to normalized 16-bit PNG files."""
+
+import argparse
+from pathlib import Path
+
 import cv2
+import numpy as np
+import pydicom
 
-# --- CONFIGURACIÓN DE RUTAS ---
-# Ponemos la ruta "padre" para que busque tanto en DICOM_B1 como en DICOM_B2
-ROOT_PATH = r"/home/allohi2002/Repositories/TFM-PediatricFractureDetection/data/raw/DatosPacienteVIAMED"
-OUTPUT_PATH = r"/home/allohi2002/Repositories/TFM-PediatricFractureDetection/data/processed"
 
-# Crear carpeta de salida si no existe
-os.makedirs(OUTPUT_PATH, exist_ok=True)
+def convert_dicom(source: Path, destination: Path, root: Path) -> bool:
+    dataset = pydicom.dcmread(source, force=True)
+    if not hasattr(dataset, "pixel_array"):
+        return False
 
-print(f"🕵️  INICIANDO RASTREO EN: {ROOT_PATH}")
-print(f"📂  GUARDANDO EN: {OUTPUT_PATH}")
-print("-" * 50)
+    image = dataset.pixel_array.astype(np.float32)
+    if getattr(dataset, "PhotometricInterpretation", "") == "MONOCHROME1":
+        image = np.amax(image) - image
 
-processed_count = 0
-error_count = 0
+    minimum = float(image.min())
+    maximum = float(image.max())
+    if maximum > minimum:
+        image = (image - minimum) / (maximum - minimum) * 65535.0
 
-# --- EL BUCLE "CAMINANTE" (WALKER) ---
-for root, dirs, files in os.walk(ROOT_PATH):
-    for filename in files:
-        # Detectar si es un DICOM (ignorando mayúsculas/minúsculas)
-        if filename.lower().endswith(".dcm"):
-            
-            full_path = os.path.join(root, filename)
-            
-            try:
-                # 1. Leer el archivo DICOM
-                ds = pydicom.dcmread(full_path, force=True)
-                
-                # Verificar si tiene imagen dentro
-                if not hasattr(ds, 'pixel_array'):
-                    print(f"⚠️  Saltado (sin píxeles): {filename}")
-                    continue
+    relative_parent = source.parent.relative_to(root)
+    prefix = "_".join(relative_parent.parts[-3:])
+    output_name = "_".join(filter(None, (prefix, source.stem))) + ".png"
+    return bool(cv2.imwrite(str(destination / output_name), image.astype(np.uint16)))
 
-                # 2. Obtener matriz de píxeles
-                img = ds.pixel_array.astype(np.float32)
 
-                # 3. CORRECCIÓN MONOCROMÁTICA (Hueso Blanco)
-                # Si el DICOM dice que el 0 es blanco (MONOCHROME1), lo invertimos
-                if hasattr(ds, 'PhotometricInterpretation'):
-                    if ds.PhotometricInterpretation == 'MONOCHROME1':
-                        img = np.amax(img) - img
+def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("input", type=Path, help="Root directory containing DICOM files.")
+    parser.add_argument("output", type=Path, help="Destination directory for PNG files.")
+    args = parser.parse_args()
 
-                # 4. NORMALIZACIÓN A 16 BITS (Mejora contraste brutalmente)
-                img_min = img.min()
-                img_max = img.max()
-                
-                if img_max - img_min != 0:
-                    img_normalized = ((img - img_min) / (img_max - img_min)) * 65535.0
-                else:
-                    img_normalized = img
+    if not args.input.is_dir():
+        parser.error(f"Input directory not found: {args.input}")
+    args.output.mkdir(parents=True, exist_ok=True)
 
-                img_uint16 = img_normalized.astype(np.uint16)
+    processed = 0
+    skipped = 0
+    errors = 0
 
-                # 5. GENERAR NOMBRE ÚNICO
-                # Truco: Usamos el nombre de las carpetas padre para que no se repitan
-                # Ejemplo ruta: ...\DICOM_B2\DIR000\00000000\00000000.DCM
-                parts = root.split(os.sep) 
-                
-                # Cogemos 'DICOM_B2', 'DIR000', '00000000' para el nombre
-                # Si la ruta es muy larga, coge las ultimas 3 carpetas
-                prefix = "_".join(parts[-3:]) 
-                
-                # Nombre final: DICOM_B2_DIR000_00000000_00000000.png
-                save_name = f"{prefix}_{filename.replace('.DCM', '').replace('.dcm', '')}.png"
-                save_full_path = os.path.join(OUTPUT_PATH, save_name)
+    for source in sorted(args.input.rglob("*")):
+        if not source.is_file() or source.suffix.lower() != ".dcm":
+            continue
+        try:
+            if convert_dicom(source, args.output, args.input):
+                processed += 1
+            else:
+                skipped += 1
+        except Exception as exc:
+            print(f"[ERROR] {source}: {exc}")
+            errors += 1
 
-                # 6. Guardar
-                cv2.imwrite(save_full_path, img_uint16)
-                
-                processed_count += 1
-                # Imprimimos cada 10 archivos para ver que está vivo
-                if processed_count % 10 == 0:
-                    print(f"✅ Procesados: {processed_count} ... Último: {save_name}")
+    print(f"Converted: {processed}")
+    print(f"Skipped without pixels: {skipped}")
+    print(f"Errors: {errors}")
 
-            except Exception as e:
-                print(f"❌ Error en {filename}: {e}")
-                error_count += 1
 
-print("-" * 50)
-print(f"FIN DEL PROCESO")
-print(f"Total imágenes convertidas: {processed_count}")
-print(f"Errores encontrados: {error_count}")
+if __name__ == "__main__":
+    main()

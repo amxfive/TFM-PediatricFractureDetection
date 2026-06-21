@@ -1,17 +1,21 @@
-# --- CORE IA & COMPUTER VISION ---
-ultralytics>=8.3.0       # El motor de YOLO11 para detección de fracturas
-torch>=2.0.0             # Backend de aprendizaje profundo (PyTorch)
-torchvision>=0.15.0      # Utilidades para procesamiento de imágenes médicas
-opencv-python-headless   # Procesamiento de imágenes (BGR/RGB) sin GUI
+# Inference and API
+fastapi>=0.135.2
+numpy>=1.24.0
+opencv-python-headless>=4.9.0
+pillow>=10.0.0
+python-multipart>=0.0.22
+requests>=2.32.0
+streamlit==1.58.0
+ultralytics>=8.4.14
+uvicorn[standard]>=0.42.0
 
-# --- INTERFAZ MÉDICA (APP) ---
-streamlit==1.58.0       # El framework para la aplicación web
-pillow>=10.0.0           # Manejo de imágenes (PIL) y formatos de 16 bits
-numpy>=1.24.0            # Operaciones matemáticas y normalización de arrays
+# Data preparation, experiments and evaluation
+matplotlib>=3.10.0
+pandas>=2.0.0
+pydicom>=3.0.0
+PyYAML>=6.0
+tqdm>=4.66.0
+wandb>=0.25.0
 
-# --- CIENCIA DE DATOS & FORMATOS ---
-pandas>=2.0.0            # Gestión de etiquetas y archivos CSV del dataset
-pydicom>=2.4.0           # Para futura lectura nativa de archivos DICOM del hospital
-
-# --- UTILIDADES ---
-python-dotenv            # Para gestionar rutas y claves de forma segura
+# Tests
+pytest>=8.0.0

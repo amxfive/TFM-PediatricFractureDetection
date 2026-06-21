@@ -36,14 +36,14 @@ EVALUATORS = [
     ),
     Evaluator(
         "Usuario_Control",
-        "Control_User_Evaluation_Yasmina_Moreira.json",
+        "Control_User_Evaluation.json",
         "Usuario Control",
         "human",
     ),
-    Evaluator("R1_Radiologia", "R1_User_Evaluation_Marina.json", "R1 Radiologia", "human"),
+    Evaluator("R1_Radiologia", "R1_User_Evaluation.json", "R1 Radiologia", "human"),
     Evaluator(
         "Experto_Radiologo",
-        "Catedratico_User_Evaluation_Jose_Carlos.json",
+        "Experto_Radiologo_Evaluation.json",
         "Experto Radiologo",
         "human",
     ),

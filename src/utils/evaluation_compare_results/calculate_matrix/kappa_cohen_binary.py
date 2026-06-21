@@ -1,166 +1,151 @@
 #!/usr/bin/env python3
-"""Calcula matriz de Kappa de Cohen binario entre evaluadores."""
+"""Calcula la matriz de Kappa de Cohen binario entre evaluadores."""
 
-import json
-import numpy as np
-import matplotlib.pyplot as plt
-import seaborn as sns
+from __future__ import annotations
+
+import sys
 from pathlib import Path
 
-def load_json(path):
-    with open(path, 'r') as f:
-        return json.load(f)
+import matplotlib
+import numpy as np
 
-def extract_boxes(data):
-    """Extrae bounding boxes de un JSON de evaluación."""
-    result = {}
-    for item in data:
-        file_upload = item.get('data').get("image") or item.get('file_upload', '')
-        annotations = item.get('annotations', [])
-        
-        boxes = []
-        for ann in annotations:
-            results = ann.get('result', [])
-            for r in results:
-                value = r.get('value', {})
-                orig_w = r.get('original_width', 1)
-                orig_h = r.get('original_height', 1)
-                
-                x = value['x'] / 100 * orig_w
-                y = value['y'] / 100 * orig_h
-                w = value['width'] / 100 * orig_w
-                h = value['height'] / 100 * orig_h
-                
-                label = value.get('rectanglelabels', ['0'])[0]
-                boxes.append({
-                    'x': x, 'y': y, 'w': w, 'h': h,
-                    'label': label,
-                    'orig_w': orig_w, 'orig_h': orig_h
-                })
-        
-        result[file_upload] = boxes
-    return result
+matplotlib.use("Agg")
+import matplotlib.pyplot as plt
 
-def cohen_kappa_binary(boxes1, boxes2):
-    """
-    Calcula Kappa de Cohen binario para un par de evaluadores.
-    - Acuerdo positivo: ambos detectan >= 1 caja
-    - Acuerdo negativo: ambos NO detectan ninguna caja
-    - Desacuerdo: uno detecta y el otro no
-    """
-    n = len(boxes1)
-    if n != len(boxes2):
-        raise ValueError("Los diccionarios deben tener las mismas imágenes")
-    
-    # Contadores
-    agreement_pos = 0  # Ambos detectan
-    agreement_neg = 0  # Ambos no detectan
-    disagreement_1o2 = 0  # evaluador1 detecta, evaluador2 no
-    disagreement_2o1 = 0  # evaluador2 detecta, evaluador1 no
-    
-    for img in boxes1:
-        has_1 = len(boxes1[img]) > 0
-        has_2 = len(boxes2[img]) > 0
-        
+sys.path.append(str(Path(__file__).resolve().parents[1]))
+from evaluation_common import (  # noqa: E402
+    EVALUATORS,
+    IMAGES_DIR,
+    MATRIX_DIR,
+    ensure_output_dirs,
+    extract_boxes,
+    load_evaluator_json,
+)
+
+
+def cohen_kappa_binary(boxes1, boxes2) -> float:
+    """Calcula Kappa segun presencia o ausencia de al menos una caja."""
+    images = sorted(set(boxes1) | set(boxes2))
+    if not images:
+        return np.nan
+
+    agreement_positive = 0
+    agreement_negative = 0
+    disagreement_1_to_2 = 0
+    disagreement_2_to_1 = 0
+
+    for image_name in images:
+        has_1 = bool(boxes1.get(image_name, []))
+        has_2 = bool(boxes2.get(image_name, []))
+
         if has_1 and has_2:
-            agreement_pos += 1
+            agreement_positive += 1
         elif not has_1 and not has_2:
-            agreement_neg += 1
-        elif has_1 and not has_2:
-            disagreement_1o2 += 1
-        else:  # not has_1 and has_2
-            disagreement_2o1 += 1
-    
-    n_total = agreement_pos + agreement_neg + disagreement_1o2 + disagreement_2o1
-    
-    # Probabilidad observada de acuerdo
-    po = (agreement_pos + agreement_neg) / n_total
-    
-    # Probabilidad esperada de acuerdo
-    p1_pos = (agreement_pos + disagreement_1o2) / n_total
-    p2_pos = (agreement_pos + disagreement_2o1) / n_total
-    p1_neg = (agreement_neg + disagreement_2o1) / n_total
-    p2_neg = (agreement_neg + disagreement_1o2) / n_total
-    
-    pe = (p1_pos * p2_pos) + (p1_neg * p2_neg)
-    
-    # Kappa
-    if pe == 1:
-        return 1.0
-    
-    kappa = (po - pe) / (1 - pe)
-    
-    return kappa
+            agreement_negative += 1
+        elif has_1:
+            disagreement_1_to_2 += 1
+        else:
+            disagreement_2_to_1 += 1
 
-def calculate_kappa_matrix(boxes_data, nombres):
-    """Calcula matriz de Kappa entre todos los pares de evaluadores."""
-    n = len(nombres)
-    matriz = np.zeros((n, n))
-    
-    for i, nom1 in enumerate(nombres):
-        for j, nom2 in enumerate(nombres):
-            if i == j:
-                matriz[i, j] = 1.0
+    total = len(images)
+    observed = (agreement_positive + agreement_negative) / total
+
+    evaluator1_positive = (agreement_positive + disagreement_1_to_2) / total
+    evaluator2_positive = (agreement_positive + disagreement_2_to_1) / total
+    evaluator1_negative = (agreement_negative + disagreement_2_to_1) / total
+    evaluator2_negative = (agreement_negative + disagreement_1_to_2) / total
+    expected = (
+        evaluator1_positive * evaluator2_positive
+        + evaluator1_negative * evaluator2_negative
+    )
+
+    if expected == 1:
+        return 1.0
+    return (observed - expected) / (1 - expected)
+
+
+def calculate_kappa_matrix(boxes_data, names) -> np.ndarray:
+    matrix = np.zeros((len(names), len(names)))
+    for row, name1 in enumerate(names):
+        for column, name2 in enumerate(names):
+            if row == column:
+                matrix[row, column] = 1.0
             else:
-                matriz[i, j] = cohen_kappa_binary(boxes_data[nom1], boxes_data[nom2])
-    
-    return matriz
+                matrix[row, column] = cohen_kappa_binary(
+                    boxes_data[name1],
+                    boxes_data[name2],
+                )
+    return matrix
+
+
+def save_heatmap(matrix: np.ndarray, names: list[str]) -> Path:
+    size = len(names)
+    upper_half = np.full((size, size), np.nan)
+    for row in range(size):
+        for column in range(row, size):
+            upper_half[row, column] = matrix[row, column]
+
+    fig, ax = plt.subplots(figsize=(11, 8))
+    masked = np.ma.masked_invalid(upper_half)
+    image = ax.imshow(masked, cmap="RdYlBu_r", vmin=-0.3, vmax=1.0)
+    image.cmap.set_bad("#f2f2f2")
+
+    ax.set_xticks(range(size), labels=names, rotation=35, ha="right")
+    ax.set_yticks(range(size), labels=names)
+    ax.set_title(
+        "Matriz de Kappa de Cohen (Binario)",
+        fontsize=14,
+        fontweight="bold",
+    )
+
+    for row in range(size):
+        for column in range(size):
+            if not np.isnan(upper_half[row, column]):
+                ax.text(
+                    column,
+                    row,
+                    f"{upper_half[row, column]:.3f}",
+                    ha="center",
+                    va="center",
+                    fontsize=9,
+                )
+
+    colorbar = fig.colorbar(image, ax=ax, shrink=0.85)
+    colorbar.set_label("Kappa de Cohen")
+    fig.tight_layout()
+
+    output_path = IMAGES_DIR / "kappa_halfmatrix.png"
+    fig.savefig(output_path, dpi=500, bbox_inches="tight")
+    plt.close(fig)
+    return output_path
+
 
 def main():
-    base = Path('src/evaluation/annotation_json')
-    
-    evaluadores = {
-        'yoloV8n_optA': 'IA_Evaluation_E3_yoloV8n_optA.json',
-        'yoloV8m_optA': 'IA_Evaluation_E6_yoloV8m_optA.json',
-        'yoloV11n_optA': 'IA_Evaluation_E7_yoloV11n_optA.json',
-        'especialista': 'IA_Evaluation_specialist_agents.json',
-        "Usuario_Control": "Control_User_Evaluation_Yasmina_Moreira.json",
-        "Usuario_R1": "R1_User_Evaluation_Marina.json",
-        "Usuario_Catedratico": "Catedratico_User_Evaluation_Jose_Carlos.json"
-    }
-    
+    ensure_output_dirs()
     boxes_data = {}
-    for nombre, path in evaluadores.items():
-        data = load_json(base / path)
-        boxes_data[nombre] = extract_boxes(data)
-        print(f"{nombre}: {len(boxes_data[nombre])} imágenes")
-    
-    nombres = list(evaluadores.keys())
-    
-    matriz = calculate_kappa_matrix(boxes_data, nombres)
-    
+
+    for evaluator in EVALUATORS:
+        data = load_evaluator_json(evaluator)
+        boxes_data[evaluator.display_name] = extract_boxes(data)
+        print(
+            f"{evaluator.display_name}: "
+            f"{len(boxes_data[evaluator.display_name])} imagenes"
+        )
+
+    names = [evaluator.display_name for evaluator in EVALUATORS]
+    matrix = calculate_kappa_matrix(boxes_data, names)
+
     print("\n--- Matriz de Kappa de Cohen (Binario) ---")
-    print("\n" + " " * 15 + "".join(f"{n:>12}" for n in nombres))
-    for i, nom in enumerate(nombres):
-        row = "".join(f"{matriz[i, j]:>12.4f}" for j in range(len(nombres)))
-        print(f"{nom:>15}{row}")
-    
-    np.save('src/evaluation/matrix/kappa_matrix_v2.npy', matriz)
-    print("\nMatriz guardada en src/evaluation/matrix/kappa_matrix_v2.npy")
+    print(matrix)
 
-    # Heatmap
-    n = len(nombres)
-    half = np.full((n, n), np.nan)
-    for i in range(n):
-        for j in range(i, n):
-            half[i, j] = matriz[i, j]
+    matrix_path = MATRIX_DIR / "kappa_matrix_v2.npy"
+    np.save(matrix_path, matrix)
+    print(f"\nMatriz guardada en {matrix_path}")
 
-    fig, ax = plt.subplots(figsize=(9, 7))
-    sns.heatmap(
-        half, annot=True, fmt='.3f', cmap=sns.diverging_palette(220, 20, as_cmap=True),
-        xticklabels=nombres, yticklabels=nombres,
-        vmin=-0.3, vmax=1, center=0.35, square=True,
-        cbar_kws={'label': 'Kappa de Cohen'}, ax=ax,
-        annot_kws={'size': 9}, linewidths=0.5, linecolor='white'
-    )
-    ax.set_title('Matriz de Kappa de Cohen (Binario)', fontsize=14, fontweight='bold')
-    plt.xticks(rotation=30, ha='right')
-    plt.yticks(rotation=0)
-    plt.tight_layout()
-    plt.savefig('src/evaluation/results/kappa_halfmatrix.png', dpi=500, bbox_inches='tight')
-    print("Heatmap guardado en src/evaluation/results/kappa_halfmatrix.png")
-    
-    return matriz, nombres
+    heatmap_path = save_heatmap(matrix, names)
+    print(f"Heatmap guardado en {heatmap_path}")
+    return matrix, names
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()
