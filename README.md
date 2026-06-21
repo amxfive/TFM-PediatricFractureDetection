@@ -473,15 +473,12 @@ provisionalmente como:
 
 ```bibtex
 @mastersthesis{pediatric_fracture_detection_tfm,
-  title  = {Deteccion de fracturas pediatricas de miembro superior mediante arquitecturas generalistas y especialistas},
-  author = {Autor del TFM},
-  school = {Universidad Loyola Andalucia},
+  title  = {Detección de fracturas pediátricas de miembro superior mediante arquitecturas generalistas y especialistas},
+  author = {Álvaro Lorenzo Hidalgo and José María Manzano Crespo},
+  school = {Universidad Loyola Andalucía},
   year   = {2026}
 }
 ```
-
-Sustituya `Autor del TFM` por el nombre definitivo del autor antes de utilizar
-la referencia.
 
 ## Licencia
 
