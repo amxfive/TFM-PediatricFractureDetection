@@ -1,144 +1,124 @@
-# Deteccion de fracturas pediatricas de miembro superior
+# Pediatric Upper-Limb Fracture Detection
 
-Sistema experimental de deteccion y localizacion de fracturas en radiografias
-pediatricas de miembro superior mediante modelos YOLO.
+Experimental system for the detection and localization of fractures in pediatric upper-limb X-rays using YOLO models.
 
-Este repositorio contiene el codigo desarrollado para un Trabajo Fin de Master
-(TFM) centrado en comparar dos estrategias:
+This repository contains the code developed for a Master's Thesis (TFM) focused on comparing two strategies:
 
-- **Arquitectura generalista:** un unico detector procesa radiografias de
-  muneca, radio/cubito y humero.
-- **Arquitectura especialista:** un clasificador anatomico enruta cada imagen
-  hacia un detector entrenado especificamente para su region.
+- **Generalist architecture:** a single detector processes wrist, radius/ulna, and humerus X-rays.
+- **Specialist architecture:** an anatomical classifier routes each image to a detector specifically trained for its region.
 
-Los modelos generan cajas delimitadoras para una unica clase, `fracture`. La
-ausencia de fractura se representa mediante la ausencia de detecciones.
+The models generate bounding boxes for a single class, `fracture`. The absence of a fracture is represented by the absence of detections.
 
 > [!IMPORTANT]
-> Este proyecto es una herramienta experimental de investigacion. No constituye
-> un producto sanitario, no emite diagnosticos y no sustituye la valoracion de
-> profesionales sanitarios.
+> This project is an experimental research tool. It does not constitute a medical device, it does not issue diagnoses, and it does not replace the assessment of healthcare professionals.
 
-## Contenido
+## Table of Contents
 
-- [Objetivos](#objetivos)
-- [Arquitecturas evaluadas](#arquitecturas-evaluadas)
-- [Resultados principales](#resultados-principales)
-- [Aplicacion de demostracion](#aplicacion-de-demostracion)
-- [Instalacion](#instalacion)
-- [Ejecucion con Docker](#ejecucion-con-docker)
-- [Ejecucion local](#ejecucion-local)
+- [Objectives](#objectives)
+- [Evaluated Architectures](#evaluated-architectures)
+- [Main Results](#main-results)
+- [Demonstration Application](#demonstration-application)
+- [Installation](#installation)
+- [Running with Docker](#running-with-docker)
+- [Local Execution](#local-execution)
 - [API](#api)
-- [Evaluacion por agentes](#evaluacion-por-agentes)
-- [Estructura del repositorio](#estructura-del-repositorio)
-- [Datos y modelos](#datos-y-modelos)
-- [Reproducibilidad](#reproducibilidad)
-- [Limitaciones](#limitaciones)
-- [Licencia](#licencia)
+- [Agent-Based Evaluation](#agent-based-evaluation)
+- [Repository Structure](#repository-structure)
+- [Data and Models](#data-and-models)
+- [Reproducibility](#reproducibility)
+- [Limitations](#limitations)
+- [License](#license)
 
-## Objetivos
+## Objectives
 
-El proyecto estudia si un detector unico puede generalizar entre diferentes
-regiones del miembro superior pediatrico o si resulta mas conveniente dividir
-el problema entre modelos especialistas.
+The project studies whether a single detector can generalize across different pediatric upper-limb regions or if it is more suitable to divide the problem among specialist models.
 
-Los objetivos principales son:
+The main objectives are:
 
-1. Combinar conjuntos de datos de distintas regiones anatomicas.
-2. Entrenar y comparar diferentes familias y tamanos de YOLO.
-3. Evaluar una arquitectura generalista frente a una arquitectura con
-   clasificador y detectores especialistas.
-4. Comparar las localizaciones de la IA con anotaciones de perfiles humanos con
-   diferente experiencia radiologica.
-5. Construir una demostracion web reproducible mediante FastAPI, Streamlit y
-   Docker.
+1. Combine datasets from different anatomical regions.
+2. Train and compare different YOLO families and sizes.
+3. Evaluate a generalist architecture against an architecture with a classifier and specialist detectors.
+4. Compare AI localizations with annotations from human profiles with different radiological expertise.
+5. Build a reproducible web demonstration using FastAPI, Streamlit, and Docker.
 
-## Arquitecturas evaluadas
+## Evaluated Architectures
 
-### Modelo generalista
+### Generalist Model
 
 ```text
-Radiografia
+X-ray
     |
     v
-Preprocesamiento
+Preprocessing
     |
     v
-Detector YOLO generalista
+Generalist YOLO Detector
     |
     v
-Cajas de fractura
+Fracture Bounding Boxes
 ```
 
-El detector se entrena con imagenes de muneca, radio/cubito y humero. En la
-demostracion actual se utiliza **E6 (YOLOv8m)**, configurable mediante la
-variable de entorno `MODEL_PATH`.
+The detector is trained with images of the wrist, radius/ulna, and humerus. The current demonstration uses **E6 (YOLOv8m)**, which is configurable via the `MODEL_PATH` environment variable.
 
-### Modelo especialista
+### Specialist Model
 
 ```text
-Radiografia
+X-ray
     |
     v
-Clasificador anatomico
+Anatomical Classifier
     |
-    +----> Muneca ------> Detector WRI
+    +----> Wrist ---------> WRI Detector
     |
-    +----> Radio/cubito -> Detector UR
+    +----> Radius/ulna ---> UR Detector
     |
-    +----> Humero ------> Detector SHF
+    +----> Humerus -------> SHF Detector
                               |
                               v
-                       Cajas de fractura
+                      Fracture Bounding Boxes
 ```
 
-Las clases esperadas por el clasificador son:
+The classes expected by the classifier are:
 
 - `wrist`
 - `ulna_radius`
 - `supracondylar`
 
-La evaluacion final combina el clasificador `C12.0` con los detectores
-seleccionados para cada region.
+The final evaluation combines the `C12.0` classifier with the detectors selected for each region.
 
-## Preprocesamiento
+## Preprocessing
 
-El backend aplica el mismo flujo antes de la inferencia:
+The backend applies the same pipeline before inference:
 
-1. Decodificacion en escala de grises conservando la profundidad original.
-2. Normalizacion a 8 bits cuando la imagen utiliza otra profundidad.
-3. Filtro bilateral para reducir ruido preservando bordes.
-4. CLAHE para mejorar el contraste local.
-5. Conversion a tres canales RGB para la entrada de YOLO.
+1. Grayscale decoding preserving the original bit depth.
+2. Normalization to 8 bits when the image uses a different depth.
+3. Bilateral filter to reduce noise while preserving edges.
+4. CLAHE to improve local contrast.
+5. Conversion to three-channel RGB for YOLO input.
 
-El procesamiento se realiza en memoria. La API no guarda las radiografias de
-forma persistente.
+Processing is done in memory. The API does not persistently save the X-rays.
 
-## Resultados principales
+## Main Results
 
-El indice de seleccion definido en el trabajo situo a los siguientes modelos
-generalistas en las primeras posiciones:
+The selection index defined in the study placed the following generalist models in the top positions:
 
-| Posicion | Experimento | Modelo | Indice |
+| Position | Experiment | Model | Index |
 |---:|---|---|---:|
 | 1 | E7 | YOLO11n | 0.821 |
 | 2 | E6 | YOLOv8m | 0.817 |
 | 3 | E5 | YOLOv8s | 0.807 |
 
-En la evaluacion por agentes, E6 fue el modelo con mayor concordancia global
-frente al radiologo experto:
+In the agent-based evaluation, E6 was the model with the highest overall agreement compared to the expert radiologist:
 
-| Comparacion con el radiologo experto | E5 | E6 | E7 | Especialista |
+| Comparison with Expert Radiologist | E5 | E6 | E7 | Specialist |
 |---|---:|---:|---:|---:|
-| IoU promedio | 0.246 | **0.309** | 0.285 | 0.297 |
-| Coincidencia con IoU > 0.2 | 62.11 % | **76.23 %** | 72.39 % | 72.20 % |
-| Coincidencia con IoU > epsilon | 77.02 % | **86.63 %** | 82.33 % | 82.35 % |
+| Average IoU | 0.246 | **0.309** | 0.285 | 0.297 |
+| Match rate with IoU > 0.2 | 62.11 % | **76.23 %** | 72.39 % | 72.20 % |
+| Match rate with IoU > epsilon | 77.02 % | **86.63 %** | 82.33 % | 82.35 % |
 
-Estos valores miden similitud espacial entre anotaciones. No deben
-interpretarse como equivalencia diagnostica ni como validacion clinica del
-sistema.
+These values measure spatial similarity between annotations. They should not be interpreted as diagnostic equivalence or as a clinical validation of the system.
 
-Las figuras y tablas generadas se encuentran en:
+The generated figures and tables can be found in:
 
 ```text
 src/evaluation/results/
@@ -146,48 +126,46 @@ src/evaluation/results/
 `-- tables/
 ```
 
-## Aplicacion de demostracion
+## Demonstration Application
 
-La demostracion sigue una arquitectura de dos servicios:
+The demonstration follows a two-service architecture:
 
-- **Frontend:** aplicacion Streamlit para seleccionar o cargar una radiografia,
-  ajustar el umbral de confianza y visualizar las detecciones.
-- **Backend:** API FastAPI que ejecuta el preprocesamiento y la inferencia.
+- **Frontend:** Streamlit application to select or upload an X-ray, adjust the confidence threshold, and visualize detections.
+- **Backend:** FastAPI API that executes preprocessing and inference.
 
-La interfaz incluye:
+The interface includes:
 
-- Casos de demostracion cuando las imagenes se proporcionan localmente.
-- Carga de JPG, JPEG y PNG anonimizados.
-- Ajustes de brillo y contraste solo para la visualizacion.
-- Configuracion del umbral de confianza.
-- Superposicion opcional de etiquetas YOLO de referencia.
-- Descarga de la imagen anotada.
-- Avisos de privacidad y de uso exclusivamente experimental.
+- Demonstration cases when images are provided locally.
+- Upload of anonymized JPG, JPEG, and PNG files.
+- Brightness and contrast adjustments for visualization purposes only.
+- Confidence threshold configuration.
+- Optional overlay of reference YOLO labels.
+- Download of the annotated image.
+- Privacy and purely experimental use warnings.
 
-## Requisitos
+## Requirements
 
-- Python 3.10 o 3.11.
-- Docker y Docker Compose para la ejecucion recomendada.
+- Python 3.10 or 3.11.
+- Docker and Docker Compose for the recommended execution.
 - Git.
-- GPU compatible con PyTorch opcional. La inferencia tambien puede ejecutarse
-  en CPU.
+- PyTorch-compatible GPU (optional). Inference can also run on CPU.
 
-## Instalacion
+## Installation
 
-### Con `uv`
+### With `uv`
 
-El repositorio incluye `pyproject.toml` y `uv.lock`:
+The repository includes `pyproject.toml` and `uv.lock`:
 
 ```bash
-git clone https://github.com/amxfive/TFM-PediatricFractureDetection.git
+git clone [https://github.com/amxfive/TFM-PediatricFractureDetection.git](https://github.com/amxfive/TFM-PediatricFractureDetection.git)
 cd TFM-PediatricFractureDetection
 uv sync
 ```
 
-### Con `venv` y `pip`
+### With `venv` and `pip`
 
 ```bash
-git clone https://github.com/amxfive/TFM-PediatricFractureDetection.git
+git clone [https://github.com/amxfive/TFM-PediatricFractureDetection.git](https://github.com/amxfive/TFM-PediatricFractureDetection.git)
 cd TFM-PediatricFractureDetection
 
 python3 -m venv .venv
@@ -196,52 +174,51 @@ pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
-En Windows PowerShell, la activacion del entorno es:
+In Windows PowerShell, the environment activation is:
 
 ```powershell
 .\.venv\Scripts\Activate.ps1
 ```
 
-## Ejecucion con Docker
+## Running with Docker
 
-La forma recomendada de iniciar la aplicacion completa es:
+The recommended way to start the full application is:
 
 ```bash
 docker compose up --build
 ```
 
-Servicios disponibles:
+Available services:
 
 - Frontend: <http://localhost:8501>
 - Backend: <http://localhost:8000>
-- Documentacion OpenAPI: <http://localhost:8000/docs>
-- Estado del backend: <http://localhost:8000/health>
+- OpenAPI Documentation: <http://localhost:8000/docs>
+- Backend Status: <http://localhost:8000/health>
 
-El archivo `docker-compose.yml` monta los pesos generalistas en modo lectura.
-En el estado actual del repositorio, el peso disponible para E6 es:
+The `docker-compose.yml` file mounts the generalist weights in read-only mode. In the current state of the repository, the available weight for E6 is:
 
 ```text
 models_weights/generalist_architectures/E6_yoloV8m.pt
 ```
 
-Para detener los servicios:
+To stop the services:
 
 ```bash
 docker compose down
 ```
 
-## Ejecucion local
+## Local Execution
 
 ### Backend
 
-Desde la raiz del repositorio:
+From the repository root:
 
 ```bash
 export MODEL_PATH="models_weights/generalist_architectures/E6_yoloV8m.pt"
 python3 -m uvicorn src.backend.main:app --host 0.0.0.0 --port 8000
 ```
 
-En PowerShell:
+In PowerShell:
 
 ```powershell
 $env:MODEL_PATH="models_weights/generalist_architectures/E6_yoloV8m.pt"
@@ -250,14 +227,14 @@ python -m uvicorn src.backend.main:app --host 0.0.0.0 --port 8000
 
 ### Frontend
 
-En otra terminal:
+In another terminal:
 
 ```bash
 export BACKEND_URL="http://localhost:8000/predict"
 streamlit run src/frontend/app.py
 ```
 
-En PowerShell:
+In PowerShell:
 
 ```powershell
 $env:BACKEND_URL="http://localhost:8000/predict"
@@ -266,13 +243,13 @@ streamlit run src/frontend/app.py
 
 ## API
 
-### Comprobar el estado
+### Check Status
 
 ```bash
 curl http://localhost:8000/health
 ```
 
-Ejemplo de respuesta:
+Example response:
 
 ```json
 {
@@ -283,7 +260,7 @@ Ejemplo de respuesta:
 }
 ```
 
-### Ejecutar una prediccion
+### Run a Prediction
 
 ```bash
 curl -X POST http://localhost:8000/predict \
@@ -291,7 +268,7 @@ curl -X POST http://localhost:8000/predict \
   -F "confidence=0.40"
 ```
 
-La respuesta contiene las cajas en coordenadas `xyxy` expresadas en pixeles:
+The response contains the bounding boxes in `xyxy` coordinates expressed in pixels:
 
 ```json
 {
@@ -306,32 +283,28 @@ La respuesta contiene las cajas en coordenadas `xyxy` expresadas en pixeles:
 }
 ```
 
-## Evaluacion por agentes
+## Agent-Based Evaluation
 
-La evaluacion compara:
+The evaluation compares:
 
-- E5, E6 y E7.
-- Arquitectura especialista.
-- Usuario de control.
-- Residente R1 de Radiologia.
-- Radiologo experto.
+- E5, E6, and E7.
+- Specialist architecture.
+- Control user.
+- Radiology R1 resident.
+- Expert radiologist.
 
-Los JSON utilizan una estructura compatible con las exportaciones de Label
-Studio. Los scripts comunes se encuentran en:
+The JSON files use a structure compatible with Label Studio exports. Common scripts are located in:
 
 ```text
 src/utils/evaluation_compare_results/
 ```
 
-### Generar predicciones del modelo especialista
+### Generate Specialist Model Predictions
 
-Se necesita un clasificador YOLO de tipo `*-cls.pt` y los tres detectores:
+A `*-cls.pt` type YOLO classifier and the three detectors are required:
 
 > [!NOTE]
-> El repositorio no incluye actualmente el peso definitivo del clasificador en
-> `models_weights/classifier_models/`. El ejemplo utiliza el nombre
-> `router.pt`; debe copiarse ahi el clasificador entrenado o indicarse su ruta
-> real mediante `--router-model`.
+> The repository currently does not include the final classifier weight in `models_weights/classifier_models/`. The example uses the name `router.pt`; the trained classifier must be copied there, or its actual path must be indicated via `--router-model`.
 
 ```bash
 python3 src/utils/evaluation_compare_results/eval_agentIA_specialists.py \
@@ -343,7 +316,7 @@ python3 src/utils/evaluation_compare_results/eval_agentIA_specialists.py \
   --detector-imgsz 1024
 ```
 
-Los especialistas pueden sobrescribirse desde la linea de comandos:
+The specialists can be overridden from the command line:
 
 ```bash
 python3 src/utils/evaluation_compare_results/eval_agentIA_specialists.py \
@@ -353,9 +326,9 @@ python3 src/utils/evaluation_compare_results/eval_agentIA_specialists.py \
   --specialist supracondylar=models_weights/especialist_architectures/esp_pediaSHF.pt
 ```
 
-### Generar matrices y graficas
+### Generate Matrices and Graphs
 
-Desde la raiz del repositorio:
+From the repository root:
 
 ```bash
 python3 src/utils/evaluation_compare_results/calculate_matrix/calcular_concordancia.py
@@ -364,112 +337,95 @@ python3 src/utils/evaluation_compare_results/iou_by_zone.py
 python3 src/utils/evaluation_compare_results/metrics_efficiency.py
 ```
 
-Las salidas incluyen:
+The outputs include:
 
-- Matriz de IoU promedio.
-- Matriz de IoU promedio por region anatomica.
-- Tasa de coincidencia con IoU superior a 0.2.
-- Tasa de coincidencia con cualquier solapamiento positivo.
-- Grafica y tabla de eficiencia operativa.
+- Average IoU matrix.
+- Average IoU matrix by anatomical region.
+- Match rate with IoU greater than 0.2.
+- Match rate with any positive overlap.
+- Operational efficiency graph and table.
 
-### Visualizar anotaciones por imagen
+### Visualize Annotations per Image
 
 ```bash
 python3 src/utils/evaluation_compare_results/visualize_and_iou.py
 ```
 
-El script genera una imagen por caso con las cajas de los agentes y los IoU por
-parejas:
+The script generates one image per case with the agents' boxes and pairwise IoUs:
 
 ```text
 src/evaluation/results/images/iou_human_pairs/
 ```
 
-Tambien genera:
+It also generates:
 
 ```text
 src/evaluation/results/tables/iou_per_image_human_pairs.csv
 ```
 
-## Estructura del repositorio
+## Repository Structure
 
 ```text
 .
 |-- data/
-|   |-- colab_yaml/               # Configuraciones YAML para entrenamiento
-|   `-- processed_2/              # Datos procesados locales
+|   |-- colab_yaml/               # YAML configurations for training
+|   `-- processed_2/              # Local processed data
 |-- models_weights/
 |   |-- generalist_architectures/
 |   |-- especialist_architectures/
 |   `-- classifier_models/
-|-- notebooks/                    # Experimentacion y entrenamiento
+|-- notebooks/                    # Experimentation and training
 |-- src/
-|   |-- backend/                  # API FastAPI e inferencia
-|   |-- frontend/                 # Aplicacion Streamlit actual
-|   |-- evaluation/               # JSON, matrices y resultados
-|   `-- utils/                    # Datos, evaluacion y utilidades
+|   |-- backend/                  # FastAPI API and inference
+|   |-- frontend/                 # Current Streamlit application
+|   |-- evaluation/               # JSONs, matrices, and results
+|   `-- utils/                    # Data, evaluation, and utilities
 |-- docker-compose.yml
 |-- pyproject.toml
 |-- requirements.txt
 `-- uv.lock
 ```
 
-La aplicacion mantenida para la demostracion es `src/frontend/app.py`.
+The application maintained for the demonstration is `src/frontend/app.py`.
 
-## Datos y modelos
+## Data and Models
 
-El trabajo utiliza conjuntos publicos de radiografias pediatricas, entre ellos:
+The project uses public pediatric X-ray datasets, including:
 
-- **GRAZPEDWRI-DX**, centrado en muneca.
-- **PediaSHF**, centrado en fracturas supracondileas de humero.
-- **PediURF**, centrado en radio y cubito.
+- **GRAZPEDWRI-DX**, focused on the wrist.
+- **PediaSHF**, focused on supracondylar humerus fractures.
+- **PediURF**, focused on the radius and ulna.
 
-Las imagenes originales no se redistribuyen mediante este repositorio. Deben
-obtenerse desde sus fuentes oficiales y utilizarse conforme a sus respectivas
-licencias y condiciones de acceso.
+The original images are not redistributed through this repository. They must be obtained from their official sources and used in accordance with their respective licenses and access conditions.
 
-Aunque el caso de uso se planteo inicialmente junto al Hospital Viamed Santa
-Angela de la Cruz, finalmente no se utilizaron imagenes proporcionadas por el
-hospital. Profesionales vinculados al Hospital Universitario Virgen de Valme
-colaboraron en el etiquetado del conjunto empleado en la evaluacion por
-agentes.
+Although the use case was initially proposed alongside the Hospital Viamed Santa Angela de la Cruz, ultimately, no images provided by the hospital were used. Professionals linked to the Hospital Universitario Virgen de Valme collaborated in labeling the dataset used in the agent-based evaluation.
 
-Los pesos presentes en `models_weights/` son artefactos de investigacion. Antes
-de redistribuirlos o utilizarlos fuera de este trabajo deben revisarse las
-licencias de Ultralytics y de los conjuntos de datos empleados.
+The weights present in `models_weights/` are research artifacts. Before redistributing or using them outside of this project, the licenses for Ultralytics and the datasets used must be reviewed.
 
-## Reproducibilidad
+## Reproducibility
 
-Durante la experimentacion:
+During experimentation:
 
-- Los entrenamientos se ejecutaron principalmente en Google Colab con GPU
-  NVIDIA A100.
-- Se utilizo transferencia de aprendizaje desde pesos YOLO preentrenados.
-- Los experimentos y metricas se registraron mediante Weights & Biases.
-- Se fijaron semillas en las librerias y procesos que lo permitian.
-- Los modelos se evaluaron por separado en los conjuntos de test de cada
-  region.
+- Trainings were primarily executed on Google Colab with NVIDIA A100 GPUs.
+- Transfer learning from pre-trained YOLO weights was used.
+- Experiments and metrics were logged using Weights & Biases.
+- Seeds were set in libraries and processes that allowed it.
+- Models were evaluated separately on the test sets of each region.
 
-La reproducibilidad completa requiere descargar y preparar los datasets
-originales. El repositorio facilita el codigo, las configuraciones y las
-estructuras utilizadas, pero no incluye todos los datos medicos de entrada.
+Full reproducibility requires downloading and preparing the original datasets. The repository provides the code, configurations, and structures used, but it does not include all the input medical data.
 
-## Limitaciones
+## Limitations
 
-- El sistema solo ha sido estudiado en radiografias pediatricas de miembro
-  superior.
-- La evaluacion por agentes utiliza un numero limitado de casos y un
-  participante por perfil.
-- La concordancia de cajas no equivale a exactitud diagnostica.
-- No se ha realizado una validacion clinica prospectiva.
-- El sistema no controla actualmente todas las posibles imagenes fuera de
-  distribucion.
-- La aplicacion solo acepta JPG, JPEG y PNG; no procesa DICOM directamente.
+- The system has only been studied on pediatric upper-limb X-rays.
+- The agent-based evaluation uses a limited number of cases and one participant per profile.
+- Bounding box agreement does not equate to diagnostic accuracy.
+- No prospective clinical validation has been performed.
+- The system currently does not handle all possible out-of-distribution images.
+- The application only accepts JPG, JPEG, and PNG; it does not process DICOM directly.
 
-## Citacion
+## Citation
 
-Si este repositorio resulta util para otro trabajo, puede citarse
-provisionalmente como:
+If this repository is useful for another project, it can be provisionally cited as:
 
 ```bibtex
 @mastersthesis{pediatric_fracture_detection_tfm,
@@ -480,20 +436,12 @@ provisionalmente como:
 }
 ```
 
-## Licencia
+## License
 
-Este repositorio no incluye actualmente un archivo de licencia. En ausencia de
-una licencia explicita, el codigo, los pesos y el resto de artefactos no deben
-considerarse automaticamente autorizados para su copia, modificacion o
-redistribucion.
+This repository currently does not include a license file. In the absence of an explicit license, the code, weights, and other artifacts should not be considered automatically authorized for copying, modification, or redistribution.
 
-Las licencias de los datasets y de las dependencias utilizadas se aplican de
-forma independiente.
+The licenses of the datasets and dependencies used apply independently.
 
-## Agradecimientos
+## Acknowledgments
 
-Se agradece la colaboracion de los profesionales que participaron en el
-etiquetado y la evaluacion de las radiografias, especialmente la aportacion
-realizada desde el Hospital Universitario Virgen de Valme. Tambien se agradece
-al Hospital Viamed Santa Angela de la Cruz su participacion en la
-contextualizacion inicial del problema clinico.
+We thank the professionals who participated in the labeling and evaluation of the X-rays, especially the contribution made from the Hospital Universitario Virgen de Valme. We also thank the Hospital Viamed Santa Angela de la Cruz for its participation in the initial contextualization of the clinical problem.
